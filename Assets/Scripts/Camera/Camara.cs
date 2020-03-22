@@ -8,13 +8,16 @@ public class Camara : MonoBehaviour
     private Vector3 cameraOffset;
     private float rotationSpeed;
     public float ValorRotacion;
+    Camera Cam;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         cameraOffset = transform.position - Player.transform.position;
+        Cam = GetComponent<Camera>();
     }
     private void Update()
     {
+        Cam.fieldOfView = Cam.fieldOfView - (Input.GetAxis("Mouse ScrollWheel") * 10);
         if (Input.GetKeyDown("q"))
         {
             rotationSpeed = -ValorRotacion;
@@ -31,7 +34,14 @@ public class Camara : MonoBehaviour
         {
             rotationSpeed = 0;
         }
-
+        if (Cam.fieldOfView > 60)
+        {
+            Cam.fieldOfView = 60;
+        }
+        if (Cam.fieldOfView < 20)
+        {
+            Cam.fieldOfView = 20;
+        }
     }
     void LateUpdate()
     {

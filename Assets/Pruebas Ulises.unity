@@ -288,8 +288,8 @@ MonoBehaviour:
   AtaqueLigero: 323
   "Da\xF1oAtaquePesado": 10
   "Da\xF1oAtaqueLigero": 5
-  TimerAtaqueLigero: 0.4
-  TimerAtaquePesado: 1.4
+  TimerAtaqueLigero: 0.8
+  TimerAtaquePesado: 2
 --- !u!4 &506427240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 407424, guid: a4abb96618b31684e9a3c18355167bbe,
