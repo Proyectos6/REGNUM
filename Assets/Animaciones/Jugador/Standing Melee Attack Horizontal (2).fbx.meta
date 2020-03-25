@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d74e5b17be3be54ba5066bd514e451c
+guid: 28940a10a9f6e0c49818caca0092b4a3
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,10 +8,13 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: AtaqueLigero
   - first:
-      74: -3780516532778130023
-    second: AtaquePesado
+      74: -203655887218126122
+    second: AtaqueLigero (2)
+  - first:
+      74: -8317128621275736327
+    second: AtaqueLigero
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -41,11 +44,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: AtaquePesado
+      name: AtaqueLigero (2)
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 144
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -70,22 +73,22 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: mixamo.com
+      name: AtaqueLigero
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 144
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -93,7 +96,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.33287564
+        functionName: ActivarTriggerLigero
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3984027
+        functionName: ActivarTriggerLigero
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.4625
+        functionName: ActivarTriggerLigero
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 2
+        messageOptions: 0
+      - time: 0.55
+        functionName: FinAtaque
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -420,18 +451,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Standing Melee Attack Horizontal (1)(Clone)
+    - name: Standing Melee Attack Horizontal (2)(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Character_Nude_Skinned
-      parentName: Standing Melee Attack Horizontal (1)(Clone)
+      parentName: Standing Melee Attack Horizontal (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 0.01, y: 0.01, z: 0.01}
     - name: Root
-      parentName: Standing Melee Attack Horizontal (1)(Clone)
+      parentName: Standing Melee Attack Horizontal (2)(Clone)
       position: {x: -0.09612967, y: -0.13412976, z: -0.029442476}
       rotation: {x: 0.051058676, y: 0.42310616, z: -0.046548136, w: 0.903442}
       scale: {x: 0.01, y: 0.01, z: 0.01}

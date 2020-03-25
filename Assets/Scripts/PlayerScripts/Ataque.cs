@@ -7,10 +7,12 @@ public class Ataque : MonoBehaviour
     bool OnRange;
     GameObject Enemy;
     EnemyVida Vida;
-    Collider ZonaGolpe;
+    //Collider ZonaGolpe;
     float Daño;
-    float TimerGolpe;
+    float TimerGolpe; 
     public Animator AnimacionesJugador;
+    [SerializeField]
+    public bool Atacando;
 
     public KeyCode AtaquePesado;
     public KeyCode AtaqueLigero;
@@ -18,54 +20,84 @@ public class Ataque : MonoBehaviour
     public float DañoAtaqueLigero;
     public float TimerAtaqueLigero;
     public float TimerAtaquePesado;
+    bool Ataque1;
+    bool Ataque2;
+    
+
+    public GameObject[] Triggers;
+    
+    void ActiveTrigger(int trigger)
+    {
+        for (int i = 0; i < Triggers.Length; i++)
+        {
+            Triggers[i].SetActive(false);
+
+        }
+        Triggers[trigger].SetActive(true);
+    }
+    void ActivarTriggerLigero(int trigger)
+    {
+        for (int i = 0; i < Triggers.Length; i++)
+        {
+            Triggers[i].SetActive(false);
+        }
+        Triggers[trigger].SetActive(true);
+    }
+    void FinAtaque()
+    {
+        for (int i = 0; i < Triggers.Length; i++)
+        {
+            Triggers[i].SetActive(false);
+        }
+    }
 
     void Start()
     {
-        ZonaGolpe = gameObject.GetComponent<BoxCollider>();
-        ZonaGolpe.enabled = false;
                 
     }
     void Update()
     {
-        if (ZonaGolpe.enabled == false)
+        if (Ataque1 == false)
         {
-            if (Input.GetKeyDown(AtaquePesado))
+            if (Ataque2 == false)
             {
-                AnimacionesJugador.SetBool("AtaquePesado", true);
-                ZonaGolpe.enabled = true;
-                Daño = DañoAtaquePesado;
-                TimerGolpe = TimerAtaquePesado;
-            }
-            if (Input.GetKeyDown(AtaqueLigero))
-            {
-                AnimacionesJugador.SetBool("AtaqueLigero", true);
-                ZonaGolpe.enabled = true;
-                Daño = DañoAtaqueLigero;
-                TimerGolpe = TimerAtaqueLigero;
+                if (Input.GetKeyDown(AtaquePesado))
+                {
+                    AnimacionesJugador.SetBool("AtaquePesado", true);
+                    Daño = DañoAtaquePesado;
+                    TimerGolpe = TimerAtaquePesado;
+                    Ataque2 = true;
+                    Atacando = true;
+
+                }
+                if (Input.GetKeyDown(AtaqueLigero))
+                {
+                    AnimacionesJugador.SetBool("AtaqueLigero", true);
+                    Daño = DañoAtaqueLigero;
+                    TimerGolpe = TimerAtaqueLigero;
+                    Ataque1 = true;
+                    Atacando = true;
+                }
             }
         }
     }
     void FixedUpdate()
     {
-        if (ZonaGolpe.enabled == true)
-        {
             TimerGolpe -= Time.fixedDeltaTime;
-            if (TimerGolpe <= 0)
+
+        if (TimerGolpe <= 0)
             {
+
+                Atacando = false;
+                Ataque1 = false;
+                Ataque2 = false;
                 AnimacionesJugador.SetBool("AtaquePesado", false);
                 AnimacionesJugador.SetBool("AtaqueLigero", false);
-                ZonaGolpe.enabled = false;
-            }
-        }
-    }
+            for (int i = 0; i < Triggers.Length; i++)
+            {
+                Triggers[i].SetActive(false);
 
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Enemigo")
-        {
-                Enemy = col.gameObject;
-                Vida = Enemy.GetComponent<EnemyVida>();
-                Vida.vida -= Daño;
+            }
         }
     }
 }

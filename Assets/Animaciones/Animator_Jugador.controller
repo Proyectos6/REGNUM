@@ -97,10 +97,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.3320241
+  m_TransitionDuration: 0.33202422
   m_TransitionOffset: 0
-  m_ExitTime: 0.73787576
-  m_HasExitTime: 1
+  m_ExitTime: 0.8445904
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -159,9 +159,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_AnyStatePosition: {x: -10, y: 10, z: 0}
   m_EntryPosition: {x: -10, y: 180, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 220, y: -50, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -7350335171013982814}
 --- !u!91 &9100000
@@ -178,19 +178,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: AtaqueLigero
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Velocidad
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -225,7 +225,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3780516532778130023, guid: 0d74e5b17be3be54ba5066bd514e451c,
+  m_Motion: {fileID: 1208080696402735008, guid: 88fa470f0b6f07140abbb93ce30f41b8,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -303,7 +303,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3780516532778130023, guid: 11389ee67f79fb148aeda553f6fe2ce9,
+  m_Motion: {fileID: -8317128621275736327, guid: 28940a10a9f6e0c49818caca0092b4a3,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -327,9 +327,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.46583652
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8059014
+  m_TransitionDuration: 0.17156589
+  m_TransitionOffset: 0.005350376
+  m_ExitTime: 0.96938515
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

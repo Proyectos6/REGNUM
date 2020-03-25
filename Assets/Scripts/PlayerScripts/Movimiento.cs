@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    public Collider Golpeando;
     CharacterController player;
     Vector3 movDir;
     float VI;
@@ -32,7 +31,12 @@ public class Movimiento : MonoBehaviour
             movDir = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
         }
         movDir.y -= gravedad * Time.deltaTime;
-        if (Golpeando.enabled == true)
+        player.Move(movDir * velocidad * Time.deltaTime);
+        if (Anim.GetBool("AtaqueLigero") == true)
+        {
+            velocidad = 0;
+        }
+        else if (Anim.GetBool("AtaquePesado") == true)
         {
             velocidad = 0;
         }
@@ -40,6 +44,5 @@ public class Movimiento : MonoBehaviour
         {
             velocidad = VI;
         }
-        player.Move(movDir * velocidad * Time.deltaTime);
     }
 }
