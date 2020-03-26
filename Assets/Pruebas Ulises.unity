@@ -130,12 +130,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 142643787}
+  - component: {fileID: 142643785}
   - component: {fileID: 142643789}
   - component: {fileID: 142643782}
   - component: {fileID: 142643788}
-  - component: {fileID: 142643784}
-  - component: {fileID: 142643785}
   - component: {fileID: 142643783}
+  - component: {fileID: 142643784}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,7 +215,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: aad6025e6e598ef429e80b26e612fa75, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -907,7 +907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 438418, guid: a4abb96618b31684e9a3c18355167bbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.866
+      value: -0.906
       objectReference: {fileID: 0}
     - target: {fileID: 438418, guid: a4abb96618b31684e9a3c18355167bbe, type: 3}
       propertyPath: m_LocalPosition.z
