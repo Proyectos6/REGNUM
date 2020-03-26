@@ -20,7 +20,7 @@ public class Movimiento : MonoBehaviour
         player = GetComponent<CharacterController>();
         VI = velocidad;
     }
-    void Update()
+    void FixedUpdate()
     {
         float xV = System.Math.Abs (player.velocity.x);
         float zV = System.Math.Abs(player.velocity.z);
