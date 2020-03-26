@@ -9,40 +9,40 @@ public class Movimiento : MonoBehaviour
     float VI;
     public Animator Anim;
     Rigidbody RB;
+    Ataque AT;
 
     public float gravedad;
     public float velocidad = 5f;
     public Transform Cam;
 
-    void Start()
+    void Awake()
     {
         RB = GetComponent<Rigidbody>();
         player = GetComponent<CharacterController>();
+        AT = GetComponent<Ataque>();
+        
+    }
+    private void Start()
+    {
         VI = velocidad;
     }
     void Update()
     {
-        float xV = System.Math.Abs (player.velocity.x);
-        float zV = System.Math.Abs(player.velocity.z);
-        Anim.SetFloat("Velocidad", xV + zV);
         
         if (player.isGrounded)
         {
+            movDir.y = 0;
             movDir = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
         }
-        movDir.y -= gravedad * Time.deltaTime;
-        player.Move(movDir * velocidad * Time.deltaTime);
-        if (Anim.GetBool("AtaqueLigero") == true)
+        if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
+        if (movDir.magnitude > 1)
         {
-            velocidad = 0;
+            movDir.Normalize();
         }
-        else if (Anim.GetBool("AtaquePesado") == true)
+        if (AT.Atacando == false)
         {
-            velocidad = 0;
+            player.Move(movDir * velocidad * Time.deltaTime);
         }
-        else
-        {
-            velocidad = VI;
-        }
+        Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y));
     }
 }

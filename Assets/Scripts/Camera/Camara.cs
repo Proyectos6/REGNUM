@@ -9,13 +9,14 @@ public class Camara : MonoBehaviour
     private float rotationSpeed;
     public float ValorRotacion;
     Camera Cam;
+    Vector3 newPos;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         cameraOffset = transform.position - Player.transform.position;
         Cam = GetComponent<Camera>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Cam.fieldOfView = Cam.fieldOfView - (Input.GetAxis("Mouse ScrollWheel") * 10);
         if (Input.GetKeyDown("q"))
@@ -42,13 +43,15 @@ public class Camara : MonoBehaviour
         {
             Cam.fieldOfView = 20;
         }
+       
     }
     void LateUpdate()
     {
         Quaternion camTurnAngle = Quaternion.AngleAxis(rotationSpeed, Vector3.up);
         cameraOffset = camTurnAngle * cameraOffset;
         transform.LookAt(Player.transform);
-        Vector3 newPos = Player.transform.position + cameraOffset;
+        newPos = Player.transform.position + cameraOffset;
         transform.position = Vector3.Slerp(transform.position, newPos, 1f);
+
     }
 }
