@@ -7,7 +7,6 @@ public class Ataque : MonoBehaviour
     bool OnRange;
     GameObject Enemy;
     EnemyVida Vida;
-    //Collider ZonaGolpe;
     float Daño;
     float TimerGolpe; 
     public Animator AnimacionesJugador;
@@ -25,6 +24,7 @@ public class Ataque : MonoBehaviour
     
 
     public GameObject[] Triggers;
+    public GameObject[] TriggersAltoRango;
     
     void ActiveTrigger(int trigger)
     {
