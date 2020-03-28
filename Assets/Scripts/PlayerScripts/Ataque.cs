@@ -17,7 +17,9 @@ public class Ataque : MonoBehaviour
     public KeyCode AtaqueLigero;
     public float DañoAtaquePesado;
     public float DañoAtaqueLigero;
+    [SerializeField]
     public float TimerAtaqueLigero;
+    [SerializeField]
     public float TimerAtaquePesado;
     bool Ataque1;
     bool Ataque2;
