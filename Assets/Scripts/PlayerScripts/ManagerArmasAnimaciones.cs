@@ -34,7 +34,7 @@ public class ManagerArmasAnimaciones : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("x")) 
+        if (Input.GetKeyUp("x")) 
         {
             if (Axe1H == true)
             {
@@ -45,8 +45,9 @@ public class ManagerArmasAnimaciones : MonoBehaviour
                 AT.TimerAtaqueLigero = AtaqueL_1HAxe;
                 AT.TimerAtaquePesado = AtaqueP_1HAxe;
                 Anim.runtimeAnimatorController = Axe2HController;
+                Debug.Log("2Hand");
             }
-            if (Axe2H == true)
+            else if (Axe2H == true)
             {
                 Axe2H = false;
                 Axe1H = true;
@@ -55,6 +56,7 @@ public class ManagerArmasAnimaciones : MonoBehaviour
                 AT.TimerAtaqueLigero = AtaqueL_2HAxe;
                 AT.TimerAtaquePesado = AtaqueP_2HAxe;
                 Anim.runtimeAnimatorController = Axe1HController;
+                Debug.Log("1Hand");
             }
         }
     }
