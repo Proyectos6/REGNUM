@@ -6,8 +6,6 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-
-
     enum EstadoEnemigo
     {
         Patrulla,
@@ -15,49 +13,68 @@ public class EnemyController : MonoBehaviour
         VolverSpawn
     }
 
+    EstadoEnemigo estadoActual;
 
-    NavMeshAgent cmpAgent; //Componente del Enemy (IA)
 
     [SerializeField] Transform[] puntosRuta; //Array de puntos a los que irá en ruta 
     int puntoActualRuta = 0; //Control del punto actual al que se mueve el Enemigo
 
     [SerializeField] GameObject goPosicionesRuta;
 
+    Vector3 puntoSpawn;
     [SerializeField] float distanciaAlerta = 10;
     [SerializeField] float distanciaVueltaAlSpawn = 20;
     [SerializeField] float distanciaSeparacionPlayer = 5;
-    Vector3 puntoSpawn;
+    float distanciaConPlayer;
 
-
-    EstadoEnemigo estadoActual;
 
     GameObject goPlayer;
 
-    
+    NavMeshAgent cmpAgent; //Componente del Enemy (IA)
+    private NavMeshPath caminoHaciaDestino;
+
+
+    private Animator cmpAnimator;
+    private float speed4Animator;
 
     void Awake()
     {
         cmpAgent = GetComponent<NavMeshAgent>();
-        goPosicionesRuta.transform.parent = null;
 
         goPlayer = GameObject.FindGameObjectWithTag("Player");
+
+        cmpAnimator = GetComponent<Animator>();
+
+
     }
 
     private void Start()
     {
+        if (goPosicionesRuta != null)
+        {
+            goPosicionesRuta.transform.parent = null;
+        }
+
         estadoActual = EstadoEnemigo.Patrulla; //Empieza en Patrulla
 
         puntoSpawn = this.transform.position; //guardo PosInicial
 
         puntoActualRuta = 0;
-        SetearDireccion();
 
+        if (puntosRuta != null)
+        {
+            SetearDireccion();
+        }
+
+
+        cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        print(cmpAgent.velocity);
 
         if (estadoActual == EstadoEnemigo.Patrulla) //Estado Patrulla, Enemy ejecuta este comportamiento
         {
@@ -80,7 +97,7 @@ public class EnemyController : MonoBehaviour
             ComprobarLlegadaDestino();
         }
 
-
+        cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
     }
 
 
@@ -118,7 +135,7 @@ public class EnemyController : MonoBehaviour
 
     void ComprobarAlertaPlayer()
     {
-        float distanciaConPlayer = Vector3.Distance(this.transform.position, goPlayer.transform.position);
+        distanciaConPlayer = Vector3.Distance(this.transform.position, goPlayer.transform.position);
 
         if (distanciaConPlayer < distanciaAlerta)
         {
@@ -162,10 +179,15 @@ public class EnemyController : MonoBehaviour
     void VolverSpawn()
     {
         puntoActualRuta = 0;
-        
+
         estadoActual = EstadoEnemigo.VolverSpawn;
         cmpAgent.stoppingDistance = 0;
         cmpAgent.SetDestination(puntoSpawn);
     }
+
+
+
+
+
 
 }

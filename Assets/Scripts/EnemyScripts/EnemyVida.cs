@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyVida : MonoBehaviour
 {
-    public float vida;
+    public float vidaEnemy;
+
+
     void Start()
     {
         
@@ -13,9 +15,20 @@ public class EnemyVida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (vida <= 0)
+
+        if (vidaEnemy <= 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
+
+
+    public void TakeDamage(float damageRecibido)
+    {
+        vidaEnemy -= damageRecibido;
+
+    }
+
+
+
 }
