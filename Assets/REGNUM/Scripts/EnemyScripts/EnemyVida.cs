@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyVida : MonoBehaviour
 {
+    public EnemyHealthBar barritaVida;
     public float vida;
     void Start()
     {
@@ -13,6 +14,7 @@ public class EnemyVida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        barritaVida.SetSize(vida);
         if (vida <= 0)
         {
             Destroy(gameObject);

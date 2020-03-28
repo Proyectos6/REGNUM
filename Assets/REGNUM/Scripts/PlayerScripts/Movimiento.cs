@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
+    public float vida;
     CharacterController player;
     Vector3 movDir;
     float VI;
