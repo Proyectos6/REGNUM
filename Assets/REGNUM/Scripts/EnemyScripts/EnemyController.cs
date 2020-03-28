@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     {
         Patrulla,
         PersiguiendoPlayer,
-        VolverSpawn
+        VolverSpawn,
+        AtacarAlPlayer
     }
 
     EstadoEnemigo estadoActual;
@@ -24,8 +25,13 @@ public class EnemyController : MonoBehaviour
     Vector3 puntoSpawn;
     [SerializeField] float distanciaAlerta = 10;
     [SerializeField] float distanciaVueltaAlSpawn = 20;
-    [SerializeField] float distanciaSeparacionPlayer = 5;
+    [SerializeField] float distanciaSeparacionPlayer = 2;
     float distanciaConPlayer;
+    bool cercaParaAtacar = false;
+
+    //bool ejecutandoAtaque = false;
+    //float golpeFinalizado = 1.1f;
+    //[SerializeField] float tiempoNextAttack = 3;
 
 
     GameObject goPlayer;
@@ -36,6 +42,12 @@ public class EnemyController : MonoBehaviour
 
     private Animator cmpAnimator;
     private float speed4Animator;
+
+
+
+
+
+
 
     void Awake()
     {
@@ -74,8 +86,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(cmpAgent.velocity);
-
         if (estadoActual == EstadoEnemigo.Patrulla) //Estado Patrulla, Enemy ejecuta este comportamiento
         {
             ComprobarLlegadaDestino();
@@ -86,8 +96,10 @@ public class EnemyController : MonoBehaviour
         else if (estadoActual == EstadoEnemigo.PersiguiendoPlayer) //Estado Perseguir Player
         {
             PerseguirPlayer();
+
             ComprobarAlejarseElPlayer();
             ComprobarDistanciaVolver();
+
         }
 
 
@@ -97,7 +109,14 @@ public class EnemyController : MonoBehaviour
             ComprobarLlegadaDestino();
         }
 
+        else if (estadoActual == EstadoEnemigo.AtacarAlPlayer)
+        {
+            CheckPosibleAtaque();
+        }
+
         cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
+        cmpAnimator.SetBool("AttackEnemy", cercaParaAtacar);
+
     }
 
 
@@ -107,7 +126,7 @@ public class EnemyController : MonoBehaviour
         {
             if (cmpAgent.remainingDistance < 0.5f)
             {
-                if (puntoActualRuta == puntosRuta.Length)
+                if (puntoActualRuta == puntosRuta.Length - 1)
                 {
                     puntoActualRuta = 0;
                 }
@@ -174,6 +193,15 @@ public class EnemyController : MonoBehaviour
             puntoActualRuta = 0;
             VolverSpawn();
         }
+
+        if (distanciaConPlayer <= distanciaSeparacionPlayer + 0.5f)
+        {
+            cercaParaAtacar = true;
+        }
+        else if (distanciaConPlayer > distanciaSeparacionPlayer + 0.5f)
+        {
+            cercaParaAtacar = false;
+        }
     }
 
     void VolverSpawn()
@@ -185,6 +213,83 @@ public class EnemyController : MonoBehaviour
         cmpAgent.SetDestination(puntoSpawn);
     }
 
+
+
+    void CheckPosibleAtaque()
+    {
+
+
+
+
+
+
+
+        /*
+        if (cmpAgent.pathPending == false)
+        {
+            if (cmpAgent.velocity == Vector3.zero)
+            {
+
+                cercaParaAtacar = true;
+
+            }
+
+            else if (cmpAgent.velocity != Vector3.zero || cmpAgent.remainingDistance > distanciaSeparacionPlayer)
+            {
+                cercaParaAtacar = false;
+                estadoActual = EstadoEnemigo.Patrulla;
+            }
+        }
+        */
+
+        /*
+                if (Physics.Raycast(this.transform.position, goPlayer.transform.position, distanciaSeparacionPlayer))
+                {
+
+                    cercaParaAtacar = true;
+
+                }
+
+                else
+                {
+                    cercaParaAtacar = false;
+                    //estadoActual = EstadoEnemigo.Patrulla;
+                }
+
+
+
+                /*
+                        if (cmpAgent.pathPending == false)
+                        {
+                            if (cmpAgent.remainingDistance > distanciaSeparacionPlayer)
+                            {
+                                cercaParaAtacar = false;
+                            }
+                            else
+                            {
+                                cercaParaAtacar = true;
+                            }
+                        }
+
+                        */
+
+    }
+
+
+    /* void tiempoEntreAtaques()
+     {
+         if (cercaParaAtacar)
+         {
+
+
+
+
+
+
+         }
+
+
+     }*/
 
 
 
