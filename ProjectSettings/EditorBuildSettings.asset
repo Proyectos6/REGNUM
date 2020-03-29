@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PruebasChunis.unity
-    guid: cc8718eb5f478b94c8174e7d87f593b7
+    path: Assets/ASSETS EXTERNOS/PolygonKnights/Demo/DemoScene.unity
+    guid: c7214231c137bfb46bb461c5c95ec794
   m_configObjects: {}
