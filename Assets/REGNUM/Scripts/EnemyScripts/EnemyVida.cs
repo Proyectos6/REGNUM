@@ -10,9 +10,13 @@ public class EnemyVida : MonoBehaviour
     [SerializeField] EnemyHealthBar barritaVida;
     public float vida;
 
+    float VidaInicial;
+
     void Start()
     {
+        VidaInicial = vidaEnemy;
 
+        barritaVida = GetComponentInChildren<EnemyHealthBar>();
     }
     public void GetDamage(float dañar, float impulse)
     {
@@ -24,6 +28,7 @@ public class EnemyVida : MonoBehaviour
     void Update()
     {
 
+        barritaVida.SetSize((vidaEnemy/VidaInicial) * 12.61f);
 
         if (vidaEnemy <= 0)
         {
