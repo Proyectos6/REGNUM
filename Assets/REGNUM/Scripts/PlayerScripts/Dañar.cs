@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dañar : MonoBehaviour
 {
-
+    GameObject Enemigo;
     EnemyVida VIDA;
     public GameObject Hacha1H;
     public GameObject Hacha2H;
@@ -35,6 +35,10 @@ public class Dañar : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
-        
+        if (col.gameObject.tag == "Enemigo")
+        {
+            VIDA = col.gameObject.GetComponent<EnemyVida>();
+            VIDA.GetDamage(Daño, Impulse);
+        }
     }
 }

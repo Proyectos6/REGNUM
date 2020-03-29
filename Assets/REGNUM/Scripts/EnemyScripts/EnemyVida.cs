@@ -14,6 +14,11 @@ public class EnemyVida : MonoBehaviour
     {
 
     }
+    public void GetDamage(float dañar, float impulse)
+    {
+        vidaEnemy -= dañar;
+        Debug.Log("Tocado");
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,13 +33,6 @@ public class EnemyVida : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-        }
-
-
-         void TakeDamage(float damageRecibido)
-        {
-            vidaEnemy -= damageRecibido;
-
         }
 
 
