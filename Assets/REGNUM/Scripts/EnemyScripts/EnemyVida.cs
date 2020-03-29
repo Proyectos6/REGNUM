@@ -28,41 +28,26 @@ public class EnemyVida : MonoBehaviour
     void Update()
     {
 
-        barritaVida.SetSize((vidaEnemy/VidaInicial) * 12.61f);
+        barritaVida.SetSize((vidaEnemy / VidaInicial) * 12.61f);
 
         if (vidaEnemy <= 0)
-        {
-<<<<<<< HEAD
-
-=======
->>>>>>> e3ac57e913d3113da61c95abbb0f0cadf25ba514
             barritaVida.SetSize(vida);
-            if (vida <= 0)
+        if (vida <= 0)
 
-            {
-                Destroy(this.gameObject);
-            }
-        }
-
-        
-         void TakeDamage(float damageRecibido)
         {
-            vidaEnemy -= damageRecibido;
-
-<<<<<<< HEAD
-
-=======
->>>>>>> e3ac57e913d3113da61c95abbb0f0cadf25ba514
             Destroy(this.gameObject);
-
         }
+    }
 
-<<<<<<< HEAD
-    
-=======
-   
->>>>>>> e3ac57e913d3113da61c95abbb0f0cadf25ba514
+
+    void TakeDamage(float damageRecibido)
+    {
+        vidaEnemy -= damageRecibido;
+
+
+        Destroy(this.gameObject);
 
     }
- }
+}
+ 
 
