@@ -17,7 +17,7 @@ public class WeaponDamage : MonoBehaviour
         print("colisiono " + other.name);
         if (other.gameObject.tag == "Player")
         {
-            print("TOCADOO!");
+            //print("TOCADOO!");
             other.gameObject.GetComponent<VidaPlayer>().TakeDamagePlayer(damageWeapon);
         }
     }
