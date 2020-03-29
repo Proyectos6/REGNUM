@@ -6,6 +6,10 @@ public class WeaponDamage : MonoBehaviour
 {
 
     [SerializeField] float damageWeapon = 10;
+   
+
+
+
 
     //DEAL DAMAGE TO PLAYER
     private void OnTriggerEnter(Collider other)

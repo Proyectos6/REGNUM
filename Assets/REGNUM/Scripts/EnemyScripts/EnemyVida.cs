@@ -30,14 +30,14 @@ public class EnemyVida : MonoBehaviour
             }
         }
 
-
+        /*
          void TakeDamage(float damageRecibido)
         {
             vidaEnemy -= damageRecibido;
 
         }
 
-
+    */
 
     }
  }
