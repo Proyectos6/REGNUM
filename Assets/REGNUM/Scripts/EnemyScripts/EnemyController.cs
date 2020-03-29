@@ -44,6 +44,10 @@ public class EnemyController : MonoBehaviour
     private float speed4Animator;
 
 
+    //Variables Para Coger cmpCollider del weapon y activarlo o desactivarlo segun la animacion de ataque definida
+
+    CapsuleCollider cmpWeaponCollider;
+    bool collWeaponEnable = false;
 
 
 
@@ -57,11 +61,13 @@ public class EnemyController : MonoBehaviour
 
         cmpAnimator = GetComponent<Animator>();
 
+        cmpWeaponCollider = GameObject.FindGameObjectWithTag("EnemyWeapon").GetComponent<CapsuleCollider>();
 
     }
 
     private void Start()
     {
+        
         if (goPosicionesRuta != null)
         {
             goPosicionesRuta.transform.parent = null;
@@ -79,7 +85,12 @@ public class EnemyController : MonoBehaviour
         }
 
 
+
         cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
+
+        collWeaponEnable = false;
+        cmpWeaponCollider.enabled = collWeaponEnable;
+
     }
 
 
@@ -213,16 +224,16 @@ public class EnemyController : MonoBehaviour
         cmpAgent.SetDestination(puntoSpawn);
     }
 
+    //Change Collider Active Component During The Attack
+    void SwitchColliderEnabled()
+    {
+        collWeaponEnable = !collWeaponEnable;
+        cmpWeaponCollider.enabled = collWeaponEnable;
+    }
 
 
     void CheckPosibleAtaque()
     {
-
-
-
-
-
-
 
         /*
         if (cmpAgent.pathPending == false)
@@ -290,9 +301,6 @@ public class EnemyController : MonoBehaviour
 
 
      }*/
-
-
-
 
 
 }

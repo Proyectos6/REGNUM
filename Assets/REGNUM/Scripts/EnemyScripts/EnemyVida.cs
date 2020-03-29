@@ -7,9 +7,7 @@ public class EnemyVida : MonoBehaviour
 
     public float vidaEnemy;
 
-
-
-    public EnemyHealthBar barritaVida;
+    [SerializeField] EnemyHealthBar barritaVida;
     public float vida;
 
     void Start()
@@ -33,7 +31,7 @@ public class EnemyVida : MonoBehaviour
         }
 
 
-        void TakeDamage(float damageRecibido)
+         void TakeDamage(float damageRecibido)
         {
             vidaEnemy -= damageRecibido;
 

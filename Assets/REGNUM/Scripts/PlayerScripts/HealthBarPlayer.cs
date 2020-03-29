@@ -5,24 +5,17 @@ using UnityEngine.UI;
 
 public class HealthBarPlayer : MonoBehaviour
 {
-    public Image imaVida;
-    Movimiento vida;
-    // Start is called before the first frame update
-    void Start()
+    Slider cmpSlider;
+
+    private void Awake()
     {
-        
+        cmpSlider = GetComponent<Slider>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetSliderHealthbarSize(float valueHealth) //CAMBIA EL VALOR DEL SLIDER, MODIFICA VIDA EN CANVAS. ACTIVADO MEDIANTE SCRIPT "VidaPlayer". 
     {
-       if (vida.vida > 25)
-        {
-            imaVida.color = Color.green;
-        }
-        if (vida.vida < 25)
-        {
-            imaVida.color = Color.white;
-        }
+        cmpSlider.value = valueHealth;
     }
+
 }
