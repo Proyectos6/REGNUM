@@ -8,28 +8,49 @@ public class Dañar : MonoBehaviour
     EnemyVida VIDA;
     public GameObject Hacha1H;
     public GameObject Hacha2H;
+    public Animator Anim;
 
     float Daño;
     float Impulse;
 
-    public float DañoAxe1H;
-    public float DañoAxe2H;
+    public float DañoAxe1HL;
+    public float DañoAxe1HP;
+    public float DañoAxe2HL;
+    public float DañoAxe2HP;
     public float ImpulseAxe1H;
     public float ImpulseAxe2H;
-    void Start()
+    void Awake()
     {
-        
     }
     void Update()
     {
         if (Hacha1H.active)
         {
-            Daño = DañoAxe1H;
+            if (Anim.GetBool("AtaquePesado"))
+            {
+                Daño = DañoAxe1HP;
+                Debug.Log("AtaquePesado");
+            }
+            if (Anim.GetBool("AtaqueLigero"))
+            {
+                Daño = DañoAxe1HL;
+                Debug.Log("AtaqueLigero");
+            }
+
             Impulse = ImpulseAxe1H;
         }
         if (Hacha2H.active)
         {
-            Daño = DañoAxe2H;
+            if (Anim.GetBool("AtaquePesado"))
+            {
+                Daño = DañoAxe2HP;
+                Debug.Log("AtaquePesado");
+            }
+            if (Anim.GetBool("AtaqueLigero"))
+            {
+                Daño = DañoAxe2HL;
+                Debug.Log("AtaqueLigero");
+            }
             Impulse = ImpulseAxe2H;
         }
     }
