@@ -27,12 +27,7 @@ public class EnemyVida : MonoBehaviour
 
         if (vidaEnemy <= 0)
         {
-            barritaVida.SetSize(vida);
-            if (vida <= 0)
-
-            {
-                Destroy(this.gameObject);
-            }
+            Destroy(this.gameObject);
         }
 
 
