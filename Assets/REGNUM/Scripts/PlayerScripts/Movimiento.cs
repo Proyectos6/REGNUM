@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    public float vida;
     CharacterController player;
     Vector3 movDir;
     float VI;
@@ -21,19 +20,20 @@ public class Movimiento : MonoBehaviour
         RB = GetComponent<Rigidbody>();
         player = GetComponent<CharacterController>();
         AT = GetComponent<Ataque>();
-        
+
     }
     private void Start()
     {
         VI = velocidad;
+        
+
     }
-    void Update()
+    void FixedUpdate()
     {
         
         if (player.isGrounded)
         {
-            movDir.y = 0;
-            movDir = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
+            movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
         }
         if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
         if (movDir.magnitude > 1)
@@ -44,6 +44,7 @@ public class Movimiento : MonoBehaviour
         {
             player.Move(movDir * velocidad * Time.deltaTime);
         }
-        Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y));
+        Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.z));
+        Debug.Log(Mathf.Abs(player.velocity.z));
     }
 }

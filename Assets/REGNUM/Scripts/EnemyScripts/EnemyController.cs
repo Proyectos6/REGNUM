@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
         cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
 
         collWeaponEnable = false;
-        cmpWeaponCollider.enabled = collWeaponEnable;
+        //cmpWeaponCollider.enabled = collWeaponEnable;
 
     }
 
