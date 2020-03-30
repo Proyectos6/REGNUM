@@ -8,13 +8,15 @@ public class Rotacion : MonoBehaviour
     Camera cam;
     Rigidbody rid;
     Ataque Ataque;
+    public GameObject[] Enemigos;
 
     public float velocidadRotacion = 360;
-    void Start()
+    void Awake()
     {
         rid = this.GetComponent<Rigidbody>();
         cam = Camera.main;
         Ataque = this.GetComponent<Ataque>();
+        Enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
     }
     void Update() 
     {
@@ -33,7 +35,11 @@ public class Rotacion : MonoBehaviour
             }
         }
     }
-    
+    private void OnTriggerEnter(Collider col)
+    {
+
+    }
+
 
 }
 
