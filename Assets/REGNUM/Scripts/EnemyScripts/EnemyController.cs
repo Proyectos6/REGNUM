@@ -17,40 +17,43 @@ public class EnemyController : MonoBehaviour
     EstadoEnemigo estadoActual;
 
 
+    [Header("Ruta")]
+    [SerializeField] GameObject goPosicionesRuta;
     [SerializeField] Transform[] puntosRuta; //Array de puntos a los que irá en ruta 
     int puntoActualRuta = 0; //Control del punto actual al que se mueve el Enemigo
 
-    [SerializeField] GameObject goPosicionesRuta;
-
-    Vector3 puntoSpawn;
+    [Header("AI Distance")]
     [SerializeField] float distanciaAlerta = 10;
     [SerializeField] float distanciaVueltaAlSpawn = 20;
     [SerializeField] float distanciaSeparacionPlayer = 2;
-    float distanciaConPlayer;
-    bool cercaParaAtacar = false;
 
-    //bool ejecutandoAtaque = false;
-    //float golpeFinalizado = 1.1f;
-    //[SerializeField] float tiempoNextAttack = 3;
+    float distanciaConPlayer;
+    Vector3 puntoSpawn;
+
 
 
     GameObject goPlayer;
-
     NavMeshAgent cmpAgent; //Componente del Enemy (IA)
     private NavMeshPath caminoHaciaDestino;
 
+    EnemyAttack ataqueEnemy;
+
+    /*
+    bool cercaParaAtacar = false;
+
+    bool ejecutandoAtaque = false;
+    float golpeFinalizado = 1.1f;
+    [SerializeField] float tiempoNextAttack = 3;
 
     private Animator cmpAnimator;
-    private float speed4Animator;
 
-
+    [Header("goWeapon")]
     //Variables Para Coger cmpCollider del weapon y activarlo o desactivarlo segun la animacion de ataque definida
 
     [SerializeField] CapsuleCollider cmpWeaponCollider;
     bool collWeaponEnable = false;
 
-
-
+    */
 
 
     void Awake()
@@ -59,15 +62,16 @@ public class EnemyController : MonoBehaviour
 
         goPlayer = GameObject.FindGameObjectWithTag("Player");
 
-        cmpAnimator = GetComponent<Animator>();
+        ataqueEnemy = GetComponent<EnemyAttack>();
 
+        //cmpAnimator = GetComponent<Animator>();
         //cmpWeaponCollider = GameObject.FindGameObjectWithTag("EnemyWeapon").GetComponent<CapsuleCollider>();
 
     }
 
     private void Start()
     {
-        
+
         if (goPosicionesRuta != null)
         {
             goPosicionesRuta.transform.parent = null;
@@ -81,14 +85,14 @@ public class EnemyController : MonoBehaviour
 
         if (puntosRuta != null)
         {
-            SetearDireccion();
+            SetearDireccionPatrulla();
         }
 
 
 
-        cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
 
-        collWeaponEnable = false;
+        // collWeaponEnable = false;
+        //cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
         //cmpWeaponCollider.enabled = collWeaponEnable;
 
     }
@@ -97,43 +101,58 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (estadoActual == EstadoEnemigo.Patrulla) //Estado Patrulla, Enemy ejecuta este comportamiento
+        if (cmpAgent.enabled)
         {
-            ComprobarLlegadaDestino();
+            if (!ataqueEnemy.isAttacking)
+            {
+                if (estadoActual == EstadoEnemigo.Patrulla) //Estado Patrulla, Enemy ejecuta este comportamiento
+                {
+                    ComprobarLlegadaDestino();
 
-            ComprobarAlertaPlayer();
+                    ComprobarAlertaPlayer();
+                }
+
+                else if (estadoActual == EstadoEnemigo.PersiguiendoPlayer) //Estado Perseguir Player
+                {
+                    PerseguirPlayer();
+
+                    ComprobarAlejarseElPlayer();
+                    ComprobarDistanciaVolver();
+
+                }
+
+
+                else if (estadoActual == EstadoEnemigo.VolverSpawn) //Estado Volver al Spawn
+                {
+
+                    ComprobarLlegadaDestino();
+                }
+            }
+
         }
 
-        else if (estadoActual == EstadoEnemigo.PersiguiendoPlayer) //Estado Perseguir Player
-        {
-            PerseguirPlayer();
-
-            ComprobarAlejarseElPlayer();
-            ComprobarDistanciaVolver();
-
-        }
 
 
-        else if (estadoActual == EstadoEnemigo.VolverSpawn) //Estado Volver al Spawn
-        {
-
-            ComprobarLlegadaDestino();
-        }
-
-        else if (estadoActual == EstadoEnemigo.AtacarAlPlayer)
-        {
-            CheckPosibleAtaque();
-        }
-
+        /*
         if (cercaParaAtacar)
         {
             this.transform.LookAt(goPlayer.transform);
         }
 
-       
-
         cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
         cmpAnimator.SetBool("AttackEnemy", cercaParaAtacar);      
+        */
+    }
+
+
+    void SetearDireccionPatrulla()
+    {
+        estadoActual = EstadoEnemigo.Patrulla;
+
+        Transform destinoActual = puntosRuta[puntoActualRuta];
+        cmpAgent.SetDestination(destinoActual.position);
+
+        //cmpAgent.stoppingDistance = 0; //Para que el enemigo llegue hasta el punto
     }
 
 
@@ -143,6 +162,8 @@ public class EnemyController : MonoBehaviour
         {
             if (cmpAgent.remainingDistance < 0.5f)
             {
+                float timeWaiting = Time.time + 2;
+
                 if (puntoActualRuta == puntosRuta.Length - 1)
                 {
                     puntoActualRuta = 0;
@@ -151,21 +172,17 @@ public class EnemyController : MonoBehaviour
                 {
                     ++puntoActualRuta;
                 }
-                SetearDireccion();
+                this.transform.LookAt(puntosRuta[puntoActualRuta]);
+
+                if (timeWaiting >= Time.time) //Delay antes de setear nueva direccion, NO SE MOVERA HASTA FIN DELAY
+                {
+                    SetearDireccionPatrulla();
+                }
             }
         }
 
     }
 
-    void SetearDireccion()
-    {
-        estadoActual = EstadoEnemigo.Patrulla;
-
-        Transform destinoActual = puntosRuta[puntoActualRuta];
-
-        cmpAgent.stoppingDistance = 0; //Para que el enemigo llegue hasta el punto
-        cmpAgent.SetDestination(destinoActual.position);
-    }
 
 
 
@@ -211,25 +228,19 @@ public class EnemyController : MonoBehaviour
             VolverSpawn();
         }
 
-        if (distanciaConPlayer <= distanciaSeparacionPlayer + 0.5f)
-        {
-            cercaParaAtacar = true;
-        }
-        else if (distanciaConPlayer > distanciaSeparacionPlayer + 0.5f)
-        {
-            cercaParaAtacar = false;
-        }
     }
 
     void VolverSpawn()
     {
         puntoActualRuta = 0;
-
         estadoActual = EstadoEnemigo.VolverSpawn;
         cmpAgent.stoppingDistance = 0;
-        cmpAgent.SetDestination(puntoSpawn);
+        cmpAgent.SetDestination(puntosRuta[puntoActualRuta].transform.position);
+
     }
 
+
+    /*
     //Change Collider Active Component During The Attack
     void SwitchColliderEnabled(int isEnabled)
     {
@@ -243,83 +254,9 @@ public class EnemyController : MonoBehaviour
             collWeaponEnable = true;
             cmpWeaponCollider.enabled = collWeaponEnable;//Active/Disabled Weapon Collider
         }
-
-        /*
-        collWeaponEnable = !collWeaponEnable;
-        cmpWeaponCollider.enabled = collWeaponEnable;
-        */
     }
+    */
 
-
-    void CheckPosibleAtaque()
-    {
-
-        /*
-        if (cmpAgent.pathPending == false)
-        {
-            if (cmpAgent.velocity == Vector3.zero)
-            {
-
-                cercaParaAtacar = true;
-
-            }
-
-            else if (cmpAgent.velocity != Vector3.zero || cmpAgent.remainingDistance > distanciaSeparacionPlayer)
-            {
-                cercaParaAtacar = false;
-                estadoActual = EstadoEnemigo.Patrulla;
-            }
-        }
-        */
-
-        /*
-                if (Physics.Raycast(this.transform.position, goPlayer.transform.position, distanciaSeparacionPlayer))
-                {
-
-                    cercaParaAtacar = true;
-
-                }
-
-                else
-                {
-                    cercaParaAtacar = false;
-                    //estadoActual = EstadoEnemigo.Patrulla;
-                }
-
-
-
-                /*
-                        if (cmpAgent.pathPending == false)
-                        {
-                            if (cmpAgent.remainingDistance > distanciaSeparacionPlayer)
-                            {
-                                cercaParaAtacar = false;
-                            }
-                            else
-                            {
-                                cercaParaAtacar = true;
-                            }
-                        }
-
-                        */
-
-    }
-
-
-    /* void tiempoEntreAtaques()
-     {
-         if (cercaParaAtacar)
-         {
-
-
-
-
-
-
-         }
-
-
-     }*/
 
 
 }

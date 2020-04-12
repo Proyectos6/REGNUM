@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class VidaPlayer : MonoBehaviour
+public class VidaPlayer : VidaBase
 {
 
+    protected override void Morir()
+    {
+        //base.Morir();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
+    /*
     [SerializeField] float playerMaxHealth = 50;
     float actualHealth;
 
@@ -37,5 +46,5 @@ public class VidaPlayer : MonoBehaviour
         cmpHealthbar.SetSliderHealthbarSize(healthSliderValue);
 
     }
-
+    */
 }

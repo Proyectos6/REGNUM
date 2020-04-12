@@ -45,6 +45,6 @@ public class Movimiento : MonoBehaviour
             player.Move(movDir * velocidad * Time.deltaTime);
         }
         Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.z));
-        Debug.Log(Mathf.Abs(player.velocity.z));
+        //Debug.Log(Mathf.Abs(player.velocity.z));
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Dañar : MonoBehaviour
 {
-    GameObject Enemigo;
-    EnemyVida VIDA;
+    //GameObject Enemigo;
+    //EnemyVida VIDA;
     public GameObject Hacha1H;
     public GameObject Hacha2H;
     public Animator Anim;
@@ -29,12 +29,12 @@ public class Dañar : MonoBehaviour
             if (Anim.GetBool("AtaquePesado"))
             {
                 Daño = DañoAxe1HP;
-                Debug.Log("AtaquePesado");
+                //Debug.Log("AtaquePesado");
             }
             if (Anim.GetBool("AtaqueLigero"))
             {
                 Daño = DañoAxe1HL;
-                Debug.Log("AtaqueLigero");
+                //Debug.Log("AtaqueLigero");
             }
 
             Impulse = ImpulseAxe1H;
@@ -44,12 +44,12 @@ public class Dañar : MonoBehaviour
             if (Anim.GetBool("AtaquePesado"))
             {
                 Daño = DañoAxe2HP;
-                Debug.Log("AtaquePesado");
+                //Debug.Log("AtaquePesado");
             }
             if (Anim.GetBool("AtaqueLigero"))
             {
                 Daño = DañoAxe2HL;
-                Debug.Log("AtaqueLigero");
+                //Debug.Log("AtaqueLigero");
             }
             Impulse = ImpulseAxe2H;
         }
@@ -58,8 +58,11 @@ public class Dañar : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemigo")
         {
+            /*
             VIDA = col.gameObject.GetComponent<EnemyVida>();
             VIDA.GetDamage(Daño, Impulse);
+           */
+            col.GetComponent<VidaEnemy>().TakeDamage(Daño);
         }
     }
 }

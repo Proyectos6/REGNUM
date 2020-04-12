@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class EnemyVida : MonoBehaviour
 {
+    [Header("Stats")]
+    public float vidaInicial;
+    float vidaEnemy;
 
-    public float vidaEnemy;
-
+    //public float vida;
+    [Header("Interfaz")]
     [SerializeField] EnemyHealthBar barritaVida;
-    public float vida;
 
-    float VidaInicial;
+   
+
 
     void Start()
     {
-        VidaInicial = vidaEnemy;
+        vidaEnemy = vidaInicial;
 
         barritaVida = GetComponentInChildren<EnemyHealthBar>();
     }
@@ -28,7 +31,7 @@ public class EnemyVida : MonoBehaviour
     void Update()
     {
 
-        barritaVida.SetSize((vidaEnemy / VidaInicial) * 12.61f);
+        barritaVida.SetSize((vidaEnemy / vidaInicial) * 12.6f);
         if (vidaEnemy <= 0)
         {
             Destroy(this.gameObject);
@@ -36,14 +39,31 @@ public class EnemyVida : MonoBehaviour
     }
 
 
-    void TakeDamage(float damageRecibido)
+    public void TakeDamage(float damageRecibido)
     {
         vidaEnemy -= damageRecibido;
 
-
-        Destroy(this.gameObject);
+        /*Vector3 pushdirection = golpePos - this.transform.position;
+        pushdirection = -pushdirection.normalized;
+        print(pushdirection);*/
+       // GetComponent<Rigidbody>().AddForce(Vector3.forward * -forceKnockback * 100, ForceMode.Impulse);
+        //Destroy(this.gameObject);
 
     }
+    
+    
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerWeapon"))
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * -forceKnockback, ForceMode.Impulse);
+        }
+    }
+
+
+    */
+
 }
- 
+
 

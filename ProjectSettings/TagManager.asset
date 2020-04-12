@@ -8,6 +8,7 @@ TagManager:
   - EnemyPatrol
   - EnemyWeapon
   - PlayerHealthbar
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX
