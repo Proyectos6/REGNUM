@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] float rangeHit = 5;    
+    [SerializeField] float rangeHit = 5;
     [SerializeField] float tiempoEntreAtaques = 3;
     public float tiempoActualGolpe;
     [SerializeField] float probStrongAtack = 0.2f;
@@ -25,7 +25,7 @@ public class EnemyAttack : MonoBehaviour
     {
         playerVida = FindObjectOfType<VidaPlayer>();
         cmpAnimator = GetComponent<Animator>();
-    
+
     }
 
     // Start is called before the first frame update
@@ -39,18 +39,22 @@ public class EnemyAttack : MonoBehaviour
     void Update()
     {
         float distancePlayer = Vector3.Distance(this.transform.position, playerVida.transform.position);
-        
+
         if (distancePlayer < rangeHit)
         {
-            tiempoActualGolpe -= Time.deltaTime;
-            
+
             if (tiempoActualGolpe <= 0)
             {
                 this.transform.LookAt(playerVida.transform.position);
                 Atacar();
 
             }
-            
+            else
+            {
+                tiempoActualGolpe -= Time.deltaTime;
+
+            }
+
         }
 
     }
@@ -60,7 +64,7 @@ public class EnemyAttack : MonoBehaviour
     void Atacar()
     {
         isAttacking = true;
-                
+
         bool ataqueFuerte = (Random.value < probStrongAtack);
         if (ataqueFuerte)
         {
@@ -68,13 +72,13 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            cmpAnimator.SetTrigger("Attack");            
+            cmpAnimator.SetTrigger("Attack");
         }
     }
 
 
 
-   
+
 
 
     //Change Collider Active Component During The Attack
