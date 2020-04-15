@@ -12,6 +12,8 @@ public class PushBack : MonoBehaviour
 
     [SerializeField] Transform playerTransform;
 
+    float totalMove;
+
     /* 
     [SerializeField] float speedForce = 10;
     [SerializeField] float speedRalenti = 9.8f;
@@ -32,32 +34,62 @@ public class PushBack : MonoBehaviour
     {
         if (other.CompareTag("PlayerWeapon"))
         {
-            tocado = true;
+            ActivePush();
         }
     }
 
     void ActivePush()
     {
+        print("EMPIEZA GOLPE");
+        totalMove = 0;
         tocado = true;
-        cmpAgent.enabled = false;
-        cmpRbody.isKinematic = false;    
+        cmpAgent.isStopped=true;
+        cmpAgent.updatePosition = false;
+        /*cmpAgent.enabled = false;
+        cmpRbody.isKinematic = false;*/
+        cmpAnimator.SetTrigger("PushedBack");
     }
+
+   
+
     void DisablePush()
     {
         tocado = false;
+        cmpAgent.isStopped = false;
+        cmpAgent.updatePosition = true;
+        cmpAgent.Warp(transform.position); //Warp Teletransporta
+        /*
         cmpRbody.velocity = Vector3.zero;       
         cmpRbody.isKinematic = true;
-        cmpAgent.enabled = true;
+        cmpAgent.enabled = true;*/
+        print(totalMove);
+        cmpAnimator.ResetTrigger("PushedBack");
     }
 
-    private void OnAnimatorMove()
+    private void Update()
     {
-        if (tocado) { cmpAnimator.SetTrigger("PushedBack"); }
-        if (!tocado) { cmpAnimator.ResetTrigger("PushedBack"); }
+        /*
+        if (tocado) {  }
+        if (!tocado) {  }*/
     }
 
     void AnimEventFinKnock()
     {
         DisablePush();
-    } 
+    }
+
+    private void OnAnimatorMove()
+    {
+        if (tocado)
+        {
+            Vector3 rootPos = cmpAnimator.rootPosition; //donde quiere animacion q este personaje
+            Vector3 difPos = rootPos - this.transform.position;
+            //cmpAgent.Move(difPos);
+            totalMove += difPos.magnitude;
+
+            transform.Translate(difPos, Space.World);
+            //print(difPos.magnitude);
+        }
+    }
+
 }

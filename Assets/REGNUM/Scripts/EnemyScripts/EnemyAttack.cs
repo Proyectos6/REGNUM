@@ -45,7 +45,7 @@ public class EnemyAttack : MonoBehaviour
 
             if (tiempoActualGolpe <= 0)
             {
-                this.transform.LookAt(playerVida.transform.position);
+               this.transform.LookAt(playerVida.transform.position);
                 Atacar();
 
             }
