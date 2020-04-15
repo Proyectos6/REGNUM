@@ -5,23 +5,13 @@ using UnityEngine.AI;
 
 public class PushBack : MonoBehaviour
 {
+
     Rigidbody cmpRbody;
     NavMeshAgent cmpAgent;
     Animator cmpAnimator;
     bool tocado = false;
 
-    [SerializeField] Transform playerTransform;
-
-    float totalMove;
-
-    /* 
-    [SerializeField] float speedForce = 10;
-    [SerializeField] float speedRalenti = 9.8f;
-
-    Vector3 dirDesplazado;
-
-    [SerializeField] Transform dirInspector;
-    */
+    // float totalMove; //DEBUG VARIABLE
 
     private void Awake()
     {
@@ -40,37 +30,25 @@ public class PushBack : MonoBehaviour
 
     void ActivePush()
     {
-        print("EMPIEZA GOLPE");
-        totalMove = 0;
         tocado = true;
-        cmpAgent.isStopped=true;
+        cmpAgent.isStopped = true;
         cmpAgent.updatePosition = false;
-        /*cmpAgent.enabled = false;
-        cmpRbody.isKinematic = false;*/
+
         cmpAnimator.SetTrigger("PushedBack");
+        //totalMove = 0;
     }
 
-   
+
 
     void DisablePush()
     {
         tocado = false;
         cmpAgent.isStopped = false;
         cmpAgent.updatePosition = true;
-        cmpAgent.Warp(transform.position); //Warp Teletransporta
-        /*
-        cmpRbody.velocity = Vector3.zero;       
-        cmpRbody.isKinematic = true;
-        cmpAgent.enabled = true;*/
-        print(totalMove);
+        cmpAgent.Warp(transform.position); //Warp Teletransporta        
         cmpAnimator.ResetTrigger("PushedBack");
-    }
-
-    private void Update()
-    {
-        /*
-        if (tocado) {  }
-        if (!tocado) {  }*/
+        GetComponent<EnemyAttack>().AnimEventFinishAttack(); //BUG CONTROL, desactivar el ataque. A veces se queda pillada la variable isAttacking;
+        //print(totalMove); DEBUG TESTING
     }
 
     void AnimEventFinKnock()
@@ -84,11 +62,9 @@ public class PushBack : MonoBehaviour
         {
             Vector3 rootPos = cmpAnimator.rootPosition; //donde quiere animacion q este personaje
             Vector3 difPos = rootPos - this.transform.position;
-            //cmpAgent.Move(difPos);
-            totalMove += difPos.magnitude;
-
             transform.Translate(difPos, Space.World);
-            //print(difPos.magnitude);
+
+            //totalMove += difPos.magnitude; DEBUG TESTING 
         }
     }
 

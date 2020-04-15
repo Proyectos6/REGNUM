@@ -2907,9 +2907,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &6227283497355693167
 Animator:
@@ -2977,7 +2977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d96e3a497268cb4aa170731f52e5e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMax: 100
+  vidaMax: 300
 --- !u!114 &6227283497355693166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,7 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeHit: 5
-  tiempoEntreAtaques: 1
+  tiempoEntreAtaques: 3
   tiempoActualGolpe: 0
   probStrongAtack: 0.2
   isAttacking: 0
@@ -3029,10 +3029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d565fffe8b3b6e642a92616cdf3d6784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  speedForce: 20
-  speedRalenti: 9.8
-  dirInspector: {fileID: 4519821029681046040}
 --- !u!114 &7553205212976953961
 MonoBehaviour:
   m_ObjectHideFlags: 0

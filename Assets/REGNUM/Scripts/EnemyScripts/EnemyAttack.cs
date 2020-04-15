@@ -42,24 +42,17 @@ public class EnemyAttack : MonoBehaviour
 
         if (distancePlayer < rangeHit)
         {
-
             if (tiempoActualGolpe <= 0)
             {
                this.transform.LookAt(playerVida.transform.position);
                 Atacar();
-
             }
             else
             {
                 tiempoActualGolpe -= Time.deltaTime;
-
             }
-
         }
-
     }
-
-
 
     void Atacar()
     {
@@ -76,11 +69,6 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-
-
-
-
-
     //Change Collider Active Component During The Attack
     void SwitchColliderEnabled(int isEnabled)
     {
@@ -96,7 +84,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    void AnimEventFinishAttack()
+    public void AnimEventFinishAttack()
     {
         isAttacking = false;
         tiempoActualGolpe = tiempoEntreAtaques;
