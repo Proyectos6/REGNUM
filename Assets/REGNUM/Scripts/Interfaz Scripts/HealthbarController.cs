@@ -13,12 +13,15 @@ public class HealthbarController : MonoBehaviour
         vida = GetComponent<VidaBase>();
     }
 
-    
+
     void Update()
     {
         float vidaActual = vida.VidaActual;
         float vidaMaxima = vida.VidaMax;
         float porcentajeVida = vidaActual / vidaMaxima;
-        barraVida.fillAmount = porcentajeVida;
+        if (barraVida != null)
+        {
+            barraVida.fillAmount = porcentajeVida;
+        }
     }
 }

@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour
 
     EstadoEnemigo estadoActual;
 
-
     [Header("Ruta")]
     [SerializeField] GameObject goPosicionesRuta;
     [SerializeField] Transform[] puntosRuta; //Array de puntos a los que irá en ruta 
@@ -30,30 +29,13 @@ public class EnemyController : MonoBehaviour
     float distanciaConPlayer;
     Vector3 puntoSpawn;
 
-
-
+    //COMPONENTES
     GameObject goPlayer;
     NavMeshAgent cmpAgent; //Componente del Enemy (IA)
     private NavMeshPath caminoHaciaDestino;
-
     EnemyAttack ataqueEnemy;
 
-    /*
-    bool cercaParaAtacar = false;
-
-    bool ejecutandoAtaque = false;
-    float golpeFinalizado = 1.1f;
-    [SerializeField] float tiempoNextAttack = 3;
-
-    private Animator cmpAnimator;
-
-    [Header("goWeapon")]
-    //Variables Para Coger cmpCollider del weapon y activarlo o desactivarlo segun la animacion de ataque definida
-
-    [SerializeField] CapsuleCollider cmpWeaponCollider;
-    bool collWeaponEnable = false;
-
-    */
+    bool isDie = false; //BUG CONTROL 
 
 
     void Awake()
@@ -88,22 +70,21 @@ public class EnemyController : MonoBehaviour
             SetearDireccionPatrulla();
         }
 
-
-
-
         // collWeaponEnable = false;
         //cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
         //cmpWeaponCollider.enabled = collWeaponEnable;
-
     }
 
 
     // Update is called once per frame
     void Update()
     {
+
+
         if (cmpAgent.enabled)
         {
-            if (!ataqueEnemy.isAttacking)
+
+            if (!ataqueEnemy.isAttacking && !isDie)
             {
                 if (estadoActual == EstadoEnemigo.Patrulla) //Estado Patrulla, Enemy ejecuta este comportamiento
                 {
@@ -121,7 +102,6 @@ public class EnemyController : MonoBehaviour
 
                 }
 
-
                 else if (estadoActual == EstadoEnemigo.VolverSpawn) //Estado Volver al Spawn
                 {
 
@@ -131,19 +111,7 @@ public class EnemyController : MonoBehaviour
 
         }
 
-
-
-        /*
-        if (cercaParaAtacar)
-        {
-            this.transform.LookAt(goPlayer.transform);
-        }
-
-        cmpAnimator.SetFloat("SpeedEnemy", Mathf.Abs(cmpAgent.velocity.z) + Mathf.Abs(cmpAgent.velocity.x));
-        cmpAnimator.SetBool("AttackEnemy", cercaParaAtacar);      
-        */
     }
-
 
     void SetearDireccionPatrulla()
     {
@@ -154,7 +122,6 @@ public class EnemyController : MonoBehaviour
 
         //cmpAgent.stoppingDistance = 0; //Para que el enemigo llegue hasta el punto
     }
-
 
     void ComprobarLlegadaDestino()
     {
@@ -183,9 +150,6 @@ public class EnemyController : MonoBehaviour
 
     }
 
-
-
-
     void ComprobarAlertaPlayer()
     {
         distanciaConPlayer = Vector3.Distance(this.transform.position, goPlayer.transform.position);
@@ -197,7 +161,6 @@ public class EnemyController : MonoBehaviour
 
 
     }
-
 
     void PerseguirPlayer()
     {
@@ -215,7 +178,6 @@ public class EnemyController : MonoBehaviour
             VolverSpawn();
         }
     }
-
 
     void ComprobarAlejarseElPlayer()
     {
@@ -237,6 +199,13 @@ public class EnemyController : MonoBehaviour
         cmpAgent.stoppingDistance = 0;
         cmpAgent.SetDestination(puntosRuta[puntoActualRuta].transform.position);
 
+    }
+
+    void EnemyDie()
+    {
+        print("ME MRORI");
+        isDie = true;
+        //cmpAgent.enabled = false;
     }
 
 

@@ -29,37 +29,65 @@ public class MoveCharControl : MonoBehaviour
 
     CharacterController cmpCC;
     Camera cmpCamera;
+    Animator cmpAnimator;
 
     bool saltando = false;
-    bool agachado = false;
+    //bool agachado = false;
     bool deslizando = false;
 
     private void Awake()
     {
         cmpCC = GetComponent<CharacterController>();
         cmpCamera = GetComponentInChildren<Camera>();
+        cmpAnimator = GetComponent<Animator>();
     }
-
 
     void Update()
     {
         AplicarGravedad();
         Rotar();
         RotarCamara();
-        Agarchar();
+        //Agarchar();
         Deslizar();
         Mover();
         ComprobarSuelo();
-        Saltar();
+        //Saltar();
 
     }
 
-    private void Saltar()
+    private void Mover()
     {
-        if (cmpCC.isGrounded && Input.GetKeyDown(KeyCode.Space) && !deslizando)
+        float magnitudVelocidad = Input.GetKey(KeyCode.LeftShift) ? velocidadCorrer : velocidadAndar;
+
+        float inputZ = string.IsNullOrEmpty(inputAxisMovZ) ? 0 : Input.GetAxis(inputAxisMovZ);
+        float inputX = string.IsNullOrEmpty(inputAxisMovX) ? 0 : Input.GetAxis(inputAxisMovX);
+        Vector3 inputNormalizado = new Vector3(inputX, 0, inputZ);
+        if (inputNormalizado.magnitude > 1) { inputNormalizado.Normalize(); }
+
+        Vector3 velXZLocalDeseada = inputNormalizado * magnitudVelocidad;
+        velXZLocal = Vector3.MoveTowards(velXZLocal, velXZLocalDeseada, aceleracion * Time.deltaTime);
+
+        Vector3 velXZGlobal = transform.TransformDirection(velXZLocal);
+        Vector3 velocidadTotal = velXZGlobal + velDeslizarGlobal + Vector3.up * velocidadY;
+        cmpCC.Move(velocidadTotal * Time.deltaTime);
+        cmpAnimator.SetFloat("SpeedForward", cmpCC.velocity.z);
+        cmpAnimator.SetFloat("SpeedRight", cmpCC.velocity.x);
+    }
+
+    protected virtual void Rotar()
+    {
+        float input = string.IsNullOrEmpty(inputAxisRotY) ? 0 : Input.GetAxis(inputAxisRotY);
+        velocidadAngular = input * velocidadRotacion;
+        transform.Rotate(Vector3.up * velocidadAngular * Time.deltaTime);
+    }
+
+    private void RotarCamara()
+    {
+        if (cmpCamera != null && !string.IsNullOrEmpty(inputAxisRotCameraX))
         {
-            saltando = true;
-            velocidadY = velocidadSalto;
+            anguloCamara += Input.GetAxis(inputAxisRotCameraX) * velocidadRotacion * Time.deltaTime;
+            anguloCamara = Mathf.Clamp(anguloCamara, -90, 90);
+            cmpCamera.transform.localRotation = Quaternion.Euler(-anguloCamara, 0, 0);
         }
     }
 
@@ -79,6 +107,33 @@ public class MoveCharControl : MonoBehaviour
     {
         velocidadY += gravedad * Time.deltaTime;
     }
+    private void Deslizar()
+    {
+        deslizando = false;
+
+        Vector3 direccionDeslizamiento = Vector3.zero;
+        RaycastHit infoImpacto;
+        if (Physics.SphereCast(this.transform.position + cmpCC.center, 0.5f, Vector3.down, out infoImpacto, 1))
+        {
+            Vector3 normalSuperficie = infoImpacto.normal;
+            Debug.DrawRay(infoImpacto.point, normalSuperficie, Color.green, 1);
+            float angulo = Vector3.Angle(normalSuperficie, Vector3.up);
+            if (angulo > cmpCC.slopeLimit)
+            {
+                deslizando = true;
+
+                direccionDeslizamiento = normalSuperficie;
+                direccionDeslizamiento.y = 0;
+                direccionDeslizamiento.Normalize();
+            }
+        }
+
+        if (deslizando) { velDeslizarGlobal = Vector3.Lerp(velDeslizarGlobal, direccionDeslizamiento * velocidadDeslizar, Time.deltaTime * 2); }
+        else { velDeslizarGlobal = Vector3.zero; }
+    }
+
+    /*
+    private void Saltar() { }
 
     private void Agarchar()
     {
@@ -118,64 +173,10 @@ public class MoveCharControl : MonoBehaviour
         cmpCamera.transform.localPosition = Vector3.zero;
     }
 
-    private void Mover()
-    {
-        float magnitudVelocidad = Input.GetKey(KeyCode.LeftShift) ? velocidadCorrer : velocidadAndar;
-
-        float inputZ = string.IsNullOrEmpty(inputAxisMovZ) ? 0 : Input.GetAxis(inputAxisMovZ);
-        float inputX = string.IsNullOrEmpty(inputAxisMovX) ? 0 : Input.GetAxis(inputAxisMovX);
-        Vector3 inputNormalizado = new Vector3(inputX, 0, inputZ);
-        if (inputNormalizado.magnitude > 1) { inputNormalizado.Normalize(); }
-
-        Vector3 velXZLocalDeseada = inputNormalizado * magnitudVelocidad;
-        velXZLocal = Vector3.MoveTowards(velXZLocal, velXZLocalDeseada, aceleracion * Time.deltaTime);
-
-        Vector3 velXZGlobal = transform.TransformDirection(velXZLocal);
-        Vector3 velocidadTotal = velXZGlobal + velDeslizarGlobal + Vector3.up * velocidadY;
-        cmpCC.Move(velocidadTotal * Time.deltaTime);
-    }
-
-
-    protected virtual void Rotar()
-    {
-        float input = string.IsNullOrEmpty(inputAxisRotY) ? 0 : Input.GetAxis(inputAxisRotY);
-        velocidadAngular = input * velocidadRotacion;
-        transform.Rotate(Vector3.up * velocidadAngular * Time.deltaTime);
-    }
-
-
-    private void RotarCamara()
-    {
-        if (cmpCamera != null && !string.IsNullOrEmpty(inputAxisRotCameraX))
+    if (cmpCC.isGrounded && Input.GetKeyDown(KeyCode.Space) && !deslizando)
         {
-            anguloCamara += Input.GetAxis(inputAxisRotCameraX) * velocidadRotacion * Time.deltaTime;
-            anguloCamara = Mathf.Clamp(anguloCamara, -90, 90);
-            cmpCamera.transform.localRotation = Quaternion.Euler(-anguloCamara, 0, 0);
-        }
-    }
-
-    private void Deslizar()
-    {
-        deslizando = false;
-
-        Vector3 direccionDeslizamiento = Vector3.zero;
-        RaycastHit infoImpacto;
-        if (Physics.SphereCast(this.transform.position + cmpCC.center, 0.5f, Vector3.down, out infoImpacto, 1))
-        {
-            Vector3 normalSuperficie = infoImpacto.normal;
-            Debug.DrawRay(infoImpacto.point, normalSuperficie, Color.green, 1);
-            float angulo = Vector3.Angle(normalSuperficie, Vector3.up);
-            if (angulo > cmpCC.slopeLimit)
-            {
-                deslizando = true;
-
-                direccionDeslizamiento = normalSuperficie;
-                direccionDeslizamiento.y = 0;
-                direccionDeslizamiento.Normalize();
-            }
-        }
-
-        if (deslizando) { velDeslizarGlobal = Vector3.Lerp(velDeslizarGlobal, direccionDeslizamiento * velocidadDeslizar, Time.deltaTime * 2); }
-        else { velDeslizarGlobal = Vector3.zero; }
-    }
+            saltando = true;
+            velocidadY = velocidadSalto;
+        }*/
+    
 }

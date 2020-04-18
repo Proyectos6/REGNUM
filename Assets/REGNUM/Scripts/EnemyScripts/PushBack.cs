@@ -12,6 +12,7 @@ public class PushBack : MonoBehaviour
     bool tocado = false;
 
     // float totalMove; //DEBUG VARIABLE
+    bool isDie;
 
     private void Awake()
     {
@@ -24,7 +25,10 @@ public class PushBack : MonoBehaviour
     {
         if (other.CompareTag("PlayerWeapon"))
         {
-            ActivePush();
+            if (!isDie)
+            {
+                ActivePush();          
+            }       
         }
     }
 
@@ -66,6 +70,11 @@ public class PushBack : MonoBehaviour
 
             //totalMove += difPos.magnitude; DEBUG TESTING 
         }
+    }
+
+    void EnemyDie()
+    {
+        isDie = true;
     }
 
 }

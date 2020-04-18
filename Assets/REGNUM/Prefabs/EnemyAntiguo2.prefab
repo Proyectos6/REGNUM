@@ -3012,7 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeHit: 5
-  tiempoEntreAtaques: 3
+  tiempoEntreAtaques: 1
   tiempoActualGolpe: 0
   probStrongAtack: 0.2
   isAttacking: 0
