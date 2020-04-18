@@ -9,9 +9,11 @@ public class Dañar : MonoBehaviour
     public GameObject Hacha1H;
     public GameObject Hacha2H;
     public Animator Anim;
+    public ParticleSystem sangreParticles;
 
     float Daño;
     float Impulse;
+    
 
     public float DañoAxe1HL;
     public float DañoAxe1HP;
@@ -60,8 +62,9 @@ public class Dañar : MonoBehaviour
         {
             /*
             VIDA = col.gameObject.GetComponent<EnemyVida>();
-            VIDA.GetDamage(Daño, Impulse);
+            VIDA.GetDamage(Daño, Impulse);       
            */
+            sangreParticles.Play();
             col.GetComponent<VidaEnemy>().TakeDamage(Daño);
         }
     }

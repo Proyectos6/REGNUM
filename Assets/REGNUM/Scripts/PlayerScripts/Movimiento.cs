@@ -10,6 +10,7 @@ public class Movimiento : MonoBehaviour
     public Animator Anim;
     Rigidbody RB;
     Ataque AT;
+    public ParticleSystem andarParticle;
 
     public float gravedad;
     public float velocidad = 5f;
@@ -34,11 +35,13 @@ public class Movimiento : MonoBehaviour
         if (player.isGrounded)
         {
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
+            andarParticle.Play();
         }
         if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
         if (movDir.magnitude > 1)
         {
             movDir.Normalize();
+            
         }
         if (AT.Atacando == false)
         {
