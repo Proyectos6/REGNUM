@@ -12,15 +12,15 @@ public class Dañar : MonoBehaviour
     public ParticleSystem sangreParticles;
 
     float Daño;
-    float Impulse;
+    //float Impulse;
     
 
     public float DañoAxe1HL;
     public float DañoAxe1HP;
     public float DañoAxe2HL;
     public float DañoAxe2HP;
-    public float ImpulseAxe1H;
-    public float ImpulseAxe2H;
+    //public float ImpulseAxe1H;
+    //public float ImpulseAxe2H;
     void Awake()
     {
     }
@@ -39,7 +39,7 @@ public class Dañar : MonoBehaviour
                 //Debug.Log("AtaqueLigero");
             }
 
-            Impulse = ImpulseAxe1H;
+            //Impulse = ImpulseAxe1H;
         }
         if (Hacha2H.active)
         {
@@ -53,17 +53,13 @@ public class Dañar : MonoBehaviour
                 Daño = DañoAxe2HL;
                 //Debug.Log("AtaqueLigero");
             }
-            Impulse = ImpulseAxe2H;
+            //Impulse = ImpulseAxe2H;
         }
     }
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Enemigo")
         {
-            /*
-            VIDA = col.gameObject.GetComponent<EnemyVida>();
-            VIDA.GetDamage(Daño, Impulse);       
-           */
             sangreParticles.Play();
             col.GetComponent<VidaEnemy>().TakeDamage(Daño);
         }

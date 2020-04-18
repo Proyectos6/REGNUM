@@ -20,6 +20,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] CapsuleCollider cmpWeaponCollider;
     bool collWeaponEnable = false;
 
+    bool isDie = false;
+
 
     private void Awake()
     {
@@ -39,17 +41,19 @@ public class EnemyAttack : MonoBehaviour
     void Update()
     {
         float distancePlayer = Vector3.Distance(this.transform.position, playerVida.transform.position);
-
-        if (distancePlayer < rangeHit)
+        if (!isDie)
         {
-            if (tiempoActualGolpe <= 0)
+            if (distancePlayer < rangeHit)
             {
-               this.transform.LookAt(playerVida.transform.position);
-                Atacar();
-            }
-            else
-            {
-                tiempoActualGolpe -= Time.deltaTime;
+                if (tiempoActualGolpe <= 0)
+                {
+                    this.transform.LookAt(playerVida.transform.position);
+                    Atacar();
+                }
+                else
+                {
+                    tiempoActualGolpe -= Time.deltaTime;
+                }
             }
         }
     }
@@ -91,4 +95,8 @@ public class EnemyAttack : MonoBehaviour
         cmpAnimator.ResetTrigger("Attack");
     }
 
+    void EnemyDie()
+    {
+        isDie = true;
+    }
 }

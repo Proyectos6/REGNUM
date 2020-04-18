@@ -6,12 +6,12 @@ public class Ataque : MonoBehaviour
 {
     bool OnRange;
     GameObject Enemy;
-    EnemyVida Vida;
+    //EnemyVida Vida;
     float Daño;
     float TimerGolpe; 
     public Animator AnimacionesJugador;
     [HideInInspector] public bool Atacando;
-    public ParticleSystem particleDaño;
+    //public ParticleSystem particleDaño;
     public KeyCode AtaquePesado;
     public KeyCode AtaqueLigero;
     public float DañoAtaquePesado;
