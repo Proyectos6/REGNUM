@@ -109,7 +109,7 @@ public class Ataque : MonoBehaviour
         if (Ataque1 == false)
         {
        
-            particlesDeDaño.SetActive(false);
+            //particlesDeDaño.SetActive(false);
             if (Ataque2 == false)
             {
                 //particlesDeDaño.SetActive(false);
@@ -129,7 +129,7 @@ public class Ataque : MonoBehaviour
                     TimerGolpe = TimerAtaqueLigero;
                     Ataque1 = true;
                     Atacando = true;
-                    particlesDeDaño.SetActive(true);
+                   // particlesDeDaño.SetActive(true);
                 }
             }
         }
