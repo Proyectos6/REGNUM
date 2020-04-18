@@ -20,11 +20,13 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public float TimerAtaquePesado = 2.56f;
     bool Ataque1;
     bool Ataque2;
-    
-
+     public TrailRenderer trail;
+    public GameObject particlesDeDaño;
     public GameObject[] Triggers;
     public GameObject[] TriggersAltoRango;
     
+
+     
     void ActiveTrigger(int trigger)
     {
         for (int i = 0; i < Triggers.Length; i++)
@@ -89,6 +91,7 @@ public class Ataque : MonoBehaviour
 
     void Start()
     {
+        
         for (int i = 0; i < TriggersAltoRango.Length; i++)
         {
             TriggersAltoRango[i].SetActive(false);
@@ -102,10 +105,14 @@ public class Ataque : MonoBehaviour
     }
     void Update()
     {
+        
         if (Ataque1 == false)
         {
+       
+            particlesDeDaño.SetActive(false);
             if (Ataque2 == false)
             {
+                //particlesDeDaño.SetActive(false);
                 if (Input.GetKeyDown(AtaquePesado))
                 {
                     AnimacionesJugador.SetBool("AtaquePesado", true);
@@ -122,6 +129,7 @@ public class Ataque : MonoBehaviour
                     TimerGolpe = TimerAtaqueLigero;
                     Ataque1 = true;
                     Atacando = true;
+                    particlesDeDaño.SetActive(true);
                 }
             }
         }

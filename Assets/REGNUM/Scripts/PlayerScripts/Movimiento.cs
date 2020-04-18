@@ -11,6 +11,9 @@ public class Movimiento : MonoBehaviour
     Rigidbody RB;
     Ataque AT;
     public ParticleSystem andarParticle;
+    public ParticleSystem andarParticle2;
+    public GameObject andarcubo1;
+    
 
     public float gravedad;
     public float velocidad = 5f;
@@ -31,11 +34,17 @@ public class Movimiento : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
+        andarcubo1.SetActive(false);
+     //   andarParticle.Pause();
+       // andarParticle2.Pause();
+
         if (player.isGrounded)
         {
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
             andarParticle.Play();
+            andarParticle2.Play();
+            andarcubo1.SetActive(true);
+
         }
         if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
         if (movDir.magnitude > 1)
