@@ -3307,11 +3307,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &100038717
 PrefabInstance:
@@ -6469,6 +6469,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!1001 &192796457
@@ -6682,11 +6687,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &197176150 stripped
 Transform:
@@ -7897,11 +7902,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &246366255
 PrefabInstance:
@@ -8332,11 +8337,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &255445028 stripped
 Transform:
@@ -8455,6 +8460,11 @@ PrefabInstance:
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2290981
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
@@ -9295,7 +9305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5407352
+      value: -7.9
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9303,7 +9313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9951928
+      value: 4.84
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9528,11 +9538,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &302706822 stripped
 Transform:
@@ -9870,11 +9880,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &313460484 stripped
 Transform:
@@ -10196,11 +10206,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &329374774
 PrefabInstance:
@@ -11515,6 +11525,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!4 &370433697 stripped
@@ -11704,6 +11719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11929,11 +11949,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &381500017
 PrefabInstance:
@@ -12528,11 +12548,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &409060240 stripped
 Transform:
@@ -15470,11 +15490,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &508250119
 PrefabInstance:
@@ -19095,15 +19115,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.603277
+      value: -3.5360622
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29013693
+      value: -0.2901368
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.543584
+      value: 8.872889
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -19111,7 +19131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99589986
+      value: 0.14574097
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -19119,7 +19139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.090462916
+      value: -0.9893228
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_RootOrder
@@ -19131,10 +19151,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 169.62001
+      value: 343.24
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21382,11 +21407,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &681890032
 PrefabInstance:
@@ -21401,15 +21426,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.982277
+      value: -6.464781
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29013693
+      value: -0.2901368
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.654584
+      value: 8.066315
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -21417,7 +21442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9439328
+      value: 0.3821522
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -21425,7 +21450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.33013773
+      value: -0.9240994
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_RootOrder
@@ -21437,10 +21462,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 141.446
+      value: 315.066
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23590,28 +23620,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ad8ef6890687249a641abef8e26baf, type: 3}
---- !u!1 &755673720 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 163320, guid: 67e45b9aed9a8fb4e86029884b2c05a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1080475885}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &755673724
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755673720}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.13000001, y: 1.2440001, z: 0.13000001}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.2440001, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1001 &756469455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31502,6 +31510,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!1001 &967057649
@@ -32925,15 +32938,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.042276
+      value: -8.540487
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29013693
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.8445837
+      value: 5.8957834
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -32941,7 +32954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.82632285
+      value: 0.6083055
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -32949,7 +32962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5631967
+      value: -0.79370296
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_RootOrder
@@ -32961,10 +32974,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 111.44601
+      value: 285.06598
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -33382,11 +33400,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &1017375624 stripped
 Transform:
@@ -34297,6 +34315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -35490,7 +35513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3202763
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35498,7 +35521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.536584
+      value: 6.84
       objectReference: {fileID: 0}
     - target: {fileID: 425576, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -37139,6 +37162,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!4 &1132183730 stripped
@@ -37252,11 +37280,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &1149212865 stripped
 Transform:
@@ -38675,11 +38703,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &1194102789
 PrefabInstance:
@@ -41706,11 +41734,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &1291471558 stripped
 Transform:
@@ -44072,6 +44100,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!1001 &1358117320
@@ -44163,11 +44196,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!4 &1363378933 stripped
 Transform:
@@ -45802,6 +45835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -47460,6 +47498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -50365,6 +50408,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!1001 &1533857943
@@ -51736,28 +51784,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1977757931}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1574429877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 163320, guid: 67e45b9aed9a8fb4e86029884b2c05a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 291848933}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &1574429881
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574429877}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.13000001, y: 1.2440001, z: 0.13000001}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.2440001, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!4 &1575461506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485480, guid: 32949ef0637572547b3ec7683f284b74,
@@ -56153,6 +56179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -61605,11 +61636,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6320001, y: 0.58900005, z: 0.113000005}
+  m_Extents: {x: 1.6320001, y: 0.58900005, z: 1.915}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -1.5150001, y: 0.64500004, z: -0.003}
+  m_Center: {x: -1.5150001, y: 0.64500004, z: 1.01}
   m_TimeToStationary: 0.5
 --- !u!1001 &1912487216
 PrefabInstance:
@@ -66219,6 +66250,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
 --- !u!1001 &2054747587
@@ -68884,6 +68920,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414272, guid: 02f5d17e0c791d94aa778001d3bbb58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64537939571610632, guid: 02f5d17e0c791d94aa778001d3bbb58f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -89122,8 +89163,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Cam
       value: 
-      objectReference: {fileID: 2111977736721126009, guid: d86e845b86e18e44399db5cc282a68a5,
-        type: 3}
+      objectReference: {fileID: 986968864}
     - target: {fileID: 868189855929180255, guid: 85b507b13076e2a408736d0e8db849dd,
         type: 3}
       propertyPath: andarParticle2
@@ -89318,7 +89358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 6.6893187}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &6133305402137140172
@@ -89378,7 +89418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6133305402964290588
 MonoBehaviour:
   m_ObjectHideFlags: 0
