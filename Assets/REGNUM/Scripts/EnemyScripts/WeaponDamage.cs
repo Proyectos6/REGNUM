@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] float damageWeapon = 10;
-    public GameObject dangre;
    
+    public SangrePlayer sangreJugador;
+
+    float timepo= 0;
 
     //DEAL DAMAGE TO PLAYER
     private void OnTriggerEnter(Collider other)
@@ -16,13 +18,16 @@ public class WeaponDamage : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<VidaPlayer>().TakeDamage(damageWeapon);
-            dangre.SetActive(true);
+            // dangre.SetActive(true);
+            sangreJugador.ApareceSangre();
+            
             
         }
+        else
+        {
+           
+        }
     }
-    private void Update()
-    {
-        dangre.SetActive(false);
-    }
+    
 
 }
