@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ASSETS EXTERNOS/PolygonKnights/Demo/DemoScene.unity
-    guid: c7214231c137bfb46bb461c5c95ec794
+    path: Assets/Scenes/MainMenu.unity
+    guid: a8f8ea48be548f141a3859d9ad2863e9
+  - enabled: 1
+    path: Assets/Scenes/TierraDeNadie.unity
+    guid: e6a50cbd1534ac344bf6cca3dbfe7c78
   m_configObjects: {}
