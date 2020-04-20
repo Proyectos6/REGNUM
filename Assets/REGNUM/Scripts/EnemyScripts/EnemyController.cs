@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
     EnemyAttack ataqueEnemy;
 
     bool isDie = false; //BUG CONTROL 
-
+    VisionEnemy visionEnemy;
 
     void Awake()
     {
@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
         //cmpAnimator = GetComponent<Animator>();
         //cmpWeaponCollider = GameObject.FindGameObjectWithTag("EnemyWeapon").GetComponent<CapsuleCollider>();
 
+        visionEnemy = GetComponent<VisionEnemy>();
     }
 
     private void Start()
@@ -88,9 +89,12 @@ public class EnemyController : MonoBehaviour
             {
                 if (estadoActual == EstadoEnemigo.Patrulla) //Estado Patrulla, Enemy ejecuta este comportamiento
                 {
-                    ComprobarLlegadaDestino();
-
-                    ComprobarAlertaPlayer();
+                    if (visionEnemy.ComprobarVisionAlJugador() == true) //Acceso al Componente Vision Enemigo, Metodo ComprobarVision
+                    {
+                        //print("TRUE ComprobarVision in ControlEnemigo"); DEBUG
+                        PerseguirPlayer();
+                    }
+                    ComprobarLlegadaDestino();                
                 }
 
                 else if (estadoActual == EstadoEnemigo.PersiguiendoPlayer) //Estado Perseguir Player
@@ -110,7 +114,6 @@ public class EnemyController : MonoBehaviour
             }
 
         }
-
     }
 
     void SetearDireccionPatrulla()
@@ -150,17 +153,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    void ComprobarAlertaPlayer()
-    {
-        distanciaConPlayer = Vector3.Distance(this.transform.position, goPlayer.transform.position);
-
-        if (distanciaConPlayer < distanciaAlerta)
-        {
-            PerseguirPlayer();
-        }
-
-
-    }
+   
 
     void PerseguirPlayer()
     {

@@ -5333,6 +5333,7 @@ GameObject:
   - component: {fileID: 2137885749735893367}
   - component: {fileID: 2137885749252853524}
   - component: {fileID: 5458515149083664598}
+  - component: {fileID: 1945257253}
   m_Layer: 0
   m_Name: EnemyBaseV4
   m_TagString: Enemigo
@@ -5546,6 +5547,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraVida: {fileID: 2137885750815760583}
+--- !u!114 &1945257253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464845198691604179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65be27f3d0d52734ca966ef51d2c1407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radioDeteccion: 5
+  angleVisionEnemy: 45
 --- !u!1 &8464845198709919447
 GameObject:
   m_ObjectHideFlags: 0
