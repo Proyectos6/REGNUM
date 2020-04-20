@@ -21980,9 +21980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2011086ef48fe5a4ba938432668f5295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaEnemy: 100
-  barritaVida: {fileID: 3956999179524438338}
-  vida: 100
 --- !u!1001 &774597717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22941,6 +22938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageWeapon: 10
+  sangreJugador: {fileID: 0}
 --- !u!23 &812378345
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39619,6 +39617,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1515869599}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1517096940 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4327273690390446092, guid: 24b8bf5c472581d44bc9c6d3e8e41366,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554032884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1517785651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40479,11 +40483,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4327273691090782261, guid: 24b8bf5c472581d44bc9c6d3e8e41366,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4327273691090782262, guid: 24b8bf5c472581d44bc9c6d3e8e41366,
         type: 3}
       propertyPath: Cam
       value: 
-      objectReference: {fileID: 1626725271}
+      objectReference: {fileID: 1517096940}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24b8bf5c472581d44bc9c6d3e8e41366, type: 3}
 --- !u!1001 &1554706740
@@ -42415,12 +42424,6 @@ Transform:
 --- !u!1 &1626725270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7596135084934890654, guid: 24b8bf5c472581d44bc9c6d3e8e41366,
-    type: 3}
-  m_PrefabInstance: {fileID: 1554032884}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1626725271 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5687998537623578862, guid: 24b8bf5c472581d44bc9c6d3e8e41366,
     type: 3}
   m_PrefabInstance: {fileID: 1554032884}
   m_PrefabAsset: {fileID: 0}
@@ -55836,8 +55839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f64353656d6984abf5cd124f0cd91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraVerde: {fileID: 7681405101183728991}
-  barraRoja: {fileID: 7941525736075215606}
 --- !u!4 &5415985441009763048
 Transform:
   m_ObjectHideFlags: 0
@@ -57602,16 +57603,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12760d3bd001fdd408e25460f26be4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goPosicionesRuta: {fileID: 7553205211735992733}
   puntosRuta:
   - {fileID: 7553205213196757793}
   - {fileID: 7553205211413811096}
   - {fileID: 7553205212825497453}
   - {fileID: 7553205211915813018}
-  goPosicionesRuta: {fileID: 7553205211735992733}
   distanciaAlerta: 10
   distanciaVueltaAlSpawn: 20
   distanciaSeparacionPlayer: 2
-  cmpWeaponCollider: {fileID: 0}
 --- !u!195 &7553205212531760380
 NavMeshAgent:
   m_ObjectHideFlags: 0

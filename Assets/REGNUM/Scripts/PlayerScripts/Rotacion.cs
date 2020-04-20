@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rotacion : MonoBehaviour
 {
     Vector3 mousePos;
-    Camera cam;
+    public Transform PTL;
     Rigidbody rid;
     Ataque Ataque;
     public GameObject[] Enemigos;
@@ -14,25 +14,17 @@ public class Rotacion : MonoBehaviour
     void Awake()
     {
         rid = this.GetComponent<Rigidbody>();
-        cam = Camera.main;
         Ataque = this.GetComponent<Ataque>();
         Enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
     }
-    void Update() 
+    void FixedUpdate() 
     {
         if (Ataque.Atacando == false)
         {
-            Ray cameraRay = cam.ScreenPointToRay(Input.mousePosition);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            float rayLength;
-            if (groundPlane.Raycast(cameraRay, out rayLength))
-            {
-
-                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-                pointToLook.y = transform.position.y;
-                Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
-            }
+            Vector3 pointToLook = PTL.position;
+            pointToLook.y = transform.position.y;
+            Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
         }
     }
     private void OnTriggerEnter(Collider col)
