@@ -13,7 +13,9 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public bool Atacando;
     //public ParticleSystem particleDaño;
     public KeyCode AtaquePesado;
+    KeyCode ataquePesadoJoystick=KeyCode.Joystick1Button4; //Input Mapping for Joystick;
     public KeyCode AtaqueLigero;
+    KeyCode ataqueLigeroJoystick=KeyCode.Joystick1Button5; //Input Mapping for Joystick;
     public float DañoAtaquePesado;
     public float DañoAtaqueLigero;
     [HideInInspector] public float TimerAtaqueLigero = 1.46f;
@@ -113,7 +115,7 @@ public class Ataque : MonoBehaviour
             if (Ataque2 == false)
             {
                 //particlesDeDaño.SetActive(false);
-                if (Input.GetKeyDown(AtaquePesado))
+                if (Input.GetKeyDown(AtaquePesado) || Input.GetKeyDown(ataquePesadoJoystick)) //condicion OR, Raton o Joystick activan el ataque
                 {
                     AnimacionesJugador.SetBool("AtaquePesado", true);
                     Daño = DañoAtaquePesado;
@@ -122,7 +124,7 @@ public class Ataque : MonoBehaviour
                     Atacando = true;
 
                 }
-                if (Input.GetKeyDown(AtaqueLigero))
+                if (Input.GetKeyDown(AtaqueLigero) || Input.GetKeyDown(ataqueLigeroJoystick)) //condicion OR, Raton o Joystick activan el ataque
                 {
                     AnimacionesJugador.SetBool("AtaqueLigero", true);
                     Daño = DañoAtaqueLigero;

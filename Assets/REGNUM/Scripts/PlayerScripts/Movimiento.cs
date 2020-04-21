@@ -29,8 +29,6 @@ public class Movimiento : MonoBehaviour
     private void Start()
     {
         VI = velocidad;
-        
-
     }
     void FixedUpdate()
     {
@@ -43,21 +41,22 @@ public class Movimiento : MonoBehaviour
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
             andarParticle.Play();
             andarParticle2.Play();
-           // andarcubo1.SetActive(true);
-
+            // andarcubo1.SetActive(true);
+            Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
+            Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
         }
         if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
         if (movDir.magnitude > 1)
-        {
-            
-            movDir.Normalize();
-            
+        {           
+            movDir.Normalize();       
         }
         if (AT.Atacando == false)
         {
             player.Move(movDir * velocidad * Time.deltaTime);
         }
-        Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.z));
+        //Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.z));
+        /*Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
+        Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));*/
         //Debug.Log(Mathf.Abs(player.velocity.z));
     }
 }

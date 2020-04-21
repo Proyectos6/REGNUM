@@ -9,6 +9,7 @@ TagManager:
   - EnemyWeapon
   - PlayerHealthbar
   - PlayerWeapon
+  - PlayerTargetPecho
   layers:
   - Default
   - TransparentFX
