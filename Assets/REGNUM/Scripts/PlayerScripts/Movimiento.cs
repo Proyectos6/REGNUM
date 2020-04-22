@@ -5,15 +5,14 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {
     CharacterController player;
-    Vector3 movDir;
+    public Vector3 movDir;
     float VI;
     public Animator Anim;
     Rigidbody RB;
     Ataque AT;
     public ParticleSystem andarParticle;
     public ParticleSystem andarParticle2;
-   // public GameObject andarcubo1;
-    
+    // public GameObject andarcubo1;
 
     public float gravedad;
     public float velocidad = 5f;
