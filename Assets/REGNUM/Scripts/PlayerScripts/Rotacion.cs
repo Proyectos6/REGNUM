@@ -14,7 +14,7 @@ public class Rotacion : MonoBehaviour
     public bool Fijando;
     public GameObject[] Enemigos;
     public int EnemigoFijado;
-    public float MaximaDistancia = 5;
+    public float MaximaDistancia = 15;
     public float MasCercano = 100000000;
     public float[] Distancia;
 
@@ -41,7 +41,7 @@ public class Rotacion : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.T))
         {
             if (MasCercano <= MaximaDistancia)
             {
@@ -52,6 +52,7 @@ public class Rotacion : MonoBehaviour
                 else
                 {
                     Fijando = true;
+                    MasCercano = 10000;
                 }
             }
 

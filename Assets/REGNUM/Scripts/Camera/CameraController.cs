@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
     public Ataque Ataque;
 
     Rotacion Rot;
+    Transform CamNF;
     
     
     private void Awake()
@@ -46,8 +47,9 @@ public class CameraController : MonoBehaviour
         float valorRotacionJoy = Input.GetAxis("CameraRootJoy") * yawSpeedJoystick * Time.deltaTime; //Rotacion Joystick, guardo variable 
 
         currentYaw -= (valorRotacionMouse + valorRotacionJoy); //Movimiento de la camara a traves de Raton y/o Mando. Pa elegir
-
         
+
+
 
     }
 
@@ -55,15 +57,14 @@ public class CameraController : MonoBehaviour
     {
         if (Rot.Fijando == false)
         {
-            
-            transform.position = target.position - offset * currentZoom;
-            transform.LookAt(target.position + Vector3.up * pitch);
-            transform.RotateAround(target.position, Vector3.up, currentYaw);
+                transform.position = target.position - offset * currentZoom;
+                transform.LookAt(target.position + Vector3.up * pitch);
+                transform.RotateAround(target.position, Vector3.up, currentYaw);
         }
         if (Rot.Fijando == true)
         {
-            transform.position = CamFija.position;
-            transform.rotation = CamFija.rotation;
+            transform.position = Vector3.MoveTowards(transform.position, CamFija.position, 50 * Time.deltaTime);
+            transform.LookAt(target.position + Vector3.up * pitch);
         }
     }
 }
