@@ -8,43 +8,87 @@ public class Rotacion : MonoBehaviour
     public Transform PTL;
     Rigidbody rid;
     Ataque Ataque;
-    public GameObject[] Enemigos;
     Movimiento Mov;
+
+    //Variables fijacion enemigos
+    public bool Fijando;
+    public GameObject[] Enemigos;
+    public int EnemigoFijado;
+    public float MaximaDistancia = 5;
+    public float MasCercano = 100000000;
+    public float[] Distancia;
 
     public float velocidadRotacion = 360;
     void Awake()
     {
         rid = this.GetComponent<Rigidbody>();
         Ataque = this.GetComponent<Ataque>();
-        Enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
         Mov = this.GetComponent<Movimiento>();
+
+        
     }
     void FixedUpdate() 
     {
-        if (Ataque.Atacando == false)
+        Enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+        Distancia = new float[Enemigos.Length];
+        for (int i = 0; i < Enemigos.Length; i++)
         {
-            if(Mov.movDir.x + Mov.movDir.z > 0)
+            Distancia[i] = Vector3.Distance(Enemigos[i].transform.position, transform.position);
+            if (Distancia[i] < MasCercano)
             {
-                Vector3 pointToLook = PTL.position;
-                pointToLook.y = transform.position.y;
-                Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
+                MasCercano = Distancia[i];
+                EnemigoFijado = i;
             }
-            if (Mov.movDir.x + Mov.movDir.z < 0)
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if (MasCercano <= MaximaDistancia)
             {
-                Vector3 pointToLook = PTL.position;
-                pointToLook.y = transform.position.y;
-                Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
+                if (Fijando == true)
+                {
+                    Fijando = false;
+                }
+                else
+                {
+                    Fijando = true;
+                }
             }
 
         }
-    }
-    private void OnTriggerEnter(Collider col)
-    {
 
+        if (Fijando == false)
+        {
+            if (Ataque.Atacando == false)
+            {
+                if (Mov.movDir.x + Mov.movDir.z > 0)
+                {
+                    Vector3 pointToLook = PTL.position;
+                    pointToLook.y = transform.position.y;
+                    Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
+                }
+                if (Mov.movDir.x + Mov.movDir.z < 0)
+                {
+                    Vector3 pointToLook = PTL.position;
+                    pointToLook.y = transform.position.y;
+                    Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
+                }
+            }
+        }
+        if (Fijando == true)
+        {
+            if (Ataque.Atacando == false)
+            {
+                Vector3 pointToLook = Enemigos[EnemigoFijado].transform.position;
+                pointToLook.y = transform.position.y;
+                Quaternion mirar = Quaternion.LookRotation(pointToLook - transform.position);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, mirar, velocidadRotacion * Time.deltaTime);
+            }
+        }
+        
     }
-
 
 }
 
