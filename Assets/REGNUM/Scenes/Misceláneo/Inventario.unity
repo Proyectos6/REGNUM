@@ -1083,22 +1083,6 @@ MonoBehaviour:
   SlotGridRectTransform: {fileID: 867017412}
   mainInventory: 1
   ItemsInInventory:
-  - itemName: Madera
-    itemID: 2
-    itemDesc: Pollas
-    itemIcon: {fileID: 21300000, guid: 766be09fb7bd2cb429812a35ae4640e3, type: 3}
-    itemModel: {fileID: 100000, guid: 40da790cc27843b45b9c255c8d996b43, type: 3}
-    itemValue: 1
-    itemType: 1
-    itemWeight: 0
-    maxStack: 10
-    indexItemInList: 0
-    rarity: 62
-    itemAttributes:
-    - attributeName: Health
-      attributeValue: 20
-    - attributeName: Armor
-      attributeValue: 20
   - itemName: Iron Helmet
     itemID: 2
     itemDesc: 'This helmet is created out of iron.
