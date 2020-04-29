@@ -100,7 +100,6 @@ public class EnemyController : MonoBehaviour
                 else if (estadoActual == EstadoEnemigo.PersiguiendoPlayer) //Estado Perseguir Player
                 {
                     PerseguirPlayer();
-
                     ComprobarAlejarseElPlayer();
                     ComprobarDistanciaVolver();
 
@@ -121,7 +120,6 @@ public class EnemyController : MonoBehaviour
         estadoActual = EstadoEnemigo.Patrulla;
 
         Transform destinoActual = puntosRuta[puntoActualRuta];
-        cmpAgent.SetDestination(destinoActual.position);
 
         //cmpAgent.stoppingDistance = 0; //Para que el enemigo llegue hasta el punto
     }

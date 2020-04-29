@@ -41,7 +41,7 @@ public class Rotacion : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.T))
+        if (Input.GetKey(KeyCode.T))
         {
             if (MasCercano <= MaximaDistancia)
             {

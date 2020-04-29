@@ -36,7 +36,7 @@ public class SangrePlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (activarContador == true) //el contador es el propio alpha del objeto que marca cuando llega al mínimo (desaparece) se desactiva el contador.
@@ -49,7 +49,7 @@ public class SangrePlayer : MonoBehaviour
            
             
 
-            actualAlpha -= velocidadChange * Time.deltaTime; //resto valor al alpha actual
+            actualAlpha -= velocidadChange * Time.fixedDeltaTime; //resto valor al alpha actual
             cambioColor = new Color(1, 1, 1, actualAlpha); //guardo el valor del color
             //sprRender.color = cambioColor; //actualiza el color
                                            //print(actualAlpha + " es el alpha de desaparecer");
