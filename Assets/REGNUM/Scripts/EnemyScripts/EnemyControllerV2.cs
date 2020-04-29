@@ -28,6 +28,7 @@ public class EnemyControllerV2 : MonoBehaviour
     VisionEnemy visionEnemy;
 
     public int puntoRutaActual = 0;
+    public Transform DemasiadoCerca;
 
     void Awake()
     {
@@ -79,10 +80,20 @@ public class EnemyControllerV2 : MonoBehaviour
     }
     void FollowPlayer()
     {
-        cmpAgent.stoppingDistance = distanciaSeparacionPlayer;
-        cmpAgent.SetDestination(Player.transform.position);
         transform.LookAt(Player.transform.position);
-
+        float Dist = Vector3.Distance(Player.transform.position, transform.position);
+        if (Dist > distanciaSeparacionPlayer)
+        {
+            cmpAgent.SetDestination(Player.transform.position);
+        }
+        else if (Dist < distanciaSeparacionPlayer)
+        {
+            cmpAgent.SetDestination(DemasiadoCerca.position);
+        }
+        else
+        {
+            
+        }
     }
     private void OnTriggerEnter(Collider col)
     {
