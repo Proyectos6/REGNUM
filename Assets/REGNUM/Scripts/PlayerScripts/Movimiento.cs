@@ -37,6 +37,7 @@ public class Movimiento : MonoBehaviour
     void FixedUpdate()
     {
         //andarcubo1.SetActive(false);
+        ComenzarEsquivar();
 
         andarParticle.Stop();
         andarParticle2.Stop();
@@ -60,7 +61,6 @@ public class Movimiento : MonoBehaviour
             player.Move(movDir * velocidad * Time.deltaTime);
         }
 
-        ComenzarEsquivar();
 
     }
 
@@ -71,6 +71,7 @@ public class Movimiento : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(movDir);
             isEsquivando = true;
+            Anim.SetTrigger("EsquivarPlayer");
         }
 
     }
@@ -95,7 +96,6 @@ public class Movimiento : MonoBehaviour
             Vector3 difPos = rootPosicion - this.transform.position;
             //transform.Translate(difPos, Space.World);
             player.Move(difPos);
-            Anim.SetTrigger("EsquivarPlayer");
         }
     }
 }
