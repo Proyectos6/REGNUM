@@ -66,7 +66,8 @@ public class PushBack : MonoBehaviour
         {
             Vector3 rootPos = cmpAnimator.rootPosition; //donde quiere animacion q este personaje
             Vector3 difPos = rootPos - this.transform.position;
-            transform.Translate(difPos, Space.World);
+
+            GetComponent<CharacterController>().Move(difPos);
 
             //totalMove += difPos.magnitude; DEBUG TESTING 
         }

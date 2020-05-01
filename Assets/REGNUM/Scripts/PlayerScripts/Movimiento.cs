@@ -20,6 +20,7 @@ public class Movimiento : MonoBehaviour
 
     public bool isEsquivando = false;
 
+    public bool usarRootMotion = true;
 
     void Awake()
     {
@@ -34,10 +35,9 @@ public class Movimiento : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         //andarcubo1.SetActive(false);
-        ComenzarEsquivar();
 
         andarParticle.Stop();
         andarParticle2.Stop();
@@ -47,31 +47,45 @@ public class Movimiento : MonoBehaviour
             andarParticle.Play();
             andarParticle2.Play();
             // andarcubo1.SetActive(true);
-            Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
-            Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
 
         }
-        if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
+        AplicarGravedad();
         if (movDir.magnitude > 1)
         {
             movDir.Normalize();
         }
-        if (AT.Atacando == false)
-        {
-            player.Move(movDir * velocidad * Time.deltaTime);
-        }
 
+        ComenzarEsquivar();
+
+        MovimientoPlayer();
 
     }
 
+    private void AplicarGravedad()
+    {
+        if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
+    }
+
+    private void MovimientoPlayer()
+    {
+        if (AT.Atacando == false && !isEsquivando)
+        {
+            Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
+            Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
+            player.Move(movDir * velocidad * Time.deltaTime);
+        }
+    }
 
     void ComenzarEsquivar()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !AT.Atacando)
+        if (AT.Atacando == false && !isEsquivando)
         {
-            transform.rotation = Quaternion.LookRotation(movDir);
-            isEsquivando = true;
-            Anim.SetTrigger("EsquivarPlayer");
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                transform.rotation = Quaternion.LookRotation(movDir);
+                isEsquivando = true;
+            }
+
         }
 
     }
@@ -84,11 +98,6 @@ public class Movimiento : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        EsquivarComportamiento();
-    }
-
-    private void EsquivarComportamiento()
-    {
         if (isEsquivando)
         {
             //Vector3 rootRotation = direccionEsquivar;
@@ -96,6 +105,8 @@ public class Movimiento : MonoBehaviour
             Vector3 difPos = rootPosicion - this.transform.position;
             //transform.Translate(difPos, Space.World);
             player.Move(difPos);
+            Anim.SetTrigger("EsquivarPlayer");
         }
     }
 }
+

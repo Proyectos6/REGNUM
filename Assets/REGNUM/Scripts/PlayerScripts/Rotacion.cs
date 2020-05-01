@@ -15,7 +15,7 @@ public class Rotacion : MonoBehaviour
     public GameObject[] Enemigos;
     public int EnemigoFijado;
     public float MaximaDistancia = 15;
-    public float MasCercano = 100000000;
+    public float MasCercano = 1000;
     public float[] Distancia;
 
     public float velocidadRotacion = 360;
