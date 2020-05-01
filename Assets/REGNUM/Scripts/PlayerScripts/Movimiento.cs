@@ -21,6 +21,7 @@ public class Movimiento : MonoBehaviour
     public bool isEsquivando = false;
 
     public bool usarRootMotion = true;
+   
 
     void Awake()
     {
@@ -80,12 +81,12 @@ public class Movimiento : MonoBehaviour
     {
         if (AT.Atacando == false && !isEsquivando)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            //if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Joystick1Button0)) Teclas configuradaas en InputManager-> EsquivarInput       
+            if(Input.GetButtonDown("EsquivarInput"))
             {
                 transform.rotation = Quaternion.LookRotation(movDir);
                 isEsquivando = true;
             }
-
         }
 
     }
