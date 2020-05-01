@@ -60,7 +60,7 @@ public class Rotacion : MonoBehaviour
 
         if (Fijando == false)
         {
-            if (Ataque.Atacando == false)
+            if (Ataque.Atacando == false && !Mov.isEsquivando)
             {
                 if (Mov.movDir.x + Mov.movDir.z > 0)
                 {

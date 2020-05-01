@@ -18,6 +18,9 @@ public class Movimiento : MonoBehaviour
     public float velocidad = 5f;
     public Transform Cam;
 
+    public bool isEsquivando = false;
+
+
     void Awake()
     {
         RB = GetComponent<Rigidbody>();
@@ -29,13 +32,15 @@ public class Movimiento : MonoBehaviour
     {
         VI = velocidad;
     }
+
+
     void FixedUpdate()
     {
         //andarcubo1.SetActive(false);
 
         andarParticle.Stop();
         andarParticle2.Stop();
-        if (player.isGrounded)
+        if (player.isGrounded && !isEsquivando)
         {
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
             andarParticle.Play();
@@ -43,19 +48,54 @@ public class Movimiento : MonoBehaviour
             // andarcubo1.SetActive(true);
             Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
             Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
+
         }
         if (player.isGrounded == false) { movDir.y -= gravedad * Time.deltaTime; }
         if (movDir.magnitude > 1)
-        {           
-            movDir.Normalize();       
+        {
+            movDir.Normalize();
         }
         if (AT.Atacando == false)
         {
             player.Move(movDir * velocidad * Time.deltaTime);
         }
-        //Anim.SetFloat("Velocidad", Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.z));
-        /*Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
-        Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));*/
-        //Debug.Log(Mathf.Abs(player.velocity.z));
+
+        ComenzarEsquivar();
+
+    }
+
+
+    void ComenzarEsquivar()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !AT.Atacando)
+        {
+            transform.rotation = Quaternion.LookRotation(movDir);
+            isEsquivando = true;
+        }
+
+    }
+
+    public void AnimEventFinishEsquivar()
+    {
+        isEsquivando = false;
+        Anim.ResetTrigger("EsquivarPlayer");
+    }
+
+    private void OnAnimatorMove()
+    {
+        EsquivarComportamiento();
+    }
+
+    private void EsquivarComportamiento()
+    {
+        if (isEsquivando)
+        {
+            //Vector3 rootRotation = direccionEsquivar;
+            Vector3 rootPosicion = Anim.rootPosition;
+            Vector3 difPos = rootPosicion - this.transform.position;
+            //transform.Translate(difPos, Space.World);
+            player.Move(difPos);
+            Anim.SetTrigger("EsquivarPlayer");
+        }
     }
 }
