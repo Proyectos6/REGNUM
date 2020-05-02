@@ -12,7 +12,7 @@ public class EnemyControllerV2 : MonoBehaviour
     [Header("AI Distance")]
     [SerializeField] float distanciaSeparacionPlayer = 2f;
 
-    float distanciaConPlayer;
+    float distanciaDetectar = 10;
 
     //COMPONENTES
     GameObject Player;
@@ -59,10 +59,11 @@ public class EnemyControllerV2 : MonoBehaviour
             {
                 if(Escape == false) 
                 {
-                    if (playerAlert == true)
+                    float Dist = Vector3.Distance(Player.transform.position, transform.position);
+                    if (Dist < distanciaDetectar)
                     {
 
-                        float Dist = Vector3.Distance(Player.transform.position, transform.position);
+                        
                         if (Dist > distanciaSeparacionPlayer)
                         {
                             FollowPlayer();
