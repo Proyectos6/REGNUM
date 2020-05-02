@@ -10,22 +10,28 @@ public class EnemyControllerV2 : MonoBehaviour
     [SerializeField] Transform[] puntosRuta; //Array de puntos a los que irá en ruta
 
     [Header("AI Distance")]
-    [SerializeField] float distanciaAlerta = 10;
-    [SerializeField] float distanciaVueltaAlSpawn = 20;
-    [SerializeField] float distanciaSeparacionPlayer = 2;
+    [SerializeField] float distanciaSeparacionPlayer = 2f;
 
     float distanciaConPlayer;
-    Vector3 puntoSpawn;
 
     //COMPONENTES
     GameObject Player;
+    public GameObject Alerta;
     NavMeshAgent cmpAgent; //Componente del Enemy (IA)
     private NavMeshPath caminoHaciaDestino;
-    EnemyAttack ataqueEnemy;
+    Animator Anim;
+    public Collider Arma;
 
     bool isDie = false; //BUG CONTROL 
     bool playerAlert = false;
+    bool Attack = false;
+    bool Escape = false;
     VisionEnemy visionEnemy;
+
+
+    float TimeGoBack = 0.5f;
+    float TimeToAttack = 1f;
+
 
     public int puntoRutaActual = 0;
     public Transform DemasiadoCerca;
@@ -36,9 +42,7 @@ public class EnemyControllerV2 : MonoBehaviour
 
         Player = GameObject.FindGameObjectWithTag("Player");
 
-        ataqueEnemy = GetComponent<EnemyAttack>();
-
-        //cmpAnimator = GetComponent<Animator>();
+        Anim = GetComponent<Animator>();
         //cmpWeaponCollider = GameObject.FindGameObjectWithTag("EnemyWeapon").GetComponent<CapsuleCollider>();
 
         visionEnemy = GetComponent<VisionEnemy>();
@@ -51,14 +55,42 @@ public class EnemyControllerV2 : MonoBehaviour
     {
         if (!isDie)
         {
-            if (playerAlert == true)
+            if (Attack == false)
             {
-                FollowPlayer();
+                if(Escape == false) 
+                {
+                    if (playerAlert == true)
+                    {
+
+                        float Dist = Vector3.Distance(Player.transform.position, transform.position);
+                        if (Dist > distanciaSeparacionPlayer)
+                        {
+                            FollowPlayer();
+                        }
+                        else
+                        {
+                            Attack = true;
+                            Debug.Log("ActivoAtaque");
+                        }
+
+                        Debug.Log("Siguiendo");
+                    }
+                    else
+                    {
+                        Patrol();
+                    }
+                }
+                else
+                {
+                    Huir();
+                }
+                
             }
             else
             {
-                Patrol();
+                Atacando();
             }
+            
         } 
     }
     void Patrol()
@@ -81,19 +113,49 @@ public class EnemyControllerV2 : MonoBehaviour
     void FollowPlayer()
     {
         transform.LookAt(Player.transform.position);
-        float Dist = Vector3.Distance(Player.transform.position, transform.position);
-        if (Dist > distanciaSeparacionPlayer)
+        cmpAgent.SetDestination(Player.transform.position);
+    }
+    void Huir()
+    {
+        TimeGoBack -= Time.deltaTime;
+        if (TimeGoBack <= 0)
         {
-            cmpAgent.SetDestination(Player.transform.position);
-        }
-        else if (Dist < distanciaSeparacionPlayer)
-        {
-            cmpAgent.SetDestination(DemasiadoCerca.position);
-        }
-        else
-        {
+            TimeGoBack = 0.5f;
+            Escape = false;
             
         }
+        transform.LookAt(Player.transform.position);
+        cmpAgent.SetDestination(DemasiadoCerca.position);
+    }
+    void Atacando()
+    {
+        Alerta.SetActive(true);
+        transform.LookAt(Player.transform.position);
+        cmpAgent.SetDestination(transform.position);
+        TimeToAttack -= Time.deltaTime;
+        if (TimeToAttack <= 0)
+        {
+            Anim.SetBool("Atacar", true);
+            Alerta.SetActive(false);
+        }
+        
+    }
+    void ColliderArmaActive()
+    {
+        Arma.enabled = true;
+    }
+    void ColliderArmaDesActive()
+    {
+        Arma.enabled = false;
+    }
+    void FinishAttack()
+    {
+        Anim.SetBool("Atacar", false);
+        Attack = false;
+        Escape = true;
+        TimeToAttack = 1f;
+
+        Debug.Log("NOMORE ATTACK");
     }
     private void OnTriggerEnter(Collider col)
     {
