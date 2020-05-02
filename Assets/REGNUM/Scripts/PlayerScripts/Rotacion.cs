@@ -9,6 +9,7 @@ public class Rotacion : MonoBehaviour
     Rigidbody rid;
     Ataque Ataque;
     Movimiento Mov;
+    AttackPlayer cmpAttack;
 
     //Variables fijacion enemigos
     public bool Fijando;
@@ -24,7 +25,7 @@ public class Rotacion : MonoBehaviour
         rid = this.GetComponent<Rigidbody>();
         Ataque = this.GetComponent<Ataque>();
         Mov = this.GetComponent<Movimiento>();
-
+        cmpAttack = GetComponent<AttackPlayer>();
         
     }
     void FixedUpdate() 
@@ -60,7 +61,7 @@ public class Rotacion : MonoBehaviour
 
         if (Fijando == false)
         {
-            if (Ataque.Atacando == false && !Mov.isEsquivando)
+            if (!Mov.isEsquivando && !cmpAttack.IsAttacking)
             {
                 if (Mov.movDir.x + Mov.movDir.z > 0)
                 {

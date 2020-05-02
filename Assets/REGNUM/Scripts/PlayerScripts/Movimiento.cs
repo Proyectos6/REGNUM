@@ -8,8 +8,6 @@ public class Movimiento : MonoBehaviour
     public Vector3 movDir;
     float VI;
     public Animator Anim;
-    Rigidbody RB;
-    Ataque AT;
     public ParticleSystem andarParticle;
     public ParticleSystem andarParticle2;
     // public GameObject andarcubo1;
@@ -23,13 +21,14 @@ public class Movimiento : MonoBehaviour
     public bool usarRootMotion = true;
 
     PushBackPlayer cmpPushBackPlayer;
-
+    Rigidbody RB;
+    AttackPlayer cmpAttack;
     void Awake()
     {
         RB = GetComponent<Rigidbody>();
         player = GetComponent<CharacterController>();
-        AT = GetComponent<Ataque>();
         cmpPushBackPlayer = GetComponent<PushBackPlayer>();
+        cmpAttack = GetComponent<AttackPlayer>();
     }
     private void Start()
     {
@@ -60,14 +59,15 @@ public class Movimiento : MonoBehaviour
             movDir.Normalize();
         }
 
-        if (AT.Atacando == false && !isEsquivando && !cmpPushBackPlayer.IsPushBack)
+        if (!isEsquivando && !cmpPushBackPlayer.IsPushBack)
         {
-            ComenzarEsquivar();
+            if (!cmpAttack.IsAttacking)
+            {
+                ComenzarEsquivar();
 
-            MovimientoPlayer();
+                MovimientoPlayer();
+            }
         }
-
-
     }
 
     private void AplicarGravedad()
@@ -88,12 +88,12 @@ public class Movimiento : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Joystick1Button0)) Teclas configuradaas en InputManager-> EsquivarInput       
         if (Input.GetButtonDown("EsquivarInput"))
         {
-            if (Input.GetAxis("Vertical")==0 && Input.GetAxis("Horizontal")==0) //BUG CONTROL
+            if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0) //BUG CONTROL
             {
                 movDir = Cam.forward * 2;
             }
-      
-            transform.rotation = Quaternion.LookRotation(movDir);                               
+
+            transform.rotation = Quaternion.LookRotation(movDir);
             isEsquivando = true;
             SendMessage("InmortalOn");
         }

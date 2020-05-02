@@ -21,17 +21,17 @@ public class PushBackPlayer : MonoBehaviour
         isPushBack = false;
         SendMessage("InmortalOff");
         cmpAnimator.ResetTrigger("PushBackPlayer");
-        //Reseteo valores del Animator evitar Bugs
-        cmpAnimator.ResetTrigger("EsquivarPlayer");
-        cmpAnimator.SetBool("AtaquePesado", false);
-        cmpAnimator.SetBool("AtaqueLigero", false);
+
+        ResetTriggerAnim();   
     }
 
     void ActivePushPlayer()
     {
         isPushBack = true;
 
+        ResetTriggerAnim();
         cmpAnimator.SetTrigger("PushBackPlayer");
+
         //totalMove = 0;
     }
     private void OnAnimatorMove()
@@ -43,10 +43,16 @@ public class PushBackPlayer : MonoBehaviour
 
             cmpCC.Move(difPos);
 
-            cmpAnimator.SetBool("AtaquePesado", false);
-            cmpAnimator.SetBool("AtaqueLigero", false);
+            ResetTriggerAnim();
             //totalMove += difPos.magnitude; DEBUG TESTING 
         }
     }
 
+    void ResetTriggerAnim()
+    {
+        //Reseteo valores del Animator evitar Bugs
+        cmpAnimator.ResetTrigger("EsquivarPlayer");
+        cmpAnimator.ResetTrigger("AttackLigeroPlayer");
+        cmpAnimator.ResetTrigger("AttackLigeroPlayer");
+    }
 }

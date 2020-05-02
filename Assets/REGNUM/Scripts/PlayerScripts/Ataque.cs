@@ -93,7 +93,7 @@ public class Ataque : MonoBehaviour
 
     void Start()
     {
-        
+
         for (int i = 0; i < TriggersAltoRango.Length; i++)
         {
             TriggersAltoRango[i].SetActive(false);
@@ -103,37 +103,6 @@ public class Ataque : MonoBehaviour
         {
             Triggers[i].SetActive(false);
 
-        }
-    }
-    void Update()
-    {
-        
-        if (Ataque1 == false)
-        {
-       
-            //particlesDeDaño.SetActive(false);
-            if (Ataque2 == false)
-            {
-                //particlesDeDaño.SetActive(false);
-                if (Input.GetKeyDown(AtaquePesado) || Input.GetKeyDown(ataquePesadoJoystick)) //condicion OR, Raton o Joystick activan el ataque
-                {
-                    AnimacionesJugador.SetBool("AtaquePesado", true);
-                    Daño = DañoAtaquePesado;
-                    TimerGolpe = TimerAtaquePesado;
-                    Ataque2 = true;
-                    Atacando = true;
-
-                }
-                if (Input.GetKeyDown(AtaqueLigero) || Input.GetKeyDown(ataqueLigeroJoystick)) //condicion OR, Raton o Joystick activan el ataque
-                {
-                    AnimacionesJugador.SetBool("AtaqueLigero", true);
-                    Daño = DañoAtaqueLigero;
-                    TimerGolpe = TimerAtaqueLigero;
-                    Ataque1 = true;
-                    Atacando = true;
-                   // particlesDeDaño.SetActive(true);
-                }
-            }
         }
     }
 }
