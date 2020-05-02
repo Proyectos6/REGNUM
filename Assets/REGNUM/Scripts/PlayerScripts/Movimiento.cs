@@ -21,14 +21,15 @@ public class Movimiento : MonoBehaviour
     public bool isEsquivando = false;
 
     public bool usarRootMotion = true;
-   
+
+    PushBackPlayer cmpPushBackPlayer;
 
     void Awake()
     {
         RB = GetComponent<Rigidbody>();
         player = GetComponent<CharacterController>();
         AT = GetComponent<Ataque>();
-
+        cmpPushBackPlayer = GetComponent<PushBackPlayer>();
     }
     private void Start()
     {
@@ -42,7 +43,7 @@ public class Movimiento : MonoBehaviour
 
         andarParticle.Stop();
         andarParticle2.Stop();
-        if (player.isGrounded && !isEsquivando)
+        if (player.isGrounded)
         {
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
             andarParticle.Play();
@@ -56,9 +57,13 @@ public class Movimiento : MonoBehaviour
             movDir.Normalize();
         }
 
-        ComenzarEsquivar();
+        if (AT.Atacando == false && !isEsquivando && !cmpPushBackPlayer.IsPushBack)
+        {
+            ComenzarEsquivar();
+       
+            MovimientoPlayer();
+        }
 
-        MovimientoPlayer();
 
     }
 
@@ -69,18 +74,14 @@ public class Movimiento : MonoBehaviour
 
     private void MovimientoPlayer()
     {
-        if (AT.Atacando == false && !isEsquivando)
-        {
             Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
             Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
             player.Move(movDir * velocidad * Time.deltaTime);
-        }
+       
     }
 
     void ComenzarEsquivar()
-    {
-        if (AT.Atacando == false && !isEsquivando)
-        {
+    {  
             //if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Joystick1Button0)) Teclas configuradaas en InputManager-> EsquivarInput       
             if(Input.GetButtonDown("EsquivarInput"))
             {
@@ -88,8 +89,6 @@ public class Movimiento : MonoBehaviour
                 isEsquivando = true;
                 SendMessage("InmortalOn");
             }
-        }
-
     }
 
     public void AnimEventFinishEsquivar()

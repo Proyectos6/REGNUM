@@ -32,6 +32,7 @@ public class VidaBase : MonoBehaviour
         if (!isInmortal)
         {
             vidaActual -= damage;
+            SendMessage("ActivePushPlayer");
             if (vidaActual <= 0)
             {
                 Morir();
