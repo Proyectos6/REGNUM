@@ -7,9 +7,11 @@ public class Movimiento : MonoBehaviour
     CharacterController player;
     public Vector3 movDir;
     float VI;
-    public Animator Anim;
-    public ParticleSystem andarParticle;
-    public ParticleSystem andarParticle2;
+    public Animator cmpAnimator;
+    //public ParticleSystem andarParticle;
+    //public ParticleSystem andarParticle2;
+    PushBackPlayer cmpPushBackPlayer;
+    AttackPlayer cmpAttack;
     // public GameObject andarcubo1;
 
     public float gravedad;
@@ -20,15 +22,13 @@ public class Movimiento : MonoBehaviour
 
     public bool usarRootMotion = true;
 
-    PushBackPlayer cmpPushBackPlayer;
-    Rigidbody RB;
-    AttackPlayer cmpAttack;
+
     void Awake()
     {
-        RB = GetComponent<Rigidbody>();
         player = GetComponent<CharacterController>();
         cmpPushBackPlayer = GetComponent<PushBackPlayer>();
         cmpAttack = GetComponent<AttackPlayer>();
+        cmpAnimator = GetComponent<Animator>();
     }
     private void Start()
     {
@@ -40,16 +40,15 @@ public class Movimiento : MonoBehaviour
     {
         //andarcubo1.SetActive(false);
 
-        andarParticle.Stop();
-        andarParticle2.Stop();
+        //andarParticle.Stop();
+        //andarParticle2.Stop();
 
         if (player.isGrounded)
         {
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
-            andarParticle.Play();
-            andarParticle2.Play();
+            //andarParticle.Play();
+            //andarParticle2.Play();
             // andarcubo1.SetActive(true);
-
         }
 
         AplicarGravedad();
@@ -77,8 +76,8 @@ public class Movimiento : MonoBehaviour
 
     private void MovimientoPlayer()
     {
-        Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
-        Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
+        cmpAnimator.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
+        cmpAnimator.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
         player.Move(movDir * velocidad * Time.deltaTime);
 
     }
@@ -103,7 +102,7 @@ public class Movimiento : MonoBehaviour
     {
         isEsquivando = false;
         SendMessage("InmortalOff");
-        Anim.ResetTrigger("EsquivarPlayer");
+        cmpAnimator.ResetTrigger("EsquivarPlayer");
     }
 
     private void OnAnimatorMove()
@@ -111,11 +110,11 @@ public class Movimiento : MonoBehaviour
         if (isEsquivando)
         {
             //Vector3 rootRotation = direccionEsquivar;
-            Vector3 rootPosicion = Anim.rootPosition;
+            Vector3 rootPosicion = cmpAnimator.rootPosition;
             Vector3 difPos = rootPosicion - this.transform.position;
             //transform.Translate(difPos, Space.World);
             player.Move(difPos);
-            Anim.SetTrigger("EsquivarPlayer");
+            cmpAnimator.SetTrigger("EsquivarPlayer");
         }
     }
 }

@@ -27,12 +27,11 @@ public class VidaBase : MonoBehaviour
     }
 
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         if (!isInmortal)
         {
-            vidaActual -= damage;
-            SendMessage("ActivePushPlayer");
+            vidaActual -= damage;     
             if (vidaActual <= 0)
             {
                 Morir();

@@ -21,25 +21,21 @@ public class CameraController : MonoBehaviour
 
     private float currentZoom = 10f;
     private float currentYaw = 0f;
-    public Ataque Ataque;
+
 
     Rotacion Rot;
     Transform CamNF;
-    
-    
+
+
     private void Awake()
     {
-        Ataque = this.GetComponent<Ataque>();
-
         Player = GameObject.FindGameObjectWithTag("Player");
         target = Player.transform;
         Rot = Player.GetComponent<Rotacion>();
-        
-
     }
+
     void Update()
     {
-        
         currentZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
         currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
 
@@ -47,9 +43,6 @@ public class CameraController : MonoBehaviour
         float valorRotacionJoy = Input.GetAxis("CameraRootJoy") * yawSpeedJoystick * Time.deltaTime; //Rotacion Joystick, guardo variable 
 
         currentYaw -= (valorRotacionMouse + valorRotacionJoy); //Movimiento de la camara a traves de Raton y/o Mando. Pa elegir
-        
-
-
 
     }
 
@@ -57,9 +50,9 @@ public class CameraController : MonoBehaviour
     {
         if (Rot.Fijando == false)
         {
-                transform.position = target.position - offset * currentZoom;
-                transform.LookAt(target.position + Vector3.up * pitch);
-                transform.RotateAround(target.position, Vector3.up, currentYaw);
+            transform.position = target.position - offset * currentZoom;
+            transform.LookAt(target.position + Vector3.up * pitch);
+            transform.RotateAround(target.position, Vector3.up, currentYaw);
         }
         if (Rot.Fijando == true)
         {

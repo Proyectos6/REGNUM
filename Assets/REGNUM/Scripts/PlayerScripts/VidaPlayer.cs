@@ -23,4 +23,10 @@ public class VidaPlayer : VidaBase
        // print("no lo soy");
         isInmortal = false;
     }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        SendMessage("ActivePushPlayer");
+    }
 }

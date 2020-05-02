@@ -20,9 +20,9 @@ public class PushBackPlayer : MonoBehaviour
     {
         isPushBack = false;
         SendMessage("InmortalOff");
-        cmpAnimator.ResetTrigger("PushBackPlayer");
 
         ResetTriggerAnim();   
+        cmpAnimator.ResetTrigger("PushBackPlayer");
     }
 
     void ActivePushPlayer()
@@ -37,13 +37,11 @@ public class PushBackPlayer : MonoBehaviour
     private void OnAnimatorMove()
     {
         if (isPushBack)
-        {
+        {          
             Vector3 rootPos = cmpAnimator.rootPosition; //donde quiere animacion q este personaje
             Vector3 difPos = rootPos - this.transform.position;
 
-            cmpCC.Move(difPos);
-
-            ResetTriggerAnim();
+            cmpCC.Move(difPos);           
             //totalMove += difPos.magnitude; DEBUG TESTING 
         }
     }

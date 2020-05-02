@@ -108,8 +108,7 @@ public class Ataque : MonoBehaviour
 
         }
     }
-<<<<<<< HEAD
-=======
+    /*
     void Update()
     {
         
@@ -145,5 +144,5 @@ public class Ataque : MonoBehaviour
             }
         }
     }
->>>>>>> b8849dac06cacdaffaa441c615166800d59677f9
+    */
 }

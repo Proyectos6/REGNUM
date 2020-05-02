@@ -133,7 +133,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 605216874889979643}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.14497106
   m_Height: 1.1596829
   m_Direction: 1
@@ -152,7 +152,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageWeaponLigero: 10
   damageWeaponStrong: 50
-  cmpAnimator: {fileID: 6118862799819781389}
+--- !u!1 &2901082879605784688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2680914945351536670}
+  m_Layer: 0
+  m_Name: WalkParticleLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2680914945351536670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901082879605784688}
+  m_LocalRotation: {x: -0.000000029802315, y: -0.43990764, z: -0.000000022351736,
+    w: 0.898043}
+  m_LocalPosition: {x: -0.10900116, y: -0.03099978, z: 0.04799986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6118862799641969465}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3692804261568896667
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +492,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215682802075951658}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5279953400997733019
 GameObject:
@@ -828,7 +858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5306878375523445079
 Transform:
   m_ObjectHideFlags: 0
@@ -841,7 +871,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215682802075951658}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -2.482, y: 164.98601, z: 0.665}
 --- !u!198 &5306878375523445081
 ParticleSystem:
@@ -5769,7 +5799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215682802075951658}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 23.199, y: 0, z: 0}
 --- !u!1 &6118862799367079135
 GameObject:
@@ -6051,138 +6081,6 @@ Transform:
   m_Father: {fileID: 6118862800015898761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862799607829015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862799607829014}
-  - component: {fileID: 6118862799607829008}
-  - component: {fileID: 6118862799607829009}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_4Long"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862799607829014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799607829015}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -0.7, y: 0.5, z: -0.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &6118862799607829008
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799607829015}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 1}
-  m_Center: {x: -0.00000008393653, y: 0, z: 0.07}
---- !u!114 &6118862799607829009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799607829015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
---- !u!1 &6118862799609738590
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862799609738585}
-  - component: {fileID: 6118862799609738587}
-  - component: {fileID: 6118862799609738584}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_6"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862799609738585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799609738590}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0.7, y: 0.5, z: -0.54999995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!65 &6118862799609738587
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799609738590}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 0.6}
-  m_Center: {x: -0.00000006741817, y: 0, z: 0.0832029}
---- !u!114 &6118862799609738584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799609738590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862799611468245
 GameObject:
   m_ObjectHideFlags: 0
@@ -6290,76 +6188,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6118862800450568970}
+  - {fileID: 2680914945351536670}
+  - {fileID: 381574796289502384}
   - {fileID: 6118862799937672263}
   m_Father: {fileID: 7215682802075951658}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862799699759778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862799699759965}
-  - component: {fileID: 6118862799699759967}
-  - component: {fileID: 6118862799699759964}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_2"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862799699759965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799699759778}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6118862799699759967
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799699759778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 0.6371162}
-  m_Center: {x: 0, y: 0, z: -0.11814284}
---- !u!114 &6118862799699759964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799699759778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862799710266170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,17 +6398,17 @@ GameObject:
   m_Component:
   - component: {fileID: 7215682802075951658}
   - component: {fileID: 6118862799819781389}
+  - component: {fileID: 7544047601268073427}
   - component: {fileID: 6118862799819781394}
   - component: {fileID: 6118862799819781395}
   - component: {fileID: 6118862799819781392}
   - component: {fileID: 6118862799819781393}
-  - component: {fileID: 6118862799819781398}
-  - component: {fileID: 6118862799819781399}
   - component: {fileID: 3692804262636268652}
   - component: {fileID: 1232848282087380567}
   - component: {fileID: 3692804262636268654}
   - component: {fileID: 3692804262636268653}
   - component: {fileID: 6292918773489723520}
+  - component: {fileID: 164961600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6593,10 +6427,9 @@ Transform:
   m_LocalPosition: {x: 0, y: -4.26, z: 4.133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6118862800081240580}
   - {fileID: 6118862799641969465}
-  - {fileID: 7559011817563815086}
   - {fileID: 2824253555286875087}
+  - {fileID: 7559011817563815086}
   - {fileID: 7166715027414619928}
   - {fileID: 5306878375523445079}
   - {fileID: 4537402783226219099}
@@ -6623,6 +6456,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7544047601268073427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118862799819781396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184bb95b70d18f74fa713e486ec4bf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightFoot: {fileID: 381574796289502384}
+  leftFoot: {fileID: 2680914945351536670}
+  prefabPaticulasAndar: {fileID: 1645405965479860503, guid: 5b9d8640c95a38545b4a18e4b4f93e65,
+    type: 3}
 --- !u!143 &6118862799819781394
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6654,9 +6503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movDir: {x: 0, y: 0, z: 0}
-  Anim: {fileID: 6118862799819781389}
-  andarParticle: {fileID: 7559011817563815072}
-  andarParticle2: {fileID: 8822770658343770862}
+  cmpAnimator: {fileID: 6118862799819781389}
   gravedad: 1
   velocidad: 5
   Cam: {fileID: 2740675369206977995}
@@ -6698,62 +6545,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6118862799819781398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799819781396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 920ac19c7a33ce0498a39b2f95232a7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AnimacionesJugador: {fileID: 6118862799819781389}
-  Atacando: 0
-  AtaquePesado: 324
-  AtaqueLigero: 323
-  "Da\xF1oAtaquePesado": 0
-  "Da\xF1oAtaqueLigero": 0
-  TimerAtaqueLigero: 1.23
-  TimerAtaquePesado: 1.15
-  trail: {fileID: 0}
-  "particlesDeDa\xF1o": {fileID: 0}
-  Triggers:
-  - {fileID: 6118862800909568778}
-  - {fileID: 6118862799699759778}
-  - {fileID: 6118862800315753949}
-  - {fileID: 6118862800218071211}
-  - {fileID: 6118862800007938193}
-  - {fileID: 6118862799609738590}
-  TriggersAltoRango:
-  - {fileID: 6118862800485079788}
-  - {fileID: 6118862800766311984}
-  - {fileID: 6118862799998823952}
-  - {fileID: 6118862799607829015}
-  - {fileID: 6118862801299744063}
-  - {fileID: 6118862801001350452}
---- !u!114 &6118862799819781399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799819781396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c2ba06f00f6b7478d4c16d93a4ea1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Axe1HController: {fileID: 9100000, guid: aad6025e6e598ef429e80b26e612fa75, type: 2}
-  Axe2HController: {fileID: 9100000, guid: cbf5147de93216d4e93fa549005da5b4, type: 2}
-  Hacha1: {fileID: 6118862800914665993}
-  Hacha2: {fileID: 6118862801394356352}
-  AtaqueL_1HAxe: 1.23
-  AtaqueP_1HAxe: 1.15
-  AtaqueL_2HAxe: 1.46
-  AtaqueP_2HAxe: 2.56
 --- !u!208 &3692804262636268652
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -6821,6 +6612,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goWeapon: {fileID: 605216874889979643}
+  cmpColliderWeapon: {fileID: 3363151022090321453}
+--- !u!114 &164961600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118862799819781396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f3f69b0144c0946884fef4670bb6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageWeaponLigero: 10
+  damageWeaponStrong: 50
 --- !u!1 &6118862799859922702
 GameObject:
   m_ObjectHideFlags: 0
@@ -6942,140 +6748,8 @@ Transform:
   m_Children:
   - {fileID: 6118862800649883680}
   m_Father: {fileID: 6118862799641969465}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862799998823952
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862799998823955}
-  - component: {fileID: 6118862799998823949}
-  - component: {fileID: 6118862799998823954}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_3Long"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862799998823955
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799998823952}
-  m_LocalRotation: {x: -0, y: -0.38268277, z: -0, w: 0.92387986}
-  m_LocalPosition: {x: -0.7, y: 0.5, z: 0.54999995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: -45.000004, z: 0}
---- !u!65 &6118862799998823949
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799998823952}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 1}
-  m_Center: {x: -0.00000008393653, y: 0, z: 0.07}
---- !u!114 &6118862799998823954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862799998823952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
---- !u!1 &6118862800007938193
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800007938192}
-  - component: {fileID: 6118862800007938194}
-  - component: {fileID: 6118862800007938195}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_5"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800007938192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800007938193}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6118862800007938194
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800007938193}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 0.6371162}
-  m_Center: {x: 0, y: 0, z: 0.1181428}
---- !u!114 &6118862800007938195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800007938193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862800015898766
 GameObject:
   m_ObjectHideFlags: 0
@@ -7105,48 +6779,6 @@ Transform:
   m_Children:
   - {fileID: 6118862799506677287}
   m_Father: {fileID: 6118862799859922697}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862800081240581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800081240580}
-  m_Layer: 0
-  m_Name: TriggersAtaque
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800081240580
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800081240581}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6118862800909568773}
-  - {fileID: 6118862799699759965}
-  - {fileID: 6118862800315753948}
-  - {fileID: 6118862800218071210}
-  - {fileID: 6118862800007938192}
-  - {fileID: 6118862799609738585}
-  - {fileID: 6118862800485079791}
-  - {fileID: 6118862800766311987}
-  - {fileID: 6118862799998823955}
-  - {fileID: 6118862799607829014}
-  - {fileID: 6118862801299744062}
-  - {fileID: 6118862801001350455}
-  m_Father: {fileID: 7215682802075951658}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6118862800139539472
@@ -7212,72 +6844,6 @@ Transform:
   m_Father: {fileID: 6118862801255583435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862800218071211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800218071210}
-  - component: {fileID: 6118862800218071204}
-  - component: {fileID: 6118862800218071205}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_4"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800218071210
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800218071211}
-  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -0.7, y: 0.5, z: -0.54999995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &6118862800218071204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800218071211}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 0.6}
-  m_Center: {x: -0.00000006741817, y: 0, z: 0.0832029}
---- !u!114 &6118862800218071205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800218071211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862800241145444
 GameObject:
   m_ObjectHideFlags: 0
@@ -7340,72 +6906,6 @@ Transform:
   m_Father: {fileID: 6118862800649883680}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862800315753949
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800315753948}
-  - component: {fileID: 6118862800315753950}
-  - component: {fileID: 6118862800315753951}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_3"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800315753948
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800315753949}
-  m_LocalRotation: {x: -0, y: -0.38268277, z: -0, w: 0.92387986}
-  m_LocalPosition: {x: -0.7, y: 0.5, z: 0.54999995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -45.000004, z: 0}
---- !u!65 &6118862800315753950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800315753949}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 0.6}
-  m_Center: {x: -0.00000006741817, y: 0, z: -0.0832029}
---- !u!114 &6118862800315753951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800315753949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862800371418524
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,72 +7242,6 @@ Transform:
   m_Father: {fileID: 6118862801159534232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862800485079788
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800485079791}
-  - component: {fileID: 6118862800485079785}
-  - component: {fileID: 6118862800485079790}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_1Long"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800485079791
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800485079788}
-  m_LocalRotation: {x: -0, y: 0.38268277, z: -0, w: 0.92387986}
-  m_LocalPosition: {x: 0.7, y: 0.5, z: 0.54999995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
---- !u!65 &6118862800485079785
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800485079788}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 1}
-  m_Center: {x: -0.00000008393653, y: 0, z: 0.07}
---- !u!114 &6118862800485079790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800485079788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862800511698962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7943,7 +7377,6 @@ MonoBehaviour:
   pitch: 0.5
   yawSpeed: 10
   yawSpeedJoystick: 100
-  Ataque: {fileID: 6118862799819781398}
 --- !u!1 &6118862800600002023
 GameObject:
   m_ObjectHideFlags: 0
@@ -8181,72 +7614,6 @@ Transform:
   m_Father: {fileID: 6118862800169178327}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862800766311984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800766311987}
-  - component: {fileID: 6118862800766311981}
-  - component: {fileID: 6118862800766311986}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_2Long"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800766311987
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800766311984}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6118862800766311981
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800766311984}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 1}
-  m_Center: {x: -0.00000008393653, y: 0, z: 0.07}
---- !u!114 &6118862800766311986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800766311984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862800844947595
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,72 +7707,6 @@ Transform:
   m_Father: {fileID: 6118862801417645427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6118862800909568778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862800909568773}
-  - component: {fileID: 6118862800909568775}
-  - component: {fileID: 6118862800909568772}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_1"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862800909568773
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800909568778}
-  m_LocalRotation: {x: -0, y: 0.38268277, z: -0, w: 0.92387986}
-  m_LocalPosition: {x: 0.7, y: 0.5, z: 0.54999995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
---- !u!65 &6118862800909568775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800909568778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 0.6}
-  m_Center: {x: -0.00000006741817, y: 0, z: -0.0832029}
---- !u!114 &6118862800909568772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862800909568778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862800914665993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8610,72 +7911,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &6118862801001350452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862801001350455}
-  - component: {fileID: 6118862801001350449}
-  - component: {fileID: 6118862801001350454}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_6Long"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862801001350455
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862801001350452}
-  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0.7, y: 0.5, z: -0.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!65 &6118862801001350449
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862801001350452}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 1}
-  m_Center: {x: -0.00000008393653, y: 0, z: 0.07}
---- !u!114 &6118862801001350454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862801001350452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862801012956116
 GameObject:
   m_ObjectHideFlags: 0
@@ -9002,72 +8237,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &6118862801299744063
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6118862801299744062}
-  - component: {fileID: 6118862801299744056}
-  - component: {fileID: 6118862801299744057}
-  m_Layer: 0
-  m_Name: "ZonaDa\xF1oFase_5Long"
-  m_TagString: PlayerWeapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6118862801299744062
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862801299744063}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6118862800081240580}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6118862801299744056
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862801299744063}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1, z: 1}
-  m_Center: {x: -0.00000008393653, y: 0, z: 0.07}
---- !u!114 &6118862801299744057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118862801299744063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7228afee2282b419e19dc983a44d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hacha1H: {fileID: 6118862800914665993}
-  Hacha2H: {fileID: 6118862801394356352}
-  Anim: {fileID: 6118862799819781389}
-  sangreParticles: {fileID: 588846793886085562, guid: 310b92be0b50b264b8973f1553126a0a,
-    type: 3}
-  "Da\xF1oAxe1HL": 10
-  "Da\xF1oAxe1HP": 20
-  "Da\xF1oAxe2HL": 30
-  "Da\xF1oAxe2HP": 40
 --- !u!1 &6118862801394356352
 GameObject:
   m_ObjectHideFlags: 0
@@ -9331,7 +8500,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215682802075951658}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -2.482, y: 164.98601, z: 0.665}
 --- !u!198 &7042321607378267600
 ParticleSystem:
@@ -23902,7 +23071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7559011817563815086
 Transform:
   m_ObjectHideFlags: 0
@@ -23910,13 +23079,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7559011817563815085}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.146, y: -0.9899998, z: -0.593}
+  m_LocalRotation: {x: -0.000000059604638, y: -0.43991125, z: 0.00000017136334, w: 0.89804125}
+  m_LocalPosition: {x: 0.11299896, y: -0.9899998, z: -0.20200014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215682802075951658}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -52.196003, z: 0}
 --- !u!198 &7559011817563815072
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -28656,7 +27825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2824253555286875087
 Transform:
   m_ObjectHideFlags: 0
@@ -28664,13 +27833,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7856083961894151709}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.043, y: -0.9899998, z: -0.647}
+  m_LocalRotation: {x: 0, y: -0.43990785, z: 0, w: 0.898043}
+  m_LocalPosition: {x: -0.109, y: -0.9899998, z: -0.202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215682802075951658}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -52.196, z: 0}
 --- !u!198 &8822770658343770862
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -33393,3 +32562,33 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &7915061997858135109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381574796289502384}
+  m_Layer: 0
+  m_Name: WalkParticleRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381574796289502384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915061997858135109}
+  m_LocalRotation: {x: -0.000000059604638, y: -0.43991125, z: 0.00000017136334, w: 0.89804125}
+  m_LocalPosition: {x: 0.11299896, y: -0.03099978, z: 0.048}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6118862799641969465}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

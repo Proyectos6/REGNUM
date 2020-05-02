@@ -6,8 +6,7 @@ public class Rotacion : MonoBehaviour
 {
     Vector3 mousePos;
     public Transform PTL;
-    Rigidbody rid;
-    Ataque Ataque;
+
     Movimiento Mov;
     AttackPlayer cmpAttack;
 
@@ -22,11 +21,8 @@ public class Rotacion : MonoBehaviour
     public float velocidadRotacion = 360;
     void Awake()
     {
-        rid = this.GetComponent<Rigidbody>();
-        Ataque = this.GetComponent<Ataque>();
         Mov = this.GetComponent<Movimiento>();
-        cmpAttack = GetComponent<AttackPlayer>();
-        
+        cmpAttack = GetComponent<AttackPlayer>();      
     }
     void FixedUpdate() 
     {
@@ -81,7 +77,7 @@ public class Rotacion : MonoBehaviour
         }
         if (Fijando == true)
         {
-            if (Ataque.Atacando == false)
+            if (!cmpAttack.IsAttacking)
             {
                 Vector3 pointToLook = Enemigos[EnemigoFijado].transform.position;
                 pointToLook.y = transform.position.y;

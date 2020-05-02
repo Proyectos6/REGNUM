@@ -9,6 +9,7 @@ public class AttackPlayer : MonoBehaviour
     CharacterController cmpCC;
     Movimiento cmpMovimiento;
     PushBackPlayer cmpPushBack;
+    [SerializeField] Collider cmpColliderWeapon;
 
     bool isAttacking = false;
     public bool IsAttacking => isAttacking;
@@ -32,7 +33,7 @@ public class AttackPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        cmpColliderWeapon.enabled = false;
     }
 
     // Update is called once per frame
@@ -118,4 +119,11 @@ public class AttackPlayer : MonoBehaviour
         cmpAnimator.ResetTrigger("AttackLigeroPlayer");
 
     }
+
+
+    public void EventAnimColliderEnabled() //Activa/Desactiva Collider del arma para poder hacer daño.
+    {
+        cmpColliderWeapon.enabled = !cmpColliderWeapon.enabled; 
+    }
+
 }

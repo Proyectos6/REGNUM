@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ManagerArmasAnimaciones : MonoBehaviour
 {
-    Ataque AT;
+  /*
     Animator Anim;
 
     public RuntimeAnimatorController Axe1HController;
@@ -23,7 +23,7 @@ public class ManagerArmasAnimaciones : MonoBehaviour
     public float AtaqueP_2HAxe;
     void Awake()
     {
-        AT = GetComponent<Ataque>();
+       
         Anim = GetComponent<Animator>();
     }
     private void Start()
@@ -42,8 +42,8 @@ public class ManagerArmasAnimaciones : MonoBehaviour
                 Axe2H = true;
                 Hacha1.SetActive(false);
                 Hacha2.SetActive(true);
-                AT.TimerAtaqueLigero = AtaqueL_1HAxe;
-                AT.TimerAtaquePesado = AtaqueP_1HAxe;
+                //AT.TimerAtaqueLigero = AtaqueL_1HAxe;
+                //AT.TimerAtaquePesado = AtaqueP_1HAxe;
                 Anim.runtimeAnimatorController = Axe2HController;
                 Debug.Log("2Hand");
             }
@@ -53,11 +53,11 @@ public class ManagerArmasAnimaciones : MonoBehaviour
                 Axe1H = true;
                 Hacha2.SetActive(false);
                 Hacha1.SetActive(true);
-                AT.TimerAtaqueLigero = AtaqueL_2HAxe;
-                AT.TimerAtaquePesado = AtaqueP_2HAxe;
+                //AT.TimerAtaqueLigero = AtaqueL_2HAxe;
+                //AT.TimerAtaquePesado = AtaqueP_2HAxe;
                 Anim.runtimeAnimatorController = Axe1HController;
                 Debug.Log("1Hand");
             }
         }
-    }
+    }*/
 }
