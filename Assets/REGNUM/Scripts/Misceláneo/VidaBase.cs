@@ -18,7 +18,8 @@ public class VidaBase : MonoBehaviour
 
     protected Animator cmpAnimator;
 
-    
+    protected bool isInmortal = false;
+
     protected void Awake()
     {
         cmpAnimator = GetComponent<Animator>();
@@ -28,10 +29,13 @@ public class VidaBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        vidaActual -= damage;
-        if (vidaActual <= 0)
+        if (!isInmortal)
         {
-            Morir();
+            vidaActual -= damage;
+            if (vidaActual <= 0)
+            {
+                Morir();
+            }
         }
     }
 

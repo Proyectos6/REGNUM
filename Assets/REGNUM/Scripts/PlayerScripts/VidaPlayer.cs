@@ -12,39 +12,15 @@ public class VidaPlayer : VidaBase
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-
-    /*
-    [SerializeField] float playerMaxHealth = 50;
-    float actualHealth;
-
-    HealthBarPlayer cmpHealthbar;
-
-    private void Awake()
+    void InmortalOn()
     {
-        cmpHealthbar = GameObject.FindGameObjectWithTag("PlayerHealthbar").GetComponent<HealthBarPlayer>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        actualHealth = playerMaxHealth;
-        float inicialSliderValue = actualHealth / playerMaxHealth;
-        cmpHealthbar.SetSliderHealthbarSize(inicialSliderValue);
+        //print("soy inmortal");
+        isInmortal = true;
     }
 
-
-    //COMPORTAMIENTO- PERDER VIDA
-    public void TakeDamagePlayer(float damageFromWeapon)
+    void InmortalOff()
     {
-        actualHealth -= damageFromWeapon;
-
-        if (actualHealth <= 0)
-        {
-            print("YOU ARE DIE!");
-        }
-
-        float healthSliderValue = actualHealth / playerMaxHealth;
-        cmpHealthbar.SetSliderHealthbarSize(healthSliderValue);
-
+       // print("no lo soy");
+        isInmortal = false;
     }
-    */
 }

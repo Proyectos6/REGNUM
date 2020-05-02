@@ -86,6 +86,7 @@ public class Movimiento : MonoBehaviour
             {
                 transform.rotation = Quaternion.LookRotation(movDir);
                 isEsquivando = true;
+                SendMessage("InmortalOn");
             }
         }
 
@@ -94,6 +95,7 @@ public class Movimiento : MonoBehaviour
     public void AnimEventFinishEsquivar()
     {
         isEsquivando = false;
+        SendMessage("InmortalOff");
         Anim.ResetTrigger("EsquivarPlayer");
     }
 
