@@ -8,7 +8,7 @@ public class VidaPlayer : VidaBase
 
     protected override void Morir()
     {
-        //base.Morir();
+        base.Morir();      
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

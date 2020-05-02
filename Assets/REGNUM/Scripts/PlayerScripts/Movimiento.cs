@@ -43,6 +43,7 @@ public class Movimiento : MonoBehaviour
 
         andarParticle.Stop();
         andarParticle2.Stop();
+
         if (player.isGrounded)
         {
             movDir = Cam.forward * Input.GetAxis("Vertical") + Cam.right * Input.GetAxis("Horizontal");
@@ -51,7 +52,9 @@ public class Movimiento : MonoBehaviour
             // andarcubo1.SetActive(true);
 
         }
+
         AplicarGravedad();
+
         if (movDir.magnitude > 1)
         {
             movDir.Normalize();
@@ -60,7 +63,7 @@ public class Movimiento : MonoBehaviour
         if (AT.Atacando == false && !isEsquivando && !cmpPushBackPlayer.IsPushBack)
         {
             ComenzarEsquivar();
-       
+
             MovimientoPlayer();
         }
 
@@ -74,21 +77,26 @@ public class Movimiento : MonoBehaviour
 
     private void MovimientoPlayer()
     {
-            Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
-            Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
-            player.Move(movDir * velocidad * Time.deltaTime);
-       
+        Anim.SetFloat("SpeedForward", Input.GetAxis("Vertical"));
+        Anim.SetFloat("SpeedRight", Input.GetAxis("Horizontal"));
+        player.Move(movDir * velocidad * Time.deltaTime);
+
     }
 
     void ComenzarEsquivar()
-    {  
-            //if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Joystick1Button0)) Teclas configuradaas en InputManager-> EsquivarInput       
-            if(Input.GetButtonDown("EsquivarInput"))
+    {
+        //if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Joystick1Button0)) Teclas configuradaas en InputManager-> EsquivarInput       
+        if (Input.GetButtonDown("EsquivarInput"))
+        {
+            if (Input.GetAxis("Vertical")==0 && Input.GetAxis("Horizontal")==0) //BUG CONTROL
             {
-                transform.rotation = Quaternion.LookRotation(movDir);
-                isEsquivando = true;
-                SendMessage("InmortalOn");
+                movDir = Cam.forward * 2;
             }
+      
+            transform.rotation = Quaternion.LookRotation(movDir);                               
+            isEsquivando = true;
+            SendMessage("InmortalOn");
+        }
     }
 
     public void AnimEventFinishEsquivar()

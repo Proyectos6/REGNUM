@@ -42,7 +42,7 @@ public class VidaBase : MonoBehaviour
 
     protected virtual void Morir()
     {
-        //Dejo configurada linea para cuando tenga animacion de morir del player y del enemy.
-        //cmpAnimator.SetTrigger("Die");  
+        //Configurado activar animacion de Morir tanto en Player como en enemigo
+        cmpAnimator.SetTrigger("isDie");  
     }
 }
