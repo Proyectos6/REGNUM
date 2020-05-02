@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ataque : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class Ataque : MonoBehaviour
     public GameObject particlesDeDaño;
     public GameObject[] Triggers;
     public GameObject[] TriggersAltoRango;
+    public GameObject particulasHacha;
     
 
      
@@ -79,6 +81,7 @@ public class Ataque : MonoBehaviour
         Ataque2 = false;
         AnimacionesJugador.SetBool("AtaquePesado", false);
         AnimacionesJugador.SetBool("AtaqueLigero", false);
+        particulasHacha.SetActive(false);
         for (int i = 0; i < Triggers.Length; i++)
         {
             Triggers[i].SetActive(false);
@@ -105,4 +108,42 @@ public class Ataque : MonoBehaviour
 
         }
     }
+<<<<<<< HEAD
+=======
+    void Update()
+    {
+        
+        if (Ataque1 == false)
+        {
+       
+            //particlesDeDaño.SetActive(false);
+            if (Ataque2 == false)
+            {
+                //particlesDeDaño.SetActive(false);
+                if (Input.GetKeyDown(AtaquePesado) || Input.GetKeyDown(ataquePesadoJoystick)) //condicion OR, Raton o Joystick activan el ataque
+                {
+                    AnimacionesJugador.SetBool("AtaquePesado", true);
+                    Daño = DañoAtaquePesado;
+                    TimerGolpe = TimerAtaquePesado;
+                    Ataque2 = true;
+                    Atacando = true;
+                    particulasHacha.SetActive(true);
+
+                }
+                if (Input.GetKeyDown(AtaqueLigero) || Input.GetKeyDown(ataqueLigeroJoystick)) //condicion OR, Raton o Joystick activan el ataque
+                {
+                    AnimacionesJugador.SetBool("AtaqueLigero", true);
+                    Daño = DañoAtaqueLigero;
+                    TimerGolpe = TimerAtaqueLigero;
+                    Ataque1 = true;
+                    Atacando = true;
+                    particulasHacha.SetActive(true);
+
+                    
+                   // particlesDeDaño.SetActive(true);
+                }
+            }
+        }
+    }
+>>>>>>> b8849dac06cacdaffaa441c615166800d59677f9
 }

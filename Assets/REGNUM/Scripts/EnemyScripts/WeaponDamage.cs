@@ -19,7 +19,7 @@ public class WeaponDamage : MonoBehaviour
         {
             other.gameObject.GetComponent<VidaPlayer>().TakeDamage(damageWeapon);
             // dangre.SetActive(true);
-            sangreJugador.ApareceSangre();
+            //(sangreJugador.ApareceSangre();
             
             
         }
