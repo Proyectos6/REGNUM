@@ -62,7 +62,6 @@ public class EnemyControllerV2 : MonoBehaviour
                     float Dist = Vector3.Distance(Player.transform.position, transform.position);
                     if (Dist < distanciaDetectar)
                     {
-
                         
                         if (Dist > distanciaSeparacionPlayer)
                         {
@@ -79,6 +78,7 @@ public class EnemyControllerV2 : MonoBehaviour
                     else
                     {
                         Patrol();
+                        Debug.Log("Patrullar");
                     }
                 }
                 else
@@ -98,9 +98,9 @@ public class EnemyControllerV2 : MonoBehaviour
     {
         if(puntoRutaActual < puntosRuta.Length)
         {
-            float Dist = Vector3.Distance(puntosRuta[puntoRutaActual].position, transform.position);
+            float DistP = Vector3.Distance(puntosRuta[puntoRutaActual].position, transform.position);
             cmpAgent.SetDestination(new Vector3(puntosRuta[puntoRutaActual].position.x, transform.position.y, puntosRuta[puntoRutaActual].position.z));
-            if (Dist < 3)
+            if (DistP < 3)
             {
                 Debug.Log("llegue");
                 puntoRutaActual++;
