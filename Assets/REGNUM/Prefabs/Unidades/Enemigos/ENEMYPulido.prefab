@@ -425,7 +425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6957686257632566960}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582875724395267128
 GameObject:
@@ -496,12 +496,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612278857389780103}
-  m_LocalRotation: {x: 0.038429502, y: -0.1811452, z: -0.9827043, w: -0.0014201994}
-  m_LocalPosition: {x: -0.013, y: 0.506, z: 0.163}
-  m_LocalScale: {x: 0.59580964, y: 0.5958098, z: 0.59580976}
+  m_LocalRotation: {x: -3.6379784e-12, y: -0.0000000037252899, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6957686257632566960}
-  m_RootOrder: 3
+  m_Father: {fileID: 8637971052698522976}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -159.137, y: 175.395, z: 0.6819916}
 --- !u!198 &1612278857389780098
 ParticleSystem:
@@ -5225,6 +5225,37 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &5279297960837062574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8637971052698522976}
+  m_Layer: 0
+  m_Name: SangreEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8637971052698522976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279297960837062574}
+  m_LocalRotation: {x: 0.038429502, y: -0.1811452, z: -0.9827042, w: -0.0014201998}
+  m_LocalPosition: {x: -0.01300397, y: 0.50599986, z: 0.16299883}
+  m_LocalScale: {x: 0.5958099, y: 0.59580994, z: 0.59580976}
+  m_Children:
+  - {fileID: 1612278857389780096}
+  m_Father: {fileID: 6957686257632566960}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6957686256762081385
 GameObject:
   m_ObjectHideFlags: 0
@@ -6179,9 +6210,9 @@ Transform:
   - {fileID: 6957686258682997757}
   - {fileID: 602579474277281994}
   - {fileID: 602579472966215036}
-  - {fileID: 1612278857389780096}
   - {fileID: 1582875724253956079}
   - {fileID: 1582875725142479274}
+  - {fileID: 8637971052698522976}
   m_Father: {fileID: 1582875724395267129}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 4.848, y: 4.399, z: -0.013}
@@ -6294,6 +6325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaMax: 300
+  prefabSangreEnemy: {fileID: 5279297960837062574}
+  spawnSangre: {fileID: 0}
 --- !u!114 &602579473601611641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8138,7 +8171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425430, guid: cb19cf532cb13814ca5674b3a3784182, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 425430, guid: cb19cf532cb13814ca5674b3a3784182, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

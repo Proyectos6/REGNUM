@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class VidaEnemy : VidaBase
 {
-
+    public ParticleSystem sangreEnemy;
     [SerializeField] GameObject prefabSangreEnemy;
     [SerializeField] Transform spawnSangre;
     public override void TakeDamage(float damage)
@@ -17,9 +18,15 @@ public class VidaEnemy : VidaBase
 
     private void ParticulasSangreEnemy()
     {
-        GameObject particulaSangre = Instantiate(prefabSangreEnemy, spawnSangre.position, Quaternion.identity);
-        Destroy(particulaSangre, 2);
-        particulaSangre.transform.parent = null;
+       
+
+        prefabSangreEnemy.SetActive(true);
+       // sangreEnemy.Play();
+
+        // GameObject particulaSangre = Instantiate(prefabSangreEnemy, spawnSangre.position, Quaternion.identity);
+
+        Destroy(prefabSangreEnemy, 2);
+      // particulaSangre.transform.parent = null;
     }
 
     protected override void Morir()

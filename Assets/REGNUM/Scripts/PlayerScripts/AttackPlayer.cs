@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackPlayer : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class AttackPlayer : MonoBehaviour
     Movimiento cmpMovimiento;
     PushBackPlayer cmpPushBack;
     [SerializeField] Collider cmpColliderWeapon;
+    public GameObject paraticleESPADA;
 
     bool isAttacking = false;
     public bool IsAttacking => isAttacking;
@@ -83,6 +85,7 @@ public class AttackPlayer : MonoBehaviour
                 Vector3 rootPosicion = cmpAnimator.rootPosition;
                 Vector3 difPos = rootPosicion - this.transform.position;
                 cmpCC.Move(difPos);
+                paraticleESPADA.SetActive(true);
             }
 
             if (strongAttack)
@@ -91,6 +94,7 @@ public class AttackPlayer : MonoBehaviour
                 Vector3 rootPosicion = cmpAnimator.rootPosition;
                 Vector3 difPos = rootPosicion - this.transform.position;
                 cmpCC.Move(difPos);
+                paraticleESPADA.SetActive(true);
             }
         }
     }
@@ -101,12 +105,14 @@ public class AttackPlayer : MonoBehaviour
         lowAttack1 = false;
         isAttacking = false;
         ResetTriggerAnim();
+        paraticleESPADA.SetActive(false);
     }
     public void AnimEventFinishAttackStrong()
     {
         strongAttack = false;
         isAttacking = false;
         ResetTriggerAnim();
+        paraticleESPADA.SetActive(false);
     }
 
     void ResetTriggerAnim()
