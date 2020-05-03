@@ -55,10 +55,10 @@ public class AttackPlayer : MonoBehaviour
                     isAttacking = true;
                     lowAttack1 = true;
                 }
-                /*
+                
                 if (Input.GetKeyDown(AtaquePesado) || Input.GetKeyDown(ataquePesadoJoystick)) //condicion OR, Raton o Joystick activan el ataque
                 {
-                    cmpCollider.SendMessage("AttackStrongDamage");
+                    goWeapon.GetComponent<WeaponPlayer>().AttackStrongDamage();
                     if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0) //BUG CONTROL
                     {
                         cmpMovimiento.movDir = cmpMovimiento.Cam.forward * 2;
@@ -67,7 +67,7 @@ public class AttackPlayer : MonoBehaviour
                     isAttacking = true;
                     strongAttack = true;
                 }
-                */
+               
             }
         }
     }
@@ -87,7 +87,7 @@ public class AttackPlayer : MonoBehaviour
 
             if (strongAttack)
             {
-                cmpAnimator.SetTrigger("AttackPesadoPlayer");
+                cmpAnimator.SetTrigger("AttackStrongPlayer");
                 Vector3 rootPosicion = cmpAnimator.rootPosition;
                 Vector3 difPos = rootPosicion - this.transform.position;
                 cmpCC.Move(difPos);
@@ -119,7 +119,6 @@ public class AttackPlayer : MonoBehaviour
         cmpAnimator.ResetTrigger("AttackLigeroPlayer");
 
     }
-
 
     public void EventAnimColliderEnabled() //Activa/Desactiva Collider del arma para poder hacer daño.
     {

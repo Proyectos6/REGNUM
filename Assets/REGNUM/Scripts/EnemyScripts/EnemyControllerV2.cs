@@ -149,7 +149,7 @@ public class EnemyControllerV2 : MonoBehaviour
     {
         Arma.enabled = false;
     }
-    void FinishAttack()
+    public void FinishAttack()
     {
         Anim.SetBool("Atacar", false);
         Attack = false;

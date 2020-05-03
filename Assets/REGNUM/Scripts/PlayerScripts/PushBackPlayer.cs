@@ -51,6 +51,6 @@ public class PushBackPlayer : MonoBehaviour
         //Reseteo valores del Animator evitar Bugs
         cmpAnimator.ResetTrigger("EsquivarPlayer");
         cmpAnimator.ResetTrigger("AttackLigeroPlayer");
-        cmpAnimator.ResetTrigger("AttackLigeroPlayer");
+        cmpAnimator.ResetTrigger("AttackStrongPlayer");
     }
 }

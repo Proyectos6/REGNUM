@@ -51,7 +51,8 @@ public class PushBack : MonoBehaviour
         cmpAgent.updatePosition = true;
         cmpAgent.Warp(transform.position); //Warp Teletransporta        
         cmpAnimator.ResetTrigger("PushedBack");
-        GetComponent<EnemyAttack>().AnimEventFinishAttack(); //BUG CONTROL, desactivar el ataque. A veces se queda pillada la variable isAttacking;
+        GetComponent<EnemyControllerV2>().FinishAttack();
+        //GetComponent<EnemyAttack>().AnimEventFinishAttack(); //BUG CONTROL, desactivar el ataque. A veces se queda pillada la variable isAttacking;
         //print(totalMove); DEBUG TESTING
     }
 
