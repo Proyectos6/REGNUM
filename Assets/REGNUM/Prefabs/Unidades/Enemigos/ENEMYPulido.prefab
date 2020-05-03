@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1013375613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013375614}
+  m_Layer: 0
+  m_Name: SpawnSangre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013375614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013375613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.558, z: 0.231}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6957686258682997757}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602579472966215039
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612278857389780103}
   m_LocalRotation: {x: -3.6379784e-12, y: -0.0000000037252899, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.019, y: 0.534, z: 0.235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8637971052698522976}
@@ -5240,7 +5270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8637971052698522976
 Transform:
   m_ObjectHideFlags: 0
@@ -6188,7 +6218,6 @@ GameObject:
   - component: {fileID: 6788907668608723131}
   - component: {fileID: 1582875724687281480}
   - component: {fileID: 1582875724432361575}
-  - component: {fileID: 6957686257632566975}
   m_Layer: 0
   m_Name: EnemyBaseV5
   m_TagString: Enemigo
@@ -6325,8 +6354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaMax: 300
+  sangreEnemy: {fileID: 1612278857389780098}
   prefabSangreEnemy: {fileID: 5279297960837062574}
-  spawnSangre: {fileID: 0}
+  spawnSangre: {fileID: 1013375614}
 --- !u!114 &602579473601611641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6389,19 +6419,6 @@ MonoBehaviour:
   Arma: {fileID: 8478144363720264281}
   puntoRutaActual: 0
   DemasiadoCerca: {fileID: 1582875724253956079}
---- !u!135 &6957686257632566975
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6957686257632566974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 14.89
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6957686257646814906
 GameObject:
   m_ObjectHideFlags: 0
@@ -7761,6 +7778,7 @@ Transform:
   m_Children:
   - {fileID: 6957686258703534430}
   - {fileID: 6957686258297412144}
+  - {fileID: 1013375614}
   m_Father: {fileID: 6957686257632566960}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
