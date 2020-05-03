@@ -21,11 +21,12 @@ public class VidaEnemy : VidaBase
        
 
         prefabSangreEnemy.SetActive(true);
-       // sangreEnemy.Play();
+    
+       sangreEnemy.Play();
 
         // GameObject particulaSangre = Instantiate(prefabSangreEnemy, spawnSangre.position, Quaternion.identity);
 
-        Destroy(prefabSangreEnemy, 2);
+        //Destroy(prefabSangreEnemy, 2f);
       // particulaSangre.transform.parent = null;
     }
 

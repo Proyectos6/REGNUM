@@ -1920,6 +1920,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1975123102}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2064926036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2002604422055976794, guid: bd5abdd05580048489e68e7f3bf1cc7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5947420688277256708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4678632438123673418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2061,5 +2067,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.013
       objectReference: {fileID: 0}
+    - target: {fileID: 8223961779367516674, guid: bd5abdd05580048489e68e7f3bf1cc7c,
+        type: 3}
+      propertyPath: prefabSangreEnemy
+      value: 
+      objectReference: {fileID: 2064926036}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd5abdd05580048489e68e7f3bf1cc7c, type: 3}
