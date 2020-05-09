@@ -27,12 +27,12 @@ public class WalkingParticles : MonoBehaviour
         if (pie == 0)
         {
             pieActual = rightFoot;
-            print("Der");
+            // print("Der");
         }
         if (pie == 1)
         {
             pieActual = leftFoot;
-            print("Izqui");
+            //print("Izqui");
         }
 
         GameObject particula = Instantiate(prefabPaticulasAndar, pieActual.position, Quaternion.identity);

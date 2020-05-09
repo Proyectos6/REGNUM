@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class VidaPlayer : VidaBase
 {
-
+    
     protected override void Morir()
     {
         base.Morir();      

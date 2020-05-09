@@ -70,15 +70,15 @@ public class EnemyControllerV2 : MonoBehaviour
                         else
                         {
                             Attack = true;
-                            Debug.Log("ActivoAtaque");
+                          //  Debug.Log("ActivoAtaque");
                         }
 
-                        Debug.Log("Siguiendo");
+                     //   Debug.Log("Siguiendo");
                     }
                     else
                     {
                         Patrol();
-                        Debug.Log("Patrullar");
+                       // Debug.Log("Patrullar");
                     }
                 }
                 else
@@ -102,7 +102,7 @@ public class EnemyControllerV2 : MonoBehaviour
             cmpAgent.SetDestination(new Vector3(puntosRuta[puntoRutaActual].position.x, transform.position.y, puntosRuta[puntoRutaActual].position.z));
             if (DistP < 3)
             {
-                Debug.Log("llegue");
+                //Debug.Log("llegue");
                 puntoRutaActual++;
             }
         }
