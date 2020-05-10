@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: "Assets/REGNUM/Scenes/Men\xFAs/MainMenu.unity"
     guid: a8f8ea48be548f141a3859d9ad2863e9
   - enabled: 1
-    path: Assets/REGNUM/Scenes/ZonasCivilizaciones/Blockout_2.unity
-    guid: 3c9739c177b24a04da81808aca7aea4f
+    path: Assets/REGNUM/Scenes/ZonasCivilizaciones/CastilloMedieval.unity
+    guid: e6a50cbd1534ac344bf6cca3dbfe7c78
   m_configObjects: {}
