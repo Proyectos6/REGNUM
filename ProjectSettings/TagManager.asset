@@ -10,6 +10,22 @@ TagManager:
   - PlayerHealthbar
   - PlayerWeapon
   - PlayerTargetPecho
+  - ItemIcon
+  - Slot
+  - Item
+  - Slots
+  - MainInventory
+  - Tooltip
+  - CraftSystem
+  - EquipmentSystem
+  - DraggingItem
+  - Timer
+  - Canvas
+  - ResultSlot
+  - Panel
+  - Hotbar
+  - EventSystem
+  - Player_2
   layers:
   - Default
   - TransparentFX

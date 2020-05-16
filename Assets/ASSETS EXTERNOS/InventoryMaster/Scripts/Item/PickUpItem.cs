@@ -3,15 +3,18 @@ using System.Collections;
 public class PickUpItem : MonoBehaviour
 {
     public Item item;
+    [SerializeField]
     private Inventory _inventory;
+    [SerializeField]
     private GameObject _player;
     // Use this for initialization
 
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player_2");
         if (_player != null)
             _inventory = _player.GetComponent<PlayerInventory>().inventory.GetComponent<Inventory>();
+       
     }
 
     // Update is called once per frame

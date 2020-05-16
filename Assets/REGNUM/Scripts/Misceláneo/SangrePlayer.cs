@@ -9,7 +9,7 @@ public class SangrePlayer : MonoBehaviour
 
     public float maxAlpha, minAlpha, actualAlpha;
 
-    SpriteRenderer sprRender;
+    //SpriteRenderer sprRender;
     GameObject sangre;
      public Image imagen;
 
@@ -26,12 +26,12 @@ public class SangrePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprRender = GetComponentInChildren<SpriteRenderer>();
+        //sprRender = GetComponentInChildren<SpriteRenderer>();
         actualAlpha = maxAlpha;
         cambioColor = new Color(1, 1, 1, actualAlpha);
-        sprRender.color = cambioColor;
+        //sprRender.color = cambioColor;
 
-        sprRender.gameObject.SetActive(false);
+       //sprRender.gameObject.SetActive(false);
 
     }
 
