@@ -14,14 +14,17 @@ public class aRBOL : MonoBehaviour
 
     void Update()
     {
-        
+       
     }
 
-    void OnTriggerEnter (Collider col)
-    {
-        if (col.CompareTag("Player"))
+    void OnTriggerStay(Collider col)
+    {      
+ 
+
+        if (col.CompareTag("Player") && Input.GetKeyDown("f"))
         {
-            Instantiate(woodDrop, transform.position, transform.rotation);
+            Debug.Log("Talando árbol");
+            Instantiate(woodDrop, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), Quaternion.Euler(new Vector3(0, 0, 90)));
             Destroy(gameObject);
         }
     }

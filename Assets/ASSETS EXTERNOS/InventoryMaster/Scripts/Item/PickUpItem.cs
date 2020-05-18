@@ -22,9 +22,9 @@ public class PickUpItem : MonoBehaviour
     {
         if (_inventory != null && Input.GetKeyDown(KeyCode.E))
         {
-            float distance = Vector3.Distance(this.gameObject.transform.position, _player.transform.position);
+            float distance = Vector3.Distance(this.gameObject.transform.position, _player.transform.position); 
 
-            if (distance <= 3)
+            if (distance <= 5) //Distancia a partir de la cual se puede recoger el objeto.
             {
                 bool check = _inventory.checkIfItemAllreadyExist(item.itemID, item.itemValue);
                 if (check)

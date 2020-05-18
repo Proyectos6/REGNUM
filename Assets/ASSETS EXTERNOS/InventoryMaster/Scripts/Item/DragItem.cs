@@ -605,9 +605,9 @@ public class DragItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDr
             else
             {
                 GameObject dropItem = (GameObject)Instantiate(GetComponent<ItemOnObject>().item.itemModel);
-                dropItem.AddComponent<PickUpItem>();
+                //dropItem.AddComponent<PickUpItem>();  //Comento esto para ver si al no ponerle un nuevo PickUpItem se arregla el problema de no poder recogerlo al tirarlo por segunda vez.
                 dropItem.GetComponent<PickUpItem>().item = this.gameObject.GetComponent<ItemOnObject>().item;               
-                dropItem.transform.localPosition = GameObject.FindGameObjectWithTag("Player").transform.localPosition;
+                dropItem.transform.localPosition = GameObject.FindGameObjectWithTag("Player").transform.position; //Aquí se tira el objeto en el localPosition. Cambiado a position sin más. La madera spawnea 0.9799998 en Y
                 inventory.OnUpdateItemList();
                 if (oldSlot.transform.parent.parent.GetComponent<EquipmentSystem>() != null)
                     inventory.GetComponent<Inventory>().UnEquipItem1(dropItem.GetComponent<PickUpItem>().item);

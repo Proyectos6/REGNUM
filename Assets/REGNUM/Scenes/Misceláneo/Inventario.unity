@@ -6493,6 +6493,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815011905}
   m_CullTransparentMesh: 0
+--- !u!1 &820109778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2703421165540975342, guid: f4a2efd5b31dfd04fa8d19f64b7933d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1961500737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &820109792
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820109778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.585494, y: 1, z: 1.3480107}
+  m_Center: {x: -0.11648893, y: 0, z: -0.11574477}
 --- !u!1 &827362812
 GameObject:
   m_ObjectHideFlags: 0
@@ -7310,7 +7329,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 195920, guid: b33e35f39f6c48c4bb1793bbc893acf6, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Tree_Pine_Large_03
+      value: "\xC1rbol"
       objectReference: {fileID: 0}
     - target: {fileID: 481716, guid: b33e35f39f6c48c4bb1793bbc893acf6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7377,8 +7396,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0221558, y: 7.9136996, z: 1.8225517}
-  m_Center: {x: 0.00000023841858, y: 3.7758472, z: 0.0000016093254}
+  m_Size: {x: 4.512347, y: 7.9136996, z: 3.9316068}
+  m_Center: {x: 0.25399256, y: 3.7758472, z: 0.10005355}
 --- !u!114 &944481928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7391,7 +7410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3b6bef97a0dfe418be14513523ebbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodDrop: {fileID: 0}
+  woodDrop: {fileID: 6317793891703823702, guid: d57dffc8f1c072c4ebdad360636d0c85,
+    type: 3}
 --- !u!1 &948352302
 GameObject:
   m_ObjectHideFlags: 0
@@ -13504,7 +13524,6 @@ GameObject:
   - component: {fileID: 1742918638}
   - component: {fileID: 1742918637}
   - component: {fileID: 1742918636}
-  - component: {fileID: 1742918635}
   m_Layer: 0
   m_Name: Item(Clone)
   m_TagString: Item
@@ -13534,33 +13553,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1742918635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742918633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeee4d1094181f94eb55424d868d1e16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item:
-    itemName: 
-    itemID: 0
-    itemDesc: 
-    itemIcon: {fileID: 0}
-    itemModel: {fileID: 0}
-    itemValue: 1
-    itemType: 0
-    itemWeight: 0
-    maxStack: 1
-    indexItemInList: 999
-    rarity: 0
-    itemAttributes: []
-  itemTypeOfSlot: 
-  duplication: {fileID: 0}
 --- !u!114 &1742918636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13627,14 +13619,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: 
+    itemName: Madera
     itemID: 2
     itemDesc: "Y YA SABES TU Y YA SABES TU\nPOR QU\xC9 TE LLAMAN OSO PANDA, TE LLAMAN
       OSO PANDA"
     itemIcon: {fileID: 21300000, guid: d0ca76b2b1bfe004abe00cfd541f8d0b, type: 3}
     itemModel: {fileID: 0}
     itemValue: 1
-    itemType: 2
+    itemType: 14
     itemWeight: 0
     maxStack: 10
     indexItemInList: 999
@@ -15593,12 +15585,12 @@ PrefabInstance:
     - target: {fileID: 6317793891703823697, guid: d57dffc8f1c072c4ebdad360636d0c85,
         type: 3}
       propertyPath: item.itemAttributes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317793891703823697, guid: d57dffc8f1c072c4ebdad360636d0c85,
         type: 3}
       propertyPath: item.itemID
-      value: 14
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6317793891703823697, guid: d57dffc8f1c072c4ebdad360636d0c85,
         type: 3}
@@ -15620,6 +15612,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6317793891703823697, guid: d57dffc8f1c072c4ebdad360636d0c85,
+        type: 3}
+      propertyPath: item.maxStack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6317793891703823702, guid: d57dffc8f1c072c4ebdad360636d0c85,
         type: 3}
       propertyPath: m_Name
@@ -15629,6 +15626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317793891703823702, guid: d57dffc8f1c072c4ebdad360636d0c85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317793891704092424, guid: d57dffc8f1c072c4ebdad360636d0c85,
         type: 3}
