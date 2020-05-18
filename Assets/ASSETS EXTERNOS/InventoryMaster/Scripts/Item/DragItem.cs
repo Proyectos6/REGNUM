@@ -13,10 +13,14 @@ public class DragItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDr
     private Inventory inventory;
     private Transform draggedItemBox;
 
+    [SerializeField]
+    private GameObject player;
+
     public delegate void ItemDelegate();
     public static event ItemDelegate updateInventoryList;
     void Start()
     {
+        player = player = GameObject.FindGameObjectWithTag("Player");
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransformSlot = GameObject.FindGameObjectWithTag("DraggingItem").GetComponent<RectTransform>();
@@ -604,7 +608,7 @@ public class DragItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDr
 
             else
             {
-                GameObject dropItem = (GameObject)Instantiate(GetComponent<ItemOnObject>().item.itemModel);
+                GameObject dropItem = (GameObject)Instantiate(GetComponent<ItemOnObject>().item.itemModel, new Vector3(player.transform.position.x, player.transform.position.y - 0.8f, player.transform.position.z), Quaternion.Euler(new Vector3 (0, 0, 90))); //He modificado esto añadiendo el transform position y rotation porque la leña 2 me la tiraba detrás del personaje por algún motivo.
                 //dropItem.AddComponent<PickUpItem>();  //Comento esto para ver si al no ponerle un nuevo PickUpItem se arregla el problema de no poder recogerlo al tirarlo por segunda vez.
                 dropItem.GetComponent<PickUpItem>().item = this.gameObject.GetComponent<ItemOnObject>().item;               
                 dropItem.transform.localPosition = GameObject.FindGameObjectWithTag("Player").transform.position; //Aquí se tira el objeto en el localPosition. Cambiado a position sin más. La madera spawnea 0.9799998 en Y
