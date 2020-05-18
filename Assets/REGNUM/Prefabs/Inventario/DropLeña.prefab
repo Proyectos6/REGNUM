@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6317793891704092424}
   - component: {fileID: 6317793891702735620}
   - component: {fileID: 6317793891701682678}
-  - component: {fileID: 6289317794147065090}
-  - component: {fileID: 6317793891703823697}
-  - component: {fileID: -2521271924833491213}
+  - component: {fileID: -6193417946455669737}
+  - component: {fileID: 2750915038938553070}
+  - component: {fileID: 6073705208148970937}
+  - component: {fileID: -4989748132611528333}
   m_Layer: 0
   m_Name: "DropLe\xF1a"
   m_TagString: Untagged
@@ -82,21 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6289317794147065090
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43918953456737674, guid: a1a27b867b157c545932d1425db93a7a, type: 2}
---- !u!114 &6317793891703823697
+--- !u!114 &-6193417946455669737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,25 +92,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 6317793891703823702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2579761e16114d94d874d2a9a06887e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9963f1f91e877eb45bf98307f30d8373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: "Le\xF1a"
-    itemID: 2
-    itemDesc: "Le\xF1a de madera"
-    itemIcon: {fileID: 21300000, guid: 7e63804d2d2b02245b413a86b8e1227f, type: 3}
-    itemModel: {fileID: 6317793891703823702}
+    itemName: "Le\xF1a 2 "
+    itemID: 1
+    itemDesc: Madera con sprite de escudo
+    itemIcon: {fileID: 21300000, guid: da4485cf717130847bc69dcdfa8ac824, type: 3}
+    itemModel: {fileID: 0}
     itemValue: 1
     itemType: 14
     itemWeight: 0
-    maxStack: 10
+    maxStack: 1
     indexItemInList: 999
     rarity: 0
     itemAttributes: []
-  _inventory: {fileID: 0}
-  _player: {fileID: 0}
---- !u!114 &-2521271924833491213
+  inventory: {fileID: 0}
+  player: {fileID: 0}
+  "le\xF1a": {fileID: 6317793891703823702}
+--- !u!65 &2750915038938553070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317793891703823702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4237633, y: 4.180562, z: 0.99684715}
+  m_Center: {x: -0.026891887, y: -0.007131338, z: 0.043709278}
+--- !u!114 &6073705208148970937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,11 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: Madera
-    itemID: 14
-    itemDesc: Madera utilizada para craftear armas y armaduras
-    itemIcon: {fileID: 21300000, guid: 7e63804d2d2b02245b413a86b8e1227f, type: 3}
-    itemModel: {fileID: 118780, guid: 002802c85ab554c418c7e0343c48a925, type: 3}
+    itemName: "Le\xF1a 2"
+    itemID: 1
+    itemDesc: Madera con sprite de escudo
+    itemIcon: {fileID: 21300000, guid: da4485cf717130847bc69dcdfa8ac824, type: 3}
+    itemModel: {fileID: 6317793891703823702}
     itemValue: 1
     itemType: 14
     itemWeight: 0
@@ -148,3 +149,15 @@ MonoBehaviour:
     indexItemInList: 999
     rarity: 0
     itemAttributes: []
+--- !u!114 &-4989748132611528333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317793891703823702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9887636bf4a49840b48d8ef682683f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

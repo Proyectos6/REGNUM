@@ -31,14 +31,12 @@ MonoBehaviour:
     itemAttributes: []
   - itemName: Madera
     itemID: 1
-    itemDesc: 'Madera para craftear cosas
-
-'
+    itemDesc: "Le\xF1a 2\n"
     itemIcon: {fileID: 21300000, guid: 7e63804d2d2b02245b413a86b8e1227f, type: 3}
     itemModel: {fileID: 6317793891703823702, guid: d57dffc8f1c072c4ebdad360636d0c85,
       type: 3}
     itemValue: 1
-    itemType: 2
+    itemType: 14
     itemWeight: 0
     maxStack: 10
     indexItemInList: 999
@@ -46,8 +44,7 @@ MonoBehaviour:
     itemAttributes: []
   - itemName: Hierro
     itemID: 2
-    itemDesc: "Y YA SABES TU Y YA SABES TU\nPOR QU\xC9 TE LLAMAN OSO PANDA, TE LLAMAN
-      OSO PANDA"
+    itemDesc: 
     itemIcon: {fileID: 21300000, guid: d0ca76b2b1bfe004abe00cfd541f8d0b, type: 3}
     itemModel: {fileID: 0}
     itemValue: 1
@@ -59,15 +56,3 @@ MonoBehaviour:
     itemAttributes:
     - attributeName: Slots
       attributeValue: 0
-  - itemName: New Item
-    itemID: 3
-    itemDesc: 
-    itemIcon: {fileID: 0}
-    itemModel: {fileID: 0}
-    itemValue: 1
-    itemType: 0
-    itemWeight: 0
-    maxStack: 1
-    indexItemInList: 999
-    rarity: 0
-    itemAttributes: []
