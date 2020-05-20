@@ -23,6 +23,6 @@ public class Inventario : MonoBehaviour
         {
             Time.timeScale = 1f;
             Cursor.visible = false;
-        }
+        }       
     }
 }

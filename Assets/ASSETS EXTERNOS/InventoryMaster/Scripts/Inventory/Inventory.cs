@@ -130,6 +130,12 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         updateItemIndex();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            //print(ItemsInInventory[i]);
+        }
+
     }
 
 
@@ -891,6 +897,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < ItemsInInventory.Count; i++)
         {
             ItemsInInventory[i].indexItemInList = i;
+            print(ItemsInInventory[i]);
         }
     }
 }

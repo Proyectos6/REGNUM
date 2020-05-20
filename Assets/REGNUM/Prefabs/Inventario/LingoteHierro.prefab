@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6317793891703823702
+--- !u!1 &4841356041053394948
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6317793891704092424}
-  - component: {fileID: 6317793891702735620}
-  - component: {fileID: 6317793891701682678}
-  - component: {fileID: -6193417946455669737}
-  - component: {fileID: 2750915038938553070}
-  - component: {fileID: 6073705208148970937}
-  - component: {fileID: -4989748132611528333}
+  - component: {fileID: 362248431692070508}
+  - component: {fileID: 4574732542393820433}
+  - component: {fileID: 5891227972628028714}
+  - component: {fileID: 2110189747218623984}
+  - component: {fileID: 5510422410961393812}
+  - component: {fileID: 7319821408338659110}
+  - component: {fileID: 7259712593983765016}
   m_Layer: 0
-  m_Name: "DropLe\xF1a"
+  m_Name: LingoteHierro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6317793891704092424
+--- !u!4 &362248431692070508
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
-  m_LocalRotation: {x: -0.70710707, y: -0, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: 0.33, y: 0.168, z: 5.345}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_GameObject: {fileID: 4841356041053394948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.1004295, y: -2.4693753e-17, z: 11.121078}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
---- !u!33 &6317793891702735620
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4574732542393820433
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
-  m_Mesh: {fileID: 4300000, guid: 20afd4f439cbbd24893d358a6b5946f6, type: 3}
---- !u!23 &6317793891701682678
+  m_GameObject: {fileID: 4841356041053394948}
+  m_Mesh: {fileID: 4300000, guid: 81f529e76e139504dbb47ce98e682dbb, type: 3}
+--- !u!23 &5891227972628028714
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
+  m_GameObject: {fileID: 4841356041053394948}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb83b2b658dfc194e8b26c4421e3c748, type: 2}
+  - {fileID: 2100000, guid: e520c3f4fb04b94499d056d96b90c21b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,26 +83,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-6193417946455669737
+--- !u!65 &2110189747218623984
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841356041053394948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.389411, y: 1.0955353, z: 1.3967113}
+  m_Center: {x: 0.040963173, y: 0.54776764, z: 0.024908066}
+--- !u!114 &5510422410961393812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
+  m_GameObject: {fileID: 4841356041053394948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9963f1f91e877eb45bf98307f30d8373, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b25392b190827b4f85db3c5f373a9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: "Le\xF1a 2 "
-    itemID: 1
-    itemDesc: Madera con sprite de escudo
-    itemIcon: {fileID: 21300000, guid: da4485cf717130847bc69dcdfa8ac824, type: 3}
-    itemModel: {fileID: 6317793891703823702}
+    itemName: Hierro
+    itemID: 2
+    itemDesc: Lingote de hierro
+    itemIcon: {fileID: 21300000, guid: 72a02b74b8d2c4f4a882141cb46400e2, type: 3}
+    itemModel: {fileID: 4841356041053394948}
     itemValue: 1
-    itemType: 14
+    itemType: 15
     itemWeight: 0
     maxStack: 1
     indexItemInList: 999
@@ -110,52 +123,39 @@ MonoBehaviour:
     itemAttributes: []
   inventory: {fileID: 0}
   player: {fileID: 0}
-  "le\xF1a": {fileID: 6317793891703823702}
---- !u!65 &2750915038938553070
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4237633, y: 4.180562, z: 0.99684715}
-  m_Center: {x: -0.026891887, y: -0.007131338, z: 0.043709278}
---- !u!114 &6073705208148970937
+  lingoteHierro: {fileID: 0}
+--- !u!114 &7319821408338659110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
+  m_GameObject: {fileID: 4841356041053394948}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e183a0fcf91889441a73da5cab2cf034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: "Le\xF1a 2"
-    itemID: 1
-    itemDesc: Madera con sprite de escudo
-    itemIcon: {fileID: 21300000, guid: da4485cf717130847bc69dcdfa8ac824, type: 3}
-    itemModel: {fileID: 6317793891703823702}
+    itemName: LingoteHierro
+    itemID: 2
+    itemDesc: Lingote de hierro para craftear
+    itemIcon: {fileID: 21300000, guid: 72a02b74b8d2c4f4a882141cb46400e2, type: 3}
+    itemModel: {fileID: 4841356041053394948}
     itemValue: 1
-    itemType: 14
+    itemType: 15
     itemWeight: 0
     maxStack: 1
     indexItemInList: 999
     rarity: 0
     itemAttributes: []
---- !u!114 &-4989748132611528333
+--- !u!114 &7259712593983765016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317793891703823702}
+  m_GameObject: {fileID: 4841356041053394948}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9887636bf4a49840b48d8ef682683f0, type: 3}
