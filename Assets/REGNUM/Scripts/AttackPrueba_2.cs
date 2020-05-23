@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 namespace Invector.vCharacterController
 {
-    public class AttackPrueba_2 : MonoBehaviour
+    
+    public class AttackPrueba_2 : vCharacter
     {
         //Cosas del arma
         [SerializeField]
@@ -26,16 +28,23 @@ namespace Invector.vCharacterController
         KeyCode ataqueLigeroJoystick = KeyCode.Joystick1Button5; //Input Mapping for Joystick;
 
         public vThirdPersonController TPController;
+        vThirdPersonMotor TPMotor;
+
+        [SerializeField]
+        Rigidbody rbd;
+
+         
 
         private void Awake()
         {
             cmpAnimator = GetComponent<Animator>();
             cmpCC = GetComponent<CharacterController>();
+            rbd = GetComponent<Rigidbody>();
         }
 
-        void Start()
+        new void Start()
         {
-
+            TPMotor = GetComponent<vThirdPersonMotor>();
         }
 
         void Update()
@@ -43,14 +52,22 @@ namespace Invector.vCharacterController
             AtaquePrueba();
         }
 
+        void AnimEventFinalAtaque()
+        {
+            isAttacking = false;
+            SendMessage("DesactivarAtaque");
+            VelocidadNormalVuelta();
+        }
+
         void AtaquePrueba()
         {
-            if (Input.GetKeyDown(AtaqueLigero) || Input.GetKeyDown(ataqueLigeroJoystick))
+            if (isAttacking == false)
             {
-                if (isAttacking == false)
+                if (Input.GetKeyDown(AtaqueLigero) || Input.GetKeyDown(ataqueLigeroJoystick))
                 {
                     //Animación de ataque
                     cmpAnimator.CrossFadeInFixedTime("AtaqueLigero1HAxe", 0.1f);
+
                     isAttacking = true;
 
                     //Evita que el jugador se mueva mientras ataca
@@ -60,17 +77,40 @@ namespace Invector.vCharacterController
 
                     SendMessage("ActivarAtaque");
 
+                    if (Input.GetKeyDown(AtaqueLigero) || Input.GetKeyDown(ataqueLigeroJoystick))
+                    {
+                        //Animación de ataque
+                        cmpAnimator.CrossFadeInFixedTime("AtaqueLigero1HAxe", 0.1f);
 
+                        isAttacking = true;
+
+                        //Evita que el jugador se mueva mientras ataca
+                        //Vector3 rootPosicion = cmpAnimator.rootPosition;
+                        //Vector3 difPos = rootPosicion - this.transform.position;
+                        //cmpCC.Move(difPos);
+
+                        SendMessage("ActivarAtaque");
+                        VelocidadACero();
+                    }
                 }
 
-            }
+                VelocidadNormalVuelta();
+            }     
         }
 
-        void AnimEventFinalAtaque()
-        {
-            isAttacking = false;
-            SendMessage("DesactivarAtaque");
+        void VelocidadACero()
+        {           
+            SendMessage("VelocidadNula");                            
+        }
 
+        void VelocidadNormalVuelta()
+        {          
+            SendMessage("VelocidadNormal");               
+        }
+
+        void RigidbodyOut()
+        {
+            //rbd.enabled = false;
         }
     }
 }

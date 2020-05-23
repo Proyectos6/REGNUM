@@ -234,21 +234,21 @@ namespace Invector.vCharacterController
  
             isAttacking = true;
 
-             if (cc.IsAnimatorTag("Attack")) return;
+            /* if (cc.IsAnimatorTag("Attack")) return;
             // lock the speed to stop the character from moving while attacking
             cc.lockSpeed = cc.IsAnimatorTag("Attack") || isAttacking;
             // force root motion animation while attacking
-            cc.forceRootMotion = cc.IsAnimatorTag("Attack") || isAttacking;
+            cc.forceRootMotion = cc.IsAnimatorTag("Attack") || isAttacking;*/
 
-            Debug.Log("Paro el movimiento mientras se realiza la animación de ataque");
+            //Debug.Log("Paro el movimiento mientras se realiza la animación de ataque");
         }
 
         public void DesactivarAtaque()
         {
             isAttacking = false;
 
-            cc.lockSpeed = cc.IsAnimatorTag("MovimientoPrueba") || !isAttacking;
-            cc.forceRootMotion = cc.IsAnimatorTag("MovimientoPrueba") || !isAttacking;
+            /*cc.lockSpeed = cc.IsAnimatorTag("MovimientoPrueba") || !isAttacking;
+            cc.forceRootMotion = cc.IsAnimatorTag("MovimientoPrueba") || !isAttacking;*/
         }
     }
 }

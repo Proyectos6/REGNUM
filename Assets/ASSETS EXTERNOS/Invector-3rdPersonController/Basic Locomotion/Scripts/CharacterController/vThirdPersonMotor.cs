@@ -310,11 +310,11 @@ namespace Invector.vCharacterController
             HealthRecovery();
         }
 
-        
 
-    #region Health & Stamina
 
-    public override void TakeDamage(vDamage damage)
+        #region Health & Stamina
+
+        public override void TakeDamage(vDamage damage)
         {
             // don't apply damage if the character is rolling, you can add more conditions here
             if (currentHealth <= 0 || (!damage.ignoreDefense && isRolling))
@@ -1044,11 +1044,13 @@ namespace Invector.vCharacterController
 
         #endregion
 
-       
 
-    [System.Serializable]
+
+        [System.Serializable]
         public class vMovementSpeed
         {
+            
+
             [Tooltip("Rotation speed of the character")]
             public float rotationSpeed = 10f;
             [Tooltip("Character will walk by default and run when the sprint input is pressed. The Sprint animation will not play")]
@@ -1061,10 +1063,29 @@ namespace Invector.vCharacterController
             public float sprintSpeed = 4f;
             [Tooltip("Speed to Crouch using rigibody force or extra speed if you're using RootMotion")]
             public float crouchSpeed = 2f;
+
+           
         }
 
-       
+        public void VelocidadNula()
+        {
+            ControlSpeed(0);
+
+            print("Velocidad 0");
+        }
+
+        public void VelocidadNormal()
+        {
+            /*runningSpeed = 3f;
+            walkSpeed = 2f;
+            sprintSpeed = 4f;
+            crouchSpeed = 2;*/
+            print("Velocidad 2");
+        }
+
     }
+
+   
 
 }
 
