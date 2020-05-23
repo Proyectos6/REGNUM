@@ -90,48 +90,48 @@ namespace Invector.vCharacterController
         /// </summary>
         protected virtual void MeleeWeakAttackInput()
         {
-            if (cc.animator == null) return;
+            /*if (cc.animator == null) return;
 
             if (weakAttackInput.GetButtonDown() && MeleeAttackStaminaConditions())
             {
                 cc.animator.SetInteger("AttackID", meleeManager.GetAttackID());
                 cc.animator.SetTrigger("WeakAttack");
-            }
+            }*/
         }
 
         /// <summary>
         /// STRONG ATK INPUT
         /// </summary>
-        protected virtual void MeleeStrongAttackInput()
+         protected virtual void MeleeStrongAttackInput()
         {
-            if (cc.animator == null) return;
+           /* if (cc.animator == null) return;
 
             if (strongAttackInput.GetButtonDown() && MeleeAttackStaminaConditions())
             {
                 cc.animator.SetInteger("AttackID", meleeManager.GetAttackID());
                 cc.animator.SetTrigger("StrongAttack");
-            }
+            }*/
         }
 
         /// <summary>
         /// BLOCK INPUT
         /// </summary>
-        protected virtual void BlockingInput()
+         protected virtual void BlockingInput()
         {
-            if (cc.animator == null) return;
+            /*if (cc.animator == null) return;
 
-            isBlocking = blockInput.GetButton() && cc.currentStamina > 0;
+            isBlocking = blockInput.GetButton() && cc.currentStamina > 0;*/
         }
 
         #endregion
 
         #region Conditions
 
-        protected virtual bool MeleeAttackStaminaConditions()
+       /* protected virtual bool MeleeAttackStaminaConditions()
         {
-            var result = cc.currentStamina - meleeManager.GetAttackStaminaCost();
-            return result >= 0;
-        }
+            //var result = cc.currentStamina - meleeManager.GetAttackStaminaCost();
+           // return result >= 0;
+        }*/
 
         protected virtual bool MeleeAttackConditions
         {
@@ -148,20 +148,20 @@ namespace Invector.vCharacterController
 
         protected virtual void UpdateMeleeAnimations()
         {
-            if (cc.animator == null || meleeManager == null) return;
+            /*if (cc.animator == null || meleeManager == null) return;
             cc.animator.SetInteger("AttackID", meleeManager.GetAttackID());
             cc.animator.SetInteger("DefenseID", meleeManager.GetDefenseID());
             cc.animator.SetBool("IsBlocking", isBlocking);
-            cc.animator.SetFloat("MoveSet_ID", meleeManager.GetMoveSetID(), .2f, Time.deltaTime);
+            cc.animator.SetFloat("MoveSet_ID", meleeManager.GetMoveSetID(), .2f, Time.deltaTime);*/
         }
 
         protected virtual void UpdateAttackBehaviour()
         {
-            if (cc.IsAnimatorTag("Attack")) return;
+           /* if (cc.IsAnimatorTag("Attack")) return;
             // lock the speed to stop the character from moving while attacking
             cc.lockSpeed = cc.IsAnimatorTag("Attack") || isAttacking;
             // force root motion animation while attacking
-            cc.forceRootMotion = cc.IsAnimatorTag("Attack") || isAttacking;
+            cc.forceRootMotion = cc.IsAnimatorTag("Attack") || isAttacking;*/
         }
 
         #endregion
@@ -170,43 +170,43 @@ namespace Invector.vCharacterController
 
         public void OnEnableAttack()
         {
-            cc.currentStaminaRecoveryDelay = meleeManager.GetAttackStaminaRecoveryDelay();
+            /*cc.currentStaminaRecoveryDelay = meleeManager.GetAttackStaminaRecoveryDelay();
             cc.currentStamina -= meleeManager.GetAttackStaminaCost();
             cc.lockRotation = true;
-            isAttacking = true;
+            isAttacking = true;*/
         }
 
         public void OnDisableAttack()
         {
-            cc.lockRotation = false;
-            isAttacking = false;
+            //cc.lockRotation = false;
+            //isAttacking = false;
         }
 
         public void ResetAttackTriggers()
         {
-            cc.animator.ResetTrigger("WeakAttack");
-            cc.animator.ResetTrigger("StrongAttack");
+            //cc.animator.ResetTrigger("WeakAttack");
+            //cc.animator.ResetTrigger("StrongAttack");
         }
 
         public void BreakAttack(int breakAtkID)
         {
-            ResetAttackTriggers();
-            OnRecoil(breakAtkID);
+             //ResetAttackTriggers();
+            //OnRecoil(breakAtkID);
         }
-
+        
         public void OnRecoil(int recoilID)
         {
-            cc.animator.SetInteger("RecoilID", recoilID);
+            /*cc.animator.SetInteger("RecoilID", recoilID);
             cc.animator.SetTrigger("TriggerRecoil");
             cc.animator.SetTrigger("ResetState");
             cc.animator.ResetTrigger("WeakAttack");
-            cc.animator.ResetTrigger("StrongAttack");
+            cc.animator.ResetTrigger("StrongAttack");*/
         }
 
         public void OnReceiveAttack(vDamage damage, vIMeleeFighter attacker)
         {
             // character is blocking
-            if (!damage.ignoreDefense && isBlocking && meleeManager != null && meleeManager.CanBlockAttack(attacker.character.transform.position))
+            /*if (!damage.ignoreDefense && isBlocking && meleeManager != null && meleeManager.CanBlockAttack(attacker.character.transform.position))
             {
                 var damageReduction = meleeManager.GetDefenseRate();
                 if (damageReduction > 0)
@@ -219,7 +219,7 @@ namespace Invector.vCharacterController
             }
             // apply damage
             damage.hitReaction = !isBlocking;
-            cc.TakeDamage(damage);
+            cc.TakeDamage(damage);*/
         }
 
         public vCharacter character
@@ -229,5 +229,26 @@ namespace Invector.vCharacterController
 
         #endregion
 
+        public void ActivarAtaque()
+        {
+ 
+            isAttacking = true;
+
+             if (cc.IsAnimatorTag("Attack")) return;
+            // lock the speed to stop the character from moving while attacking
+            cc.lockSpeed = cc.IsAnimatorTag("Attack") || isAttacking;
+            // force root motion animation while attacking
+            cc.forceRootMotion = cc.IsAnimatorTag("Attack") || isAttacking;
+
+            Debug.Log("Paro el movimiento mientras se realiza la animación de ataque");
+        }
+
+        public void DesactivarAtaque()
+        {
+            isAttacking = false;
+
+            cc.lockSpeed = cc.IsAnimatorTag("MovimientoPrueba") || !isAttacking;
+            cc.forceRootMotion = cc.IsAnimatorTag("MovimientoPrueba") || !isAttacking;
+        }
     }
 }

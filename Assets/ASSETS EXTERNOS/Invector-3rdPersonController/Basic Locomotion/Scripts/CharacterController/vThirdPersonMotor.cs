@@ -12,13 +12,13 @@ namespace Invector.vCharacterController
     public abstract class vThirdPersonMotor : vCharacter
     {
         #region Variables               
-       
+
         #region Stamina
-        [vEditorToolbar("Debug",order =5)]
+        [vEditorToolbar("Debug", order = 5)]
         [Header("--- Debug Info ---")]
         public bool debugWindow;
 
-        [vEditorToolbar("Stamina",order =1)]       
+        [vEditorToolbar("Stamina", order = 1)]
         public float maxStamina = 200f;
         public float staminaRecovery = 1.2f;
         [HideInInspector]
@@ -29,13 +29,13 @@ namespace Invector.vCharacterController
         public float sprintStamina = 30f;
         public float jumpStamina = 30f;
         public float rollStamina = 25f;
-        [vEditorToolbar("Events")]        
+        [vEditorToolbar("Events")]
         public UnityEvent OnStaminaEnd;
 
         #endregion
 
         #region Layers
-        [vEditorToolbar("Layers",order=2)]
+        [vEditorToolbar("Layers", order = 2)]
         [Tooltip("Layers that the character can walk on")]
         public LayerMask groundLayer = 1 << 0;
         [Tooltip("What objects can make the character auto crouch")]
@@ -52,7 +52,7 @@ namespace Invector.vCharacterController
 
         #region Character Variables       
 
-        [vEditorToolbar("Locomotion",order= 3)]
+        [vEditorToolbar("Locomotion", order = 3)]
         [Tooltip("Turn off if you have 'in place' animations and use this values above to move the character, or use with root motion as extra speed")]
         public bool useRootMotion = false;
 
@@ -74,7 +74,7 @@ namespace Invector.vCharacterController
         [Tooltip("Put your Random Idle animations at the AnimatorController and select a value to randomize, 0 is disable.")]
         public float randomIdleTime = 0f;
 
-        [vEditorToolbar("Jump",order =3)]
+        [vEditorToolbar("Jump", order = 3)]
         [Tooltip("Check to control the character while jumping")]
         public bool jumpAirControl = true;
         [Tooltip("How much time the character will be jumping")]
@@ -85,12 +85,12 @@ namespace Invector.vCharacterController
         public float jumpForward = 3f;
         [Tooltip("Add Extra jump height, if you want to jump only with Root Motion leave the value with 0.")]
         public float jumpHeight = 4f;
-       
+
         public enum GroundCheckMethod
         {
             Low, High
         }
-        [vEditorToolbar("Grounded",order=4)]
+        [vEditorToolbar("Grounded", order = 4)]
         [Tooltip("Ground Check Method To check ground Distance and ground angle\n*Simple: Use just a single Raycast\n*Normal: Use Raycast and SphereCast\n*Complex: Use SphereCastAll")]
         public GroundCheckMethod groundCheckMethod = GroundCheckMethod.High;
         [Tooltip("Distance to became not grounded")]
@@ -310,21 +310,23 @@ namespace Invector.vCharacterController
             HealthRecovery();
         }
 
-        #region Health & Stamina
+        
 
-        public override void TakeDamage(vDamage damage)
-        {          
+    #region Health & Stamina
+
+    public override void TakeDamage(vDamage damage)
+        {
             // don't apply damage if the character is rolling, you can add more conditions here
             if (currentHealth <= 0 || (!damage.ignoreDefense && isRolling))
                 return;
-            base.TakeDamage(damage);            
+            base.TakeDamage(damage);
             vInput.instance.GamepadVibration(0.25f);
         }
 
         protected override void TriggerDamageRection(vDamage damage)
         {
             var hitReactionConditions = !actions || !customAction;
-            if(hitReactionConditions) base.TriggerDamageRection(damage);
+            if (hitReactionConditions) base.TriggerDamageRection(damage);
         }
 
         public void ReduceStamina(float value, bool accumulative)
@@ -371,7 +373,7 @@ namespace Invector.vCharacterController
         }
 
         void CheckHealth()
-        {            
+        {
             if (isDead && currentHealth > 0)
             {
                 isDead = false;
@@ -593,10 +595,10 @@ namespace Invector.vCharacterController
             }
             // apply extra force to the jump height   
             var vel = _rigidbody.velocity;
-            vel.y = jumpHeight*jumpMultiplier;
+            vel.y = jumpHeight * jumpMultiplier;
             _rigidbody.velocity = vel;
         }
-        public void SetJumpMultiplier(float jumpMultiplier,float timeToReset = 1f)
+        public void SetJumpMultiplier(float jumpMultiplier, float timeToReset = 1f)
         {
             this.jumpMultiplier = jumpMultiplier;
             if (timeToResetJumpMultiplier <= 0)
@@ -616,8 +618,8 @@ namespace Invector.vCharacterController
 
         protected IEnumerator ResetJumpMultiplierRoutine()
         {
-           
-            while(timeToResetJumpMultiplier>0 && jumpMultiplier!=1)
+
+            while (timeToResetJumpMultiplier > 0 && jumpMultiplier != 1)
             {
                 timeToResetJumpMultiplier -= Time.deltaTime;
                 yield return null;
@@ -708,14 +710,14 @@ namespace Invector.vCharacterController
 
                 if (groundDistance <= 0.05f)
                 {
-                    isGrounded = true;                  
+                    isGrounded = true;
                     Sliding();
                 }
                 else
                 {
                     if (groundDistance >= groundCheckDistance)
                     {
-                        isGrounded = false;                        
+                        isGrounded = false;
                         // check vertical velocity
                         verticalVelocity = _rigidbody.velocity.y;
                         // apply extra gravity when falling
@@ -736,10 +738,10 @@ namespace Invector.vCharacterController
         {
             if (isDead) return;
             if (_capsuleCollider != null)
-            { 
+            {
                 // radius of the SphereCast
                 float radius = _capsuleCollider.radius * 0.9f;
-                var dist = 10f;                
+                var dist = 10f;
                 // ray for RayCast
                 Ray ray2 = new Ray(transform.position + new Vector3(0, colliderHeight / 2, 0), Vector3.down);
                 // raycast for check the ground distance
@@ -757,7 +759,7 @@ namespace Invector.vCharacterController
                             dist = (groundHit.distance - _capsuleCollider.radius * 0.1f);
                     }
                 }
-                       
+
                 groundDistance = (float)System.Math.Round(dist, 2);
             }
         }
@@ -807,7 +809,7 @@ namespace Invector.vCharacterController
             {
                 isSliding = true;
                 isGrounded = false;
-                
+
                 //var _slideVelocity = slideVelocity + (GroundAngle() - slopeLimit);
                 //_slideVelocity = Mathf.Clamp(_slideVelocity, slideVelocity, 10);
 
@@ -1042,7 +1044,9 @@ namespace Invector.vCharacterController
 
         #endregion
 
-        [System.Serializable]
+       
+
+    [System.Serializable]
         public class vMovementSpeed
         {
             [Tooltip("Rotation speed of the character")]
@@ -1058,5 +1062,12 @@ namespace Invector.vCharacterController
             [Tooltip("Speed to Crouch using rigibody force or extra speed if you're using RootMotion")]
             public float crouchSpeed = 2f;
         }
+
+       
     }
+
 }
+
+
+
+    
