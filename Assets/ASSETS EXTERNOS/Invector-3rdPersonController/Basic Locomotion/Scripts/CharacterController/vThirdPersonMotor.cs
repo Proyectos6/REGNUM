@@ -56,6 +56,13 @@ namespace Invector.vCharacterController
         [Tooltip("Turn off if you have 'in place' animations and use this values above to move the character, or use with root motion as extra speed")]
         public bool useRootMotion = false;
 
+        #region Prueba Velocidad
+
+        
+        public vMovementSpeed moveSpeed = new vMovementSpeed();
+
+        #endregion
+
         public enum LocomotionType
         {
             FreeWithStrafe,
@@ -308,6 +315,7 @@ namespace Invector.vCharacterController
             //ControlLocomotion();
             StaminaRecovery();
             HealthRecovery();
+            VelocidadPrueba();
         }
 
 
@@ -1044,7 +1052,21 @@ namespace Invector.vCharacterController
 
         #endregion
 
+        public void VelocidadPrueba()
+        {
+           /* do
+            {
+                //print("hola");
+                moveSpeed.runningSpeed = 0f;
+            }
+            while (Input.GetKeyDown(KeyCode.LeftControl) == false);*/
 
+           /* else if (Input.GetKeyDown(KeyCode.LeftControl) == false)
+            {
+                print("adios");
+                moveSpeed.runningSpeed = 5f;
+            }*/
+        }
 
         [System.Serializable]
         public class vMovementSpeed
@@ -1056,37 +1078,31 @@ namespace Invector.vCharacterController
             [Tooltip("Character will walk by default and run when the sprint input is pressed. The Sprint animation will not play")]
             public bool walkByDefault = false;
             [Tooltip("Speed to Walk using rigibody force or extra speed if you're using RootMotion")]
-            public float walkSpeed = 2f;
+            public float walkSpeed = 0f;
             [Tooltip("Speed to Run using rigibody force or extra speed if you're using RootMotion")]
-            public float runningSpeed = 3f;
+            public float runningSpeed = 0f;
             [Tooltip("Speed to Sprint using rigibody force or extra speed if you're using RootMotion")]
-            public float sprintSpeed = 4f;
+            public float sprintSpeed = 0f;
             [Tooltip("Speed to Crouch using rigibody force or extra speed if you're using RootMotion")]
-            public float crouchSpeed = 2f;
+            public float crouchSpeed = 0f;
 
            
         }
 
         public void VelocidadNula()
         {
-            ControlSpeed(0);
-
+            moveSpeed.runningSpeed = 0f;
             print("Velocidad 0");
         }
 
         public void VelocidadNormal()
         {
-            /*runningSpeed = 3f;
-            walkSpeed = 2f;
-            sprintSpeed = 4f;
-            crouchSpeed = 2;*/
+            moveSpeed.runningSpeed = 3f;        
             print("Velocidad 2");
         }
 
+       
     }
-
-   
-
 }
 
 

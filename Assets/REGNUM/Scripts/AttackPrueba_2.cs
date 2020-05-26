@@ -28,7 +28,8 @@ namespace Invector.vCharacterController
         KeyCode ataqueLigeroJoystick = KeyCode.Joystick1Button5; //Input Mapping for Joystick;
 
         public vThirdPersonController TPController;
-        vThirdPersonMotor TPMotor;
+        public vThirdPersonMotor TPMotor;
+      
 
         [SerializeField]
         Rigidbody rbd;
@@ -50,13 +51,22 @@ namespace Invector.vCharacterController
         void Update()
         {
             AtaquePrueba();
+            
+            if (isAttacking)
+            {
+                //VelocidadACero();
+            }
+            else if (!isAttacking)
+            {
+               // VelocidadNormalVuelta();
+            }
         }
 
         void AnimEventFinalAtaque()
         {
             isAttacking = false;
             SendMessage("DesactivarAtaque");
-            VelocidadNormalVuelta();
+            //VelocidadNormalVuelta();
         }
 
         void AtaquePrueba()
@@ -71,9 +81,6 @@ namespace Invector.vCharacterController
                     isAttacking = true;
 
                     //Evita que el jugador se mueva mientras ataca
-                    /*Vector3 rootPosicion = cmpAnimator.rootPosition;
-                    Vector3 difPos = rootPosicion - this.transform.position;
-                    cmpCC.Move(difPos);*/
 
                     SendMessage("ActivarAtaque");
 
@@ -81,16 +88,13 @@ namespace Invector.vCharacterController
                     {
                         //Animación de ataque
                         cmpAnimator.CrossFadeInFixedTime("AtaqueLigero1HAxe", 0.1f);
-
-                        isAttacking = true;
-
                         //Evita que el jugador se mueva mientras ataca
                         //Vector3 rootPosicion = cmpAnimator.rootPosition;
                         //Vector3 difPos = rootPosicion - this.transform.position;
                         //cmpCC.Move(difPos);
 
                         SendMessage("ActivarAtaque");
-                        VelocidadACero();
+                        isAttacking = true;
                     }
                 }
 
