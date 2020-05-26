@@ -1092,12 +1092,14 @@ namespace Invector.vCharacterController
         public void VelocidadNula()
         {
             moveSpeed.runningSpeed = 0f;
+            stopMove = true;
             print("Velocidad 0");
         }
 
         public void VelocidadNormal()
         {
-            moveSpeed.runningSpeed = 3f;        
+            moveSpeed.runningSpeed = 3f;
+            stopMove = false;
             print("Velocidad 2");
         }
 
