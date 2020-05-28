@@ -457,7 +457,7 @@ namespace Invector.vCharacterController
             speed = Mathf.Abs(input.x) + Mathf.Abs(input.y);
             // limits the character to walk by default
             if (freeSpeed.walkByDefault)
-                speed = Mathf.Clamp(speed, 0, 0.5f);
+                speed = Mathf.Clamp(speed, 0, 0f); //Cambiado el último valor de 0.5f a 0f.
             else
                 speed = Mathf.Clamp(speed, 0, 1f);
             // add 0.5f on sprint to change the animation on animator
@@ -1071,40 +1071,39 @@ namespace Invector.vCharacterController
         [System.Serializable]
         public class vMovementSpeed
         {
-            
-
             [Tooltip("Rotation speed of the character")]
             public float rotationSpeed = 10f;
             [Tooltip("Character will walk by default and run when the sprint input is pressed. The Sprint animation will not play")]
             public bool walkByDefault = false;
             [Tooltip("Speed to Walk using rigibody force or extra speed if you're using RootMotion")]
-            public float walkSpeed = 0f;
+            public float walkSpeed = 2f;
             [Tooltip("Speed to Run using rigibody force or extra speed if you're using RootMotion")]
-            public float runningSpeed = 0f;
+            public float runningSpeed = 3f;
             [Tooltip("Speed to Sprint using rigibody force or extra speed if you're using RootMotion")]
-            public float sprintSpeed = 0f;
+            public float sprintSpeed = 4f;
             [Tooltip("Speed to Crouch using rigibody force or extra speed if you're using RootMotion")]
-            public float crouchSpeed = 0f;
-
-           
+            public float crouchSpeed = 2f;          
         }
 
         public void VelocidadNula()
         {
-            moveSpeed.runningSpeed = 0f;
-            stopMove = true;
+            //moveSpeed.runningSpeed = 0f; //Accede a la variable runningSpeed de arriba pero no se modifica. 
+            //stopMove = true;           
+            moveSpeed.walkByDefault = true; //Walk by default es true, con la linea 460 debería de tener una velocidad de 0;
             print("Velocidad 0");
         }
 
         public void VelocidadNormal()
         {
-            moveSpeed.runningSpeed = 3f;
-            stopMove = false;
+           // moveSpeed.runningSpeed = 3f;
+           // stopMove = false;
+            moveSpeed.walkByDefault = false; //Walk by default vuelve a false por lo que el movimiento debería volver a sus valores anteriores.
             print("Velocidad 2");
         }
 
        
     }
+
 }
 
 

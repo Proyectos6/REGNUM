@@ -34,13 +34,11 @@ namespace Invector.vCharacterController
         [SerializeField]
         Rigidbody rbd;
 
-         
-
         private void Awake()
         {
             cmpAnimator = GetComponent<Animator>();
             cmpCC = GetComponent<CharacterController>();
-            rbd = GetComponent<Rigidbody>();
+            rbd = GetComponent<Rigidbody>();         
         }
 
         new void Start()
@@ -54,11 +52,11 @@ namespace Invector.vCharacterController
             
             if (isAttacking)
             {
-                //VelocidadACero();
+                VelocidadACero();
             }
             else if (!isAttacking)
             {
-               // VelocidadNormalVuelta();
+                VelocidadNormalVuelta();
             }
         }
 
@@ -66,7 +64,7 @@ namespace Invector.vCharacterController
         {
             isAttacking = false;
             SendMessage("DesactivarAtaque");
-            //VelocidadNormalVuelta();
+            VelocidadNormalVuelta();
         }
 
         void AtaquePrueba()

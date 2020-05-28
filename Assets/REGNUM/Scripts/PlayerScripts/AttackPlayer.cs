@@ -111,9 +111,11 @@ public class AttackPlayer : MonoBehaviour
             if (lowAttack1 && !secondHit)
             {
                 cmpAnimator.SetTrigger("AttackLigeroPlayer");
-                /*Vector3 rootPosicion = cmpAnimator.rootPosition;
+
+                Vector3 rootPosicion = cmpAnimator.rootPosition;
                 Vector3 difPos = rootPosicion - this.transform.position;
-                cmpCC.Move(difPos);*/
+                cmpCC.Move(difPos);
+
                 paraticleESPADA.SetActive(true);
             }
             if (secondHit)
