@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
-    public string nameNextScene;
+   // public string nameNextScene;
     // Start is called before the first frame update
     
 
-    public void CambiarEscena()
+    public void CambiarEscena(string nameNextScene)
     { 
         if(nameNextScene != "Exit")
         {
