@@ -8,11 +8,14 @@ public class CaballeroNpc : MonoBehaviour
 
     [SerializeField] Text caballeroText;
     bool isDentro = false;
+    [SerializeField]
+    GameObject panel;
 
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
-
+        panel.SetActive(false);
+        caballeroText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class CaballeroNpc : MonoBehaviour
             {
                 if (!MisionController.instance.isCaballero) //Aun no hablaste con caballero
                 {
-                    caballeroText.text = "Hola viajero, ¿tienes las armas para mi?";
+                    caballeroText.text = "Hola viajero, ¿te manda el herrero?";
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -38,7 +41,7 @@ public class CaballeroNpc : MonoBehaviour
 
                 if (MisionController.instance.isCaballero) //FIN MISION
                 {
-                    caballeroText.text = "Gracias por traerlas, pareces tener alma de esclavo";
+                    caballeroText.text = "Aquí tienes tu espada, puedes equipartela en el inventario";
                 }
             }
 
@@ -51,6 +54,7 @@ public class CaballeroNpc : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            panel.SetActive(true);
             caballeroText.gameObject.SetActive(true);
             isDentro = true;
 
@@ -60,6 +64,7 @@ public class CaballeroNpc : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            panel.SetActive(false);
             isDentro = false;
             caballeroText.gameObject.SetActive(false);
         }

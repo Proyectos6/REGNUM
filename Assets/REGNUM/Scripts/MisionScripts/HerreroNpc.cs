@@ -7,11 +7,14 @@ public class HerreroNpc : MonoBehaviour
     [SerializeField]Text herreroText;
     //bool isAcceptHerrero = false;
     bool isDentro = false;
+    [SerializeField]
+    GameObject panel;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        panel.SetActive(false);
+        herreroText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class HerreroNpc : MonoBehaviour
         {
             if (!MisionController.instance.isHerrero) //no has hablado con el herrero
             {
-                herreroText.text = "Hola viajero, ¿podrías llevar estas armas al caballero Wallace?";
+                herreroText.text = "Hola viajero, ¿podrías ir a hablar con el caballero Wallace?";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     //isAcceptHerrero = true;
@@ -34,11 +37,11 @@ public class HerreroNpc : MonoBehaviour
             {
                 if (!MisionController.instance.isCaballero)// aun no viste al ccaballero
                 {
-                    herreroText.text = "Deja esas yerbas y dale ya las armas!";
+                    herreroText.text = "Creo que tiene un arma para ti";
                 }
                 if (MisionController.instance.isCaballero)   //Herrero y caballero
                 {
-                    herreroText.text = "Eres el chaca del videojuego, gracias por moverte jeje";
+                    herreroText.text = "¡A combatir, a qué esperas!";
                 }
             }  
         }
@@ -47,7 +50,8 @@ public class HerreroNpc : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
-        {            
+        {
+            panel.SetActive(true);
             herreroText.gameObject.SetActive(true);
             isDentro = true;
         }
@@ -56,6 +60,7 @@ public class HerreroNpc : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            panel.SetActive(false);
             herreroText.gameObject.SetActive(false);
             isDentro = false;
         }

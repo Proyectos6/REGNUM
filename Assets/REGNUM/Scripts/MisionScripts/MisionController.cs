@@ -10,7 +10,9 @@ public class MisionController : MonoBehaviour
     [SerializeField]Text misionText;
     public bool isHerrero = false;
     public bool isCaballero = false;
-   // GameObject goPlayer, goHerrero, goCaballero;
+    // GameObject goPlayer, goHerrero, goCaballero;
+    [SerializeField]
+    GameObject puerta;
 
     public static MisionController instance;
     private void Awake()
@@ -40,11 +42,12 @@ public class MisionController : MonoBehaviour
     public void AceptoHerrero()
     {
         isHerrero = true;
-        misionText.text = "Lleva las armas al caballero";
+        misionText.text = "Recoge la espada del caballero en el puerto";
     }
 
     public void AceptoCaballero()
     {
+        puerta.SetActive(false);
         isCaballero = true;
         misionText.text = "Has acabado la mision!";
     }
